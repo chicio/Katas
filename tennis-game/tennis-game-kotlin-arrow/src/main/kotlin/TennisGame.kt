@@ -2,15 +2,22 @@ import arrow.fx.IO
 import arrow.fx.extensions.fx
 
 fun playTennisGame(game: Game): IO<Game> =
-    IO.fx {
-        val updatedGame = askPlayerPlays(game).bind()
-        printGameScore(updatedGame).bind()
-        when {
-            gameWin(updatedGame) -> updatedGame
-            else -> playTennisGame(updatedGame).bind()
+        IO.fx {
+            askPlayerThatWillPlay().bind().fold(
+                    {
+                        showPlayerSelectionError()
+                        !playTennisGame(game)
+                    },
+                    { selectedPLayer ->
+                        val updatedGame = playerPlays(selectedPLayer, game)
+                        !showGameScore(updatedGame)
+                        when {
+                            gameWin(updatedGame) -> updatedGame
+                            else -> !playTennisGame(updatedGame)
+                        }
+                    })
         }
-    }
 
-val tennisGame: () -> IO<Any> = {
+val tennisGame: () -> IO<Game> = {
     welcome().flatMap { playTennisGame(Game(Player(Love), Player(Love))) }
 }

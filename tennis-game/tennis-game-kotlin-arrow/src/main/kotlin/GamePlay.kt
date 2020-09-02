@@ -1,6 +1,7 @@
 import arrow.optics.PLens
 
-private val nextScore: (scoringPlayerCurrentScore: Score, opponentPlayerCurrentScore: Score) -> Pair<Score, Score> = { scoringPlayerCurrentScore, opponentPlayerCurrentScore  ->
+private val nextScore: (scoringPlayerCurrentScore: Score, opponentPlayerCurrentScore: Score) -> Pair<Score, Score> = {
+    scoringPlayerCurrentScore, opponentPlayerCurrentScore  ->
     when (scoringPlayerCurrentScore) {
         Love -> Pair(Fifteen, opponentPlayerCurrentScore)
         Fifteen -> Pair(Thirty, opponentPlayerCurrentScore)
@@ -23,9 +24,16 @@ private val play: (game: Game,
             opponentPlayerScore.set(scoringPlayerScore.set(game, nextScoreScoringPlayer.first), nextScoreScoringPlayer.second)
         }
 
-val player1Plays: (Game) -> Game = { game -> play(game, gamePlayer1Score, gamePlayer2Score) }
+private val player1Plays: (Game) -> Game = { game -> play(game, gamePlayer1Score, gamePlayer2Score) }
 
-val player2Plays: (Game) -> Game = { game -> play(game, gamePlayer2Score, gamePlayer1Score) }
+private val player2Plays: (Game) -> Game = { game -> play(game, gamePlayer2Score, gamePlayer1Score) }
+
+val playerPlays: (PossiblePlayer, Game) -> (Game) = { playerSelected, game ->
+    when (playerSelected) {
+        Player1 -> player1Plays(game)
+        Player2 -> player2Plays(game)
+    }
+}
 
 val displayableGameScore: (Game) -> String = { game ->
     val gamePlayer1Score = gamePlayer1Score.get(game)
