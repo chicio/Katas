@@ -8,7 +8,7 @@ class GameTest {
     @Test
     fun `player 1 score fifteen`() {
         val game = Game(Player(Love), Player(Love))
-        val updatedGame = player1Plays(game)
+        val updatedGame = playerPlays(Player1, game)
 
         val gameScore = displayableGameScore(updatedGame)
 
@@ -18,8 +18,8 @@ class GameTest {
     @Test
     fun `player 1 score Thirty`() {
         val game = Game(Player(Love), Player(Love))
-        val gameAfterFirstPlay = player1Plays(game)
-        val gameAfterSecondPlay = player1Plays(gameAfterFirstPlay)
+        val gameAfterFirstPlay = playerPlays(Player1, game)
+        val gameAfterSecondPlay = playerPlays(Player1, gameAfterFirstPlay)
 
         val gameScore = displayableGameScore(gameAfterSecondPlay)
 
@@ -29,9 +29,9 @@ class GameTest {
     @Test
     fun `player 1 score Forty`() {
         val game = Game(Player(Love), Player(Love))
-        val gameAfterFirstPlay = player1Plays(game)
-        val gameAfterSecondPlay = player1Plays(gameAfterFirstPlay)
-        val gameAfterThirdPlay = player1Plays(gameAfterSecondPlay)
+        val gameAfterFirstPlay = playerPlays(Player1, game)
+        val gameAfterSecondPlay = playerPlays(Player1, gameAfterFirstPlay)
+        val gameAfterThirdPlay = playerPlays(Player1, gameAfterSecondPlay)
 
         val gameScore = displayableGameScore(gameAfterThirdPlay)
 
@@ -41,7 +41,7 @@ class GameTest {
     @Test
     fun `player 2 score Fifteen`() {
         val game = Game(Player(Love), Player(Love))
-        val gameAfterFirstPlay = player2Plays(game)
+        val gameAfterFirstPlay = playerPlays(Player2, game)
 
         val gameScore = displayableGameScore(gameAfterFirstPlay)
 
@@ -51,8 +51,8 @@ class GameTest {
     @Test
     fun `player 2 score Thirty`() {
         val game = Game(Player(Love), Player(Love))
-        val gameAfterFirstPlay = player2Plays(game)
-        val gameAfterSecondPlay = player2Plays(gameAfterFirstPlay)
+        val gameAfterFirstPlay = playerPlays(Player2, game)
+        val gameAfterSecondPlay = playerPlays(Player2, gameAfterFirstPlay)
 
         val gameScore = displayableGameScore(gameAfterSecondPlay)
 
@@ -62,9 +62,9 @@ class GameTest {
     @Test
     fun `player 2 score Forty`() {
         val game = Game(Player(Love), Player(Love))
-        val gameAfterFirstPlay = player2Plays(game)
-        val gameAfterSecondPlay = player2Plays(gameAfterFirstPlay)
-        val gameAfterThirdPlay = player2Plays(gameAfterSecondPlay)
+        val gameAfterFirstPlay = playerPlays(Player2, game)
+        val gameAfterSecondPlay = playerPlays(Player2, gameAfterFirstPlay)
+        val gameAfterThirdPlay = playerPlays(Player2, gameAfterSecondPlay)
 
         val gameScore = displayableGameScore(gameAfterThirdPlay)
 
@@ -74,12 +74,12 @@ class GameTest {
     @Test
     fun `Deuce`() {
         val game = Game(Player(Love), Player(Love))
-        val gameAfterFirstPlay = player1Plays(game)
-        val gameAfterSecondPlay = player2Plays(gameAfterFirstPlay)
-        val gameAfterThirdPlay = player1Plays(gameAfterSecondPlay)
-        val gameAfterForthPlay = player2Plays(gameAfterThirdPlay)
-        val gameAfterFifthPlay = player1Plays(gameAfterForthPlay)
-        val gameAfterSixthPlay = player2Plays(gameAfterFifthPlay)
+        val gameAfterFirstPlay = playerPlays(Player1, game)
+        val gameAfterSecondPlay = playerPlays(Player1, gameAfterFirstPlay)
+        val gameAfterThirdPlay = playerPlays(Player2, gameAfterSecondPlay)
+        val gameAfterForthPlay = playerPlays(Player2, gameAfterThirdPlay)
+        val gameAfterFifthPlay = playerPlays(Player1, gameAfterForthPlay)
+        val gameAfterSixthPlay = playerPlays(Player2, gameAfterFifthPlay)
 
         val gameScore = displayableGameScore(gameAfterSixthPlay)
 
@@ -89,12 +89,12 @@ class GameTest {
     @Test
     fun `player 1 wins`() {
         val game = Game(Player(Love), Player(Love))
-        val gameAfterFirstPlay = player1Plays(game)
-        val gameAfterSecondPlay = player1Plays(gameAfterFirstPlay)
-        val gameAfterThirdPlay = player2Plays(gameAfterSecondPlay)
-        val gameAfterForthPlay = player2Plays(gameAfterThirdPlay)
-        val gameAfterFifthPlay = player1Plays(gameAfterForthPlay)
-        val gameAfterSixthPlay = player1Plays(gameAfterFifthPlay)
+        val gameAfterFirstPlay = playerPlays(Player1, game)
+        val gameAfterSecondPlay = playerPlays(Player1, gameAfterFirstPlay)
+        val gameAfterThirdPlay = playerPlays(Player2, gameAfterSecondPlay)
+        val gameAfterForthPlay = playerPlays(Player2, gameAfterThirdPlay)
+        val gameAfterFifthPlay = playerPlays(Player1, gameAfterForthPlay)
+        val gameAfterSixthPlay = playerPlays(Player1, gameAfterFifthPlay)
 
         val gameScore = displayableGameScore(gameAfterSixthPlay)
 
@@ -104,12 +104,12 @@ class GameTest {
     @Test
     fun `player 2 wins`() {
         val game = Game(Player(Love), Player(Love))
-        val gameAfterFirstPlay = player2Plays(game)
-        val gameAfterSecondPlay = player2Plays(gameAfterFirstPlay)
-        val gameAfterThirdPlay = player1Plays(gameAfterSecondPlay)
-        val gameAfterForthPlay = player1Plays(gameAfterThirdPlay)
-        val gameAfterFifthPlay = player2Plays(gameAfterForthPlay)
-        val gameAfterSixthPlay = player2Plays(gameAfterFifthPlay)
+        val gameAfterFirstPlay = playerPlays(Player2, game)
+        val gameAfterSecondPlay = playerPlays(Player2, gameAfterFirstPlay)
+        val gameAfterThirdPlay = playerPlays(Player1, gameAfterSecondPlay)
+        val gameAfterForthPlay = playerPlays(Player1, gameAfterThirdPlay)
+        val gameAfterFifthPlay = playerPlays(Player2, gameAfterForthPlay)
+        val gameAfterSixthPlay = playerPlays(Player2, gameAfterFifthPlay)
 
         val gameScore = displayableGameScore(gameAfterSixthPlay)
 
@@ -119,13 +119,13 @@ class GameTest {
     @Test
     fun `player 1 advantage`() {
         val game = Game(Player(Love), Player(Love))
-        val gameAfterFirstPlay = player1Plays(game)
-        val gameAfterSecondPlay = player2Plays(gameAfterFirstPlay)
-        val gameAfterThirdPlay = player1Plays(gameAfterSecondPlay)
-        val gameAfterForthPlay = player2Plays(gameAfterThirdPlay)
-        val gameAfterFifthPlay = player1Plays(gameAfterForthPlay)
-        val gameAfterSixthPlay = player2Plays(gameAfterFifthPlay)
-        val gameAfterSeventhPlay = player1Plays(gameAfterSixthPlay)
+        val gameAfterFirstPlay = playerPlays(Player1, game)
+        val gameAfterSecondPlay = playerPlays(Player2, gameAfterFirstPlay)
+        val gameAfterThirdPlay = playerPlays(Player1, gameAfterSecondPlay)
+        val gameAfterForthPlay = playerPlays(Player2, gameAfterThirdPlay)
+        val gameAfterFifthPlay = playerPlays(Player1, gameAfterForthPlay)
+        val gameAfterSixthPlay = playerPlays(Player2, gameAfterFifthPlay)
+        val gameAfterSeventhPlay = playerPlays(Player1, gameAfterSixthPlay)
 
         val gameScore = displayableGameScore(gameAfterSeventhPlay)
 
@@ -135,13 +135,13 @@ class GameTest {
     @Test
     fun `player 2 advantage`() {
         val game = Game(Player(Love), Player(Love))
-        val gameAfterFirstPlay = player1Plays(game)
-        val gameAfterSecondPlay = player2Plays(gameAfterFirstPlay)
-        val gameAfterThirdPlay = player1Plays(gameAfterSecondPlay)
-        val gameAfterForthPlay = player2Plays(gameAfterThirdPlay)
-        val gameAfterFifthPlay = player1Plays(gameAfterForthPlay)
-        val gameAfterSixthPlay = player2Plays(gameAfterFifthPlay)
-        val gameAfterSeventhPlay = player2Plays(gameAfterSixthPlay)
+        val gameAfterFirstPlay = playerPlays(Player1, game)
+        val gameAfterSecondPlay = playerPlays(Player2, gameAfterFirstPlay)
+        val gameAfterThirdPlay = playerPlays(Player1, gameAfterSecondPlay)
+        val gameAfterForthPlay = playerPlays(Player2, gameAfterThirdPlay)
+        val gameAfterFifthPlay = playerPlays(Player1, gameAfterForthPlay)
+        val gameAfterSixthPlay = playerPlays(Player2, gameAfterFifthPlay)
+        val gameAfterSeventhPlay = playerPlays(Player2, gameAfterSixthPlay)
 
         val gameScore = displayableGameScore(gameAfterSeventhPlay)
 

@@ -5,7 +5,7 @@ fun playTennisGame(game: Game): IO<Game> =
         IO.fx {
             askPlayerThatWillPlay().bind().fold(
                     {
-                        showPlayerSelectionError()
+                        !showPlayerSelectionError()
                         !playTennisGame(game)
                     },
                     { selectedPLayer ->
