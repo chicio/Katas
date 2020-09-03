@@ -9,7 +9,8 @@ class TennisGameTest {
 
     @Test
     fun aCompleteGame() {
-        val result = execute(inputs("1", "1", "1", "1"))
+        val inputs: String = inputs("1", "1", "1", "1")
+        val result = runGameFor(inputs)
 
         val expected = outputs(
                 "Welcome to the Tennis Game!",
@@ -28,7 +29,7 @@ class TennisGameTest {
 
     @Test
     fun invalidPlayer() {
-        val result = execute(inputs("1", "1", "99", "1", "1"))
+        val result = runGameFor(inputs("1", "1", "99", "1", "1"))
 
         val expected = outputs(
                 "Welcome to the Tennis Game!",
@@ -47,13 +48,14 @@ class TennisGameTest {
         Assert.assertEquals(result, expected)
     }
 
-    private fun inputs(vararg value: String): String =
-            value.joinToString(enter)
+    private fun runGameFor(inputs: String) =
+        captureOutputFor(inputs) { tennisGame().unsafeRunSync() }
 
-    private fun outputs(vararg value: String): String =
-            value.joinToString(enter) + enter
+    private fun inputs(vararg value: String): String = value.joinToString(enter)
 
-    private fun execute(inputs: String): String  {
+    private fun outputs(vararg value: String): String = value.joinToString(enter) + enter
+
+    private fun <A> captureOutputFor(inputs: String, toExecute: () -> A): String  {
         val swapStreams = { inputStream: InputStream, printStream: PrintStream ->
             System.setIn(inputStream)
             System.setOut(printStream)
@@ -62,12 +64,11 @@ class TennisGameTest {
         val initialIn = System.`in`
         val byteArrayOutputStream = ByteArrayOutputStream()
         swapStreams(ByteArrayInputStream(inputs.toByteArray()), PrintStream(byteArrayOutputStream))
-        tennisGame().unsafeRunSync()
+        toExecute()
         swapStreams(initialIn, initialOut)
         return byteArrayOutputStream.toString()
     }
 
     private val enter = System.getProperty("line.separator")
-
 
 }
