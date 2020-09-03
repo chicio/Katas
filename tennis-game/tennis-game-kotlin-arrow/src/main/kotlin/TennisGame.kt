@@ -3,7 +3,7 @@ import arrow.fx.extensions.fx
 
 fun playTennisGame(game: Game): IO<Game> =
         IO.fx {
-            askPlayerThatWillPlay().bind().fold(
+            (!askPlayerThatWillPlay()).fold(
                     {
                         !showPlayerSelectionError()
                         !playTennisGame(game)
