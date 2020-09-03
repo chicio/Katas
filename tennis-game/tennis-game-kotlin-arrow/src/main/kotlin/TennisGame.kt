@@ -2,7 +2,7 @@ import GameInteraction.welcome
 import arrow.fx.IO
 
 val tennisGame: () -> IO<Game> = {
-    welcome.flatMap { playTennisGame(Game(Player(Love), Player(Love))) }
+    welcome.flatMap { playTennisGame(Game()) }
 }
 
 fun main() {

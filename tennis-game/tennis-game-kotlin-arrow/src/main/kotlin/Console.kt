@@ -12,32 +12,34 @@ object GameInteraction {
     val showGameScore: (Game) -> IO<Unit> = { game -> puts(displayableGameScore(game)) }
 
     val displayableGameScore: (Game) -> String = { game ->
-        val gamePlayer1Score = gameToPlayer1Score.get(game)
-        val gamePlayer2Score = gameToPlayer2Score.get(game)
+        val player1Score = gameToPlayer1Score.get(game)
+        val player2Score = gameToPlayer2Score.get(game)
 
         when {
-            gamePlayer1Score == Forty && gamePlayer2Score == Forty -> "Deuce"
-            gamePlayer1Score == Wins -> "Player 1 wins"
-            gamePlayer2Score == Wins -> "Player 2 wins"
-            else -> "Player 1 ${showScore.run { gamePlayer1Score.show() }} - Player 2 ${showScore.run { gamePlayer2Score.show() }}"
+            player1Score == Forty && player2Score == Forty ->
+                "Deuce"
+            player1Score == Wins ->
+                "Player 1 wins"
+            player2Score == Wins ->
+                "Player 2 wins"
+            else -> "Player 1 ${showScore.run { player1Score.show() }} - " +
+                "Player 2 ${showScore.run { player2Score.show() }}"
         }
     }
 
-    val showPlayerSelectionError: IO<Unit> = puts("Invalid player selected. Try again.")
-
-    fun readPlayer(): IO<ScoringPlayer>  =
+    fun readPlayer(): IO<ScoringPlayer> =
         IO.fx {
             val input = !ask("Which player will play (1 or 2)?")
-            PARSE_PLAYER(input).fold(
+            parsePlayer(input).fold(
                 {
-                    !showPlayerSelectionError
+                    !puts("Invalid player selected. Try again.")
                     !readPlayer()
                 },
                 { it }
             )
         }
 
-    val PARSE_PLAYER: (String) -> Option<ScoringPlayer> = { input ->
+    val parsePlayer: (String) -> Option<ScoringPlayer> = { input ->
         when (input) {
             "1" -> Player1.some()
             "2" -> Player2.some()
@@ -47,7 +49,7 @@ object GameInteraction {
 }
 
 object Common {
-    fun ask(question: String): IO<String> = puts(question).flatMap { reads }
+    val ask: (String) -> IO<String> = { question -> puts(question).flatMap { reads } }
 
     val puts: (String) -> IO<Unit> = { str -> IO { println(str) } }
 

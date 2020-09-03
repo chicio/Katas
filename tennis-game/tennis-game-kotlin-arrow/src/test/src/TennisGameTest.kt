@@ -1,3 +1,4 @@
+import arrow.fx.IO
 import org.junit.Assert
 import org.junit.Test
 import java.io.ByteArrayInputStream
@@ -49,13 +50,13 @@ class TennisGameTest {
     }
 
     private fun runGameFor(inputs: String) =
-        captureOutputFor(inputs) { tennisGame().unsafeRunSync() }
+        captureOutputFor(inputs) { tennisGame() }
 
     private fun inputs(vararg value: String): String = value.joinToString(enter)
 
     private fun outputs(vararg value: String): String = value.joinToString(enter) + enter
 
-    private fun <A> captureOutputFor(inputs: String, toExecute: () -> A): String  {
+    private fun <A> captureOutputFor(inputs: String, toExecute: () -> IO<A>): String  {
         val swapStreams = { inputStream: InputStream, printStream: PrintStream ->
             System.setIn(inputStream)
             System.setOut(printStream)
@@ -64,7 +65,7 @@ class TennisGameTest {
         val initialIn = System.`in`
         val byteArrayOutputStream = ByteArrayOutputStream()
         swapStreams(ByteArrayInputStream(inputs.toByteArray()), PrintStream(byteArrayOutputStream))
-        toExecute()
+        toExecute().unsafeRunSync()
         swapStreams(initialIn, initialOut)
         return byteArrayOutputStream.toString()
     }

@@ -2,7 +2,7 @@ import arrow.optics.optics
 import arrow.typeclasses.Show
 
 @optics
-data class Player(val score: Score) { companion object }
+data class Player(val score: Score = Love) { companion object }
 
 sealed class ScoringPlayer
 object Player1 : ScoringPlayer()
@@ -10,8 +10,8 @@ object Player2 : ScoringPlayer()
 
 @optics
 data class Game(
-    val player1: Player,
-    val player2: Player
+    val player1: Player = Player(),
+    val player2: Player = Player()
 ) {
     companion object
 }
