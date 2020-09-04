@@ -7,6 +7,7 @@ import arrow.fx.IO
 import arrow.fx.extensions.fx
 
 object GameInteraction {
+
     val welcome: IO<Unit> = puts("Welcome to the Tennis Game!")
 
     val showGameScore: (Game) -> IO<Unit> = { game -> puts(displayableGameScore(game)) }
@@ -22,7 +23,8 @@ object GameInteraction {
                 "Player 1 wins"
             player2Score == Wins ->
                 "Player 2 wins"
-            else -> "Player 1 ${showScore.run { player1Score.show() }} - " +
+            else ->
+                "Player 1 ${showScore.run { player1Score.show() }} - " +
                 "Player 2 ${showScore.run { player2Score.show() }}"
         }
     }
@@ -39,7 +41,7 @@ object GameInteraction {
             )
         }
 
-    val parsePlayer: (String) -> Option<ScoringPlayer> = { input ->
+    private val parsePlayer: (String) -> Option<ScoringPlayer> = { input ->
         when (input) {
             "1" -> Player1.some()
             "2" -> Player2.some()
