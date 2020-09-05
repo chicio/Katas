@@ -1,4 +1,5 @@
 import GameInteraction.welcome
+import GamePlay.playTennisGame
 import arrow.fx.IO
 
 val tennisGame: () -> IO<Game> = {

@@ -1,4 +1,5 @@
 import GameInteraction.displayableGameScore
+import GamePlay.trackScorePointForPlayer
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.CoreMatchers.equalTo
 import org.junit.Assert.assertThat
@@ -7,7 +8,7 @@ import org.junit.Test
 
 class GamePointPlayTest {
 
-    lateinit var game: Game
+    private lateinit var game: Game
 
     @Before
     fun setUp() {
@@ -16,17 +17,15 @@ class GamePointPlayTest {
 
     @Test
     fun `player 1 score fifteen`() {
-        val updatedGame = trackScoredPoint(Player1, game)
-
+        val updatedGame = trackScorePointForPlayer(Player1, game)
         val gameScore = displayableGameScore(updatedGame)
-
         assertThat(gameScore, `is`(equalTo("Player 1 Fifteen - Player 2 Love")))
     }
 
     @Test
     fun `player 1 score Thirty`() {
-        val gameAfterFirstPlay = trackScoredPoint(Player1, game)
-        val gameAfterSecondPlay = trackScoredPoint(Player1, gameAfterFirstPlay)
+        val gameAfterFirstPlay = trackScorePointForPlayer(Player1, game)
+        val gameAfterSecondPlay = trackScorePointForPlayer(Player1, gameAfterFirstPlay)
 
         val gameScore = displayableGameScore(gameAfterSecondPlay)
 
@@ -36,9 +35,9 @@ class GamePointPlayTest {
     @Test
     fun `player 1 score Forty`() {
         val updatedGame =
-            trackScoredPoint(Player1, game)
-                .let { g -> trackScoredPoint(Player1, g) }
-                .let { g -> trackScoredPoint(Player1, g) }
+                trackScorePointForPlayer(Player1, game)
+                        .let { g -> trackScorePointForPlayer(Player1, g) }
+                        .let { g -> trackScorePointForPlayer(Player1, g) }
 
         val gameScore = displayableGameScore(updatedGame)
 
@@ -47,7 +46,7 @@ class GamePointPlayTest {
 
     @Test
     fun `player 2 score Fifteen`() {
-        val gameAfterFirstPlay = trackScoredPoint(Player2, game)
+        val gameAfterFirstPlay = trackScorePointForPlayer(Player2, game)
 
         val gameScore = displayableGameScore(gameAfterFirstPlay)
 
@@ -57,8 +56,8 @@ class GamePointPlayTest {
     @Test
     fun `player 2 score Thirty`() {
         val updatedGame =
-            trackScoredPoint(Player2, game)
-                .let { g -> trackScoredPoint(Player2, g) }
+                trackScorePointForPlayer(Player2, game)
+                        .let { g -> trackScorePointForPlayer(Player2, g) }
 
         val gameScore = displayableGameScore(updatedGame)
 
@@ -68,9 +67,9 @@ class GamePointPlayTest {
     @Test
     fun `player 2 score Forty`() {
         val updatedGame =
-            trackScoredPoint(Player2, game)
-                .let { g -> trackScoredPoint(Player2, g) }
-                .let { g -> trackScoredPoint(Player2, g) }
+                trackScorePointForPlayer(Player2, game)
+                        .let { g -> trackScorePointForPlayer(Player2, g) }
+                        .let { g -> trackScorePointForPlayer(Player2, g) }
 
         val gameScore = displayableGameScore(updatedGame)
 
@@ -80,12 +79,12 @@ class GamePointPlayTest {
     @Test
     fun Deuce() {
         val updatedGame =
-            trackScoredPoint(Player1, game)
-                .let { g -> trackScoredPoint(Player1, g)}
-                .let { g -> trackScoredPoint(Player2, g)}
-                .let { g -> trackScoredPoint(Player2, g)}
-                .let { g -> trackScoredPoint(Player1, g)}
-                .let { g -> trackScoredPoint(Player2, g)}
+                trackScorePointForPlayer(Player1, game)
+                        .let { g -> trackScorePointForPlayer(Player1, g) }
+                        .let { g -> trackScorePointForPlayer(Player2, g) }
+                        .let { g -> trackScorePointForPlayer(Player2, g) }
+                        .let { g -> trackScorePointForPlayer(Player1, g) }
+                        .let { g -> trackScorePointForPlayer(Player2, g) }
 
         val gameScore = displayableGameScore(updatedGame)
 
@@ -95,12 +94,12 @@ class GamePointPlayTest {
     @Test
     fun `player 1 wins`() {
         val updatedGame =
-            trackScoredPoint(Player1, game)
-                .let { g -> trackScoredPoint(Player1, g)}
-                .let { g -> trackScoredPoint(Player2, g)}
-                .let { g -> trackScoredPoint(Player2, g)}
-                .let { g -> trackScoredPoint(Player1, g)}
-                .let { g -> trackScoredPoint(Player1, g)}
+                trackScorePointForPlayer(Player1, game)
+                        .let { g -> trackScorePointForPlayer(Player1, g) }
+                        .let { g -> trackScorePointForPlayer(Player2, g) }
+                        .let { g -> trackScorePointForPlayer(Player2, g) }
+                        .let { g -> trackScorePointForPlayer(Player1, g) }
+                        .let { g -> trackScorePointForPlayer(Player1, g) }
 
         val gameScore = displayableGameScore(updatedGame)
 
@@ -110,12 +109,12 @@ class GamePointPlayTest {
     @Test
     fun `player 2 wins`() {
         val updatedGame =
-            trackScoredPoint(Player2, game)
-                .let { g -> trackScoredPoint(Player2, g)}
-                .let { g -> trackScoredPoint(Player1, g)}
-                .let { g -> trackScoredPoint(Player1, g)}
-                .let { g -> trackScoredPoint(Player2, g)}
-                .let { g -> trackScoredPoint(Player2, g)}
+                trackScorePointForPlayer(Player2, game)
+                        .let { g -> trackScorePointForPlayer(Player2, g) }
+                        .let { g -> trackScorePointForPlayer(Player1, g) }
+                        .let { g -> trackScorePointForPlayer(Player1, g) }
+                        .let { g -> trackScorePointForPlayer(Player2, g) }
+                        .let { g -> trackScorePointForPlayer(Player2, g) }
 
         val gameScore = displayableGameScore(updatedGame)
 
@@ -125,13 +124,13 @@ class GamePointPlayTest {
     @Test
     fun `player 1 advantage`() {
         val updatedGame =
-            trackScoredPoint(Player1, game)
-                .let { g -> trackScoredPoint(Player2, g)}
-                .let { g -> trackScoredPoint(Player1, g)}
-                .let { g -> trackScoredPoint(Player2, g)}
-                .let { g -> trackScoredPoint(Player1, g)}
-                .let { g -> trackScoredPoint(Player2, g)}
-                .let { g -> trackScoredPoint(Player1, g)}
+                trackScorePointForPlayer(Player1, game)
+                        .let { g -> trackScorePointForPlayer(Player2, g) }
+                        .let { g -> trackScorePointForPlayer(Player1, g) }
+                        .let { g -> trackScorePointForPlayer(Player2, g) }
+                        .let { g -> trackScorePointForPlayer(Player1, g) }
+                        .let { g -> trackScorePointForPlayer(Player2, g) }
+                        .let { g -> trackScorePointForPlayer(Player1, g) }
 
         val gameScore = displayableGameScore(updatedGame)
 
@@ -141,13 +140,13 @@ class GamePointPlayTest {
     @Test
     fun `player 2 advantage`() {
         val updatedGame =
-            trackScoredPoint(Player1, game)
-                .let { g -> trackScoredPoint(Player2, g)}
-                .let { g -> trackScoredPoint(Player1, g)}
-                .let { g -> trackScoredPoint(Player2, g)}
-                .let { g -> trackScoredPoint(Player1, g)}
-                .let { g -> trackScoredPoint(Player2, g)}
-                .let { g -> trackScoredPoint(Player2, g)}
+                trackScorePointForPlayer(Player1, game)
+                        .let { g -> trackScorePointForPlayer(Player2, g) }
+                        .let { g -> trackScorePointForPlayer(Player1, g) }
+                        .let { g -> trackScorePointForPlayer(Player2, g) }
+                        .let { g -> trackScorePointForPlayer(Player1, g) }
+                        .let { g -> trackScorePointForPlayer(Player2, g) }
+                        .let { g -> trackScorePointForPlayer(Player2, g) }
 
         val gameScore = displayableGameScore(updatedGame)
 
