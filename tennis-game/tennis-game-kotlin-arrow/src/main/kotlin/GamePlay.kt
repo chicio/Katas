@@ -1,57 +1,49 @@
-import arrow.optics.PLens
+import GameInteraction.readPlayer
+import GameInteraction.showGameScore
+import arrow.fx.IO
+import arrow.fx.extensions.fx
+import arrow.optics.Lens
 
-private val nextScore: (
-        scoringPlayerCurrentScore: Score,
-        opponentPlayerCurrentScore: Score
-) -> Pair<Score, Score> = { scoringPlayerCurrentScore, opponentPlayerCurrentScore  ->
-    when (scoringPlayerCurrentScore) {
-        Love -> Pair(Fifteen, opponentPlayerCurrentScore)
-        Fifteen -> Pair(Thirty, opponentPlayerCurrentScore)
-        Thirty -> Pair(Forty, opponentPlayerCurrentScore)
-        Forty -> when(opponentPlayerCurrentScore) {
-            Advantage -> Pair(Forty, Forty)
-            Forty -> Pair(Advantage, opponentPlayerCurrentScore)
-            else -> Pair(Wins, opponentPlayerCurrentScore)
+fun playTennisGame(game: Game): IO<Game> =
+    IO.fx {
+        val playerScoring = !readPlayer()
+
+        val updatedGame = trackScoredPoint(playerScoring, game)
+
+        !showGameScore(updatedGame)
+
+        when {
+            gameCompleted(updatedGame) -> updatedGame
+            else -> !playTennisGame(updatedGame)
         }
-        Advantage -> Pair(Wins, opponentPlayerCurrentScore)
-        Wins -> Pair(Wins, opponentPlayerCurrentScore)
+    }
+
+val trackScoredPoint: (ScoringPlayer, Game) -> (Game) = { scoringPlayer, game ->
+    when (scoringPlayer) {
+        Player1 -> update(game, gameToPlayer1Score, gameToPlayer2Score)
+        Player2 -> update(game, gameToPlayer2Score, gameToPlayer1Score)
     }
 }
 
-private val play: (game: Game,
-                   scoringPlayerScore: PLens<Game, Game, Score, Score>,
-                   opponentPlayerScore: PLens<Game, Game, Score, Score>) -> Game =
-        { game, scoringPlayerScore, opponentPlayerScore ->
-            val nextScoreScoringPlayer = nextScore(scoringPlayerScore.get(game), opponentPlayerScore.get(game))
-            opponentPlayerScore.set(
-                    scoringPlayerScore.set(game, nextScoreScoringPlayer.first),
-                    nextScoreScoringPlayer.second
-            )
+private val update: (
+    game: Game,
+    scoringPlayerScore: Lens<Game, Score>,
+    opponentPlayerScore: Lens<Game, Score>
+) -> Game = { game, scoringPlayerScore, opponentPlayerScore ->
+    when (scoringPlayerScore.get(game)) {
+        Love -> scoringPlayerScore.set(game, Fifteen)
+        Fifteen -> scoringPlayerScore.set(game, Thirty)
+        Thirty -> scoringPlayerScore.set(game, Forty)
+        Forty -> when (opponentPlayerScore.get(game)) {
+            Advantage -> opponentPlayerScore.set(game, Forty)
+            Forty -> scoringPlayerScore.set(game, Advantage)
+            else -> scoringPlayerScore.set(game, Wins)
         }
-
-private val player1Plays: (Game) -> Game = { game -> play(game, gamePlayer1Score, gamePlayer2Score) }
-
-private val player2Plays: (Game) -> Game = { game -> play(game, gamePlayer2Score, gamePlayer1Score) }
-
-val playerPlays: (PossiblePlayer, Game) -> (Game) = { playerSelected, game ->
-    when (playerSelected) {
-        Player1 -> player1Plays(game)
-        Player2 -> player2Plays(game)
+        Advantage -> scoringPlayerScore.set(game, Wins)
+        Wins -> game
     }
 }
 
-val displayableGameScore: (Game) -> String = { game ->
-    val gamePlayer1Score = gamePlayer1Score.get(game)
-    val gamePlayer2Score = gamePlayer2Score.get(game)
-
-    when {
-        gamePlayer1Score == Forty && gamePlayer2Score == Forty -> "Deuce"
-        gamePlayer1Score == Wins -> "Player 1 wins"
-        gamePlayer2Score == Wins -> "Player 2 wins"
-        else -> "Player 1 ${showScore.run { gamePlayer1Score.show() }} - Player 2 ${showScore.run { gamePlayer2Score.show() }}"
-    }
-}
-
-val gameWin: (Game) -> Boolean = { game ->
-    gamePlayer1Score.get(game) == Wins || gamePlayer2Score.get(game) == Wins
+val gameCompleted: (Game) -> Boolean = { game ->
+    gameToPlayer1Score.get(game) == Wins || gameToPlayer2Score.get(game) == Wins
 }
