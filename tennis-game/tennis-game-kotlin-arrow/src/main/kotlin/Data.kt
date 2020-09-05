@@ -1,3 +1,4 @@
+import arrow.optics.Lens
 import arrow.optics.optics
 import arrow.typeclasses.Show
 
@@ -16,8 +17,8 @@ data class Game(
     companion object
 }
 
-val gameToPlayer1Score = Game.player1.score
-val gameToPlayer2Score = Game.player2.score
+val gameToPlayer1Score: Lens<Game, Score> = Game.player1.score
+val gameToPlayer2Score: Lens<Game, Score> = Game.player2.score
 
 sealed class Score
 object Love : Score()
