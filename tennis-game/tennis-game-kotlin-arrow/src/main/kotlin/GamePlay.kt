@@ -24,10 +24,10 @@ object GamePlay {
     }
 
     val trackScorePointForPlayer: (ScoringPlayer, Game) -> Game = { scoringPlayer, game ->
-            when (scoringPlayer) {
-                Player1 -> update(game, gameToPlayer1Score, gameToPlayer2Score)
-                Player2 -> update(game, gameToPlayer2Score, gameToPlayer1Score)
-            }
+        when (scoringPlayer) {
+            Player1 -> update(game, gameToPlayer1Score, gameToPlayer2Score)
+            Player2 -> update(game, gameToPlayer2Score, gameToPlayer1Score)
+        }
     }
 
     private val gameCompleted: (Game) -> Boolean = { game ->
