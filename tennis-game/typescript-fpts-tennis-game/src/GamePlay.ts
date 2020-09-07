@@ -11,9 +11,9 @@ import {
     wins
 } from "./Data";
 import {Lens} from "monocle-ts";
-import {IO, of} from "fp-ts/IO";
+import {of, Task} from "fp-ts/Task";
 
-export const trackScoredPoint: (scoringPlayer: ScoringPlayer, game: Game) => IO<Game> =
+export const trackScoredPoint: (scoringPlayer: ScoringPlayer, game: Game) => Task<Game> =
     (scoringPlayer: ScoringPlayer, game: Game) => of(trackScorePointForPlayer(scoringPlayer, game))
 
 export const trackScorePointForPlayer: (scoringPlayer: ScoringPlayer, game: Game) => Game =
@@ -27,7 +27,7 @@ export const trackScorePointForPlayer: (scoringPlayer: ScoringPlayer, game: Game
     }
 
 export const gameCompleted: (game: Game) => boolean = (game: Game) =>
-    gameToPlayer1Score.get(game) === wins() || gameToPlayer2Score.get(game) === wins()
+    gameToPlayer1Score.get(game)._tag === 'Wins' || gameToPlayer2Score.get(game)._tag === 'Wins'
 
 export const update: (game: Game, scoringPlayerScore: Lens<Game, Score>, opponentPlayerScore: Lens<Game, Score>) => Game =
     (game: Game, scoringPlayerScore: Lens<Game, Score>, opponentPlayerScore: Lens<Game, Score>) => {

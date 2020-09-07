@@ -1,4 +1,26 @@
-import {Game, gameToPlayer1Score, gameToPlayer2Score, Score, showScore} from "./Data";
+import {
+    Game,
+    gameToPlayer1Score,
+    gameToPlayer2Score,
+    player1,
+    player2,
+    Score,
+    ScoringPlayer,
+    showScore
+} from "./Data";
+import {chain, map, of, Task} from "fp-ts/Task";
+import {ask, puts} from "./Console";
+import {fold, none, Option, some} from "fp-ts/Option";
+import {pipe} from "fp-ts/pipeable";
+
+export const welcome: Task<void> = puts("Welcome to the Tennis Game!")
+
+export const showGameScore: (game: Game) => Task<Game> = (game: Game) => pipe(
+    game,
+    displayableGameScore,
+    puts,
+    map(() => game)
+)
 
 export const displayableGameScore: (game: Game) => string = (game: Game) => {
     const player1Score: Score = gameToPlayer1Score.get(game);
@@ -17,4 +39,29 @@ export const displayableGameScore: (game: Game) => string = (game: Game) => {
     }
 
     return `Player 1 ${showScore.show(player1Score)} - Player 2 ${showScore.show(player2Score)}`
+}
+
+export const readPlayer: () => Task<ScoringPlayer> = () => pipe(
+        ask("Which player will play (1 or 2)?"),
+        map(parsePlayer),
+        chain((player: Option<ScoringPlayer>) =>
+            pipe(
+                player,
+                fold(
+                    () => readPlayer(),
+                    (validPlayer: ScoringPlayer) =>  of(validPlayer)
+                )
+            )
+        )
+    );
+
+export const parsePlayer: (input: string) => Option<ScoringPlayer> = (input: string) => {
+    switch (input) {
+        case "1":
+            return some(player1())
+        case "2":
+            return some(player2())
+        default:
+            return none
+    }
 }
