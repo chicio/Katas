@@ -30,13 +30,13 @@ export type ScoringPlayer = Player1 | Player2
 export interface Player {
     readonly score: Score
 }
-export const player: (score: Score) => Player = (score: Score) => ({ score })
+const player: (score: Score) => Player = (score: Score) => ({ score })
 
 export interface Game {
     readonly player1: Player
     readonly player2: Player
 }
-export const game: (player1: Player, player2: Player) => Game = (player1: Player, player2: Player) => ({ player1, player2 })
+const game: (player1: Player, player2: Player) => Game = (player1: Player, player2: Player) => ({ player1, player2 })
 
 export const createGame: () => Game = () => game(player(love()), player(love()));
 

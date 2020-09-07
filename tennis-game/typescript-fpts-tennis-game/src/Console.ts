@@ -7,7 +7,7 @@ export const ask: (question: string) =>  Task<string> = (question: string) => ()
             input: process.stdin,
             output: process.stdout
         })
-        rl.question(question, answer => {
+        rl.question(question + "\n", answer => {
             rl.close()
             resolve(answer)
         })
