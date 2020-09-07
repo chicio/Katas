@@ -33,6 +33,7 @@ object GamePlay {
     private val gameCompleted: (Game) -> Boolean = { game ->
         gameToPlayer1Score.get(game) == Wins || gameToPlayer2Score.get(game) == Wins
     }
+
     private val update: (
             game: Game,
             scoringPlayerScore: Lens<Game, Score>,
