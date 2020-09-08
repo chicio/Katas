@@ -19,6 +19,10 @@ enum Score {
     case Wins
 }
 
+func show(score: Score) -> String {
+    return String(describing: score)
+}
+
 enum ScoringPLayer {
     case Player1
     case Player2
@@ -39,6 +43,10 @@ struct Game {
     let player2: Player
 }
 
+func createGame() -> Game {
+    return Game(player1: Player(score: .Love), player2: Player(score: .Love))
+}
+
 extension Game {
     func copy(player1: Player? = nil, player2: Player? = nil) -> Game {
         return Game(player1: player1 ?? self.player1, player2: player2 ?? self.player2)
@@ -57,8 +65,5 @@ let gamePlayer2 = Lens<Game, Player>(
     get: { (game: Game) -> Player in game.player2 },
     set: { (game: Game, player: Player) -> Game in game.copy(player2: player)}
 )
-let gameToPlayer1Score = gamePlayer1.compose(playerScore)
-let gameToPlayer2Score = gamePlayer2.compose(playerScore)
-
-
-
+let gameToPlayer1Score: Lens<Game, Score>  = gamePlayer1.compose(playerScore)
+let gameToPlayer2Score: Lens<Game, Score> = gamePlayer2.compose(playerScore)

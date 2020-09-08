@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4514C3812507F1A500FAAB90 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4514C3802507F1A500FAAB90 /* main.swift */; };
+		45D7A58E2508133000D0F2B3 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7A58D2508133000D0F2B3 /* Console.swift */; };
+		45D7A590250818C000D0F2B3 /* GamePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7A58F250818C000D0F2B3 /* GamePlay.swift */; };
+		45D7A59225081E4600D0F2B3 /* GameInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7A59125081E4600D0F2B3 /* GameInteraction.swift */; };
+		45D7A5942508289100D0F2B3 /* TennisGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7A5932508289100D0F2B3 /* TennisGame.swift */; };
 		45F138202507F5D300A7FFEF /* BowOptics in Frameworks */ = {isa = PBXBuildFile; productRef = 45F1381F2507F5D300A7FFEF /* BowOptics */; };
 		45F138242507F5D300A7FFEF /* BowEffects in Frameworks */ = {isa = PBXBuildFile; productRef = 45F138232507F5D300A7FFEF /* BowEffects */; };
 		45F1382E2507F5D300A7FFEF /* Bow in Frameworks */ = {isa = PBXBuildFile; productRef = 45F1382D2507F5D300A7FFEF /* Bow */; };
@@ -29,6 +33,10 @@
 /* Begin PBXFileReference section */
 		4514C37D2507F1A500FAAB90 /* swift-bow-tennis-game */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "swift-bow-tennis-game"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4514C3802507F1A500FAAB90 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		45D7A58D2508133000D0F2B3 /* Console.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Console.swift; sourceTree = "<group>"; };
+		45D7A58F250818C000D0F2B3 /* GamePlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlay.swift; sourceTree = "<group>"; };
+		45D7A59125081E4600D0F2B3 /* GameInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteraction.swift; sourceTree = "<group>"; };
+		45D7A5932508289100D0F2B3 /* TennisGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisGame.swift; sourceTree = "<group>"; };
 		45F1382F2507FAB600A7FFEF /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +75,10 @@
 			children = (
 				4514C3802507F1A500FAAB90 /* main.swift */,
 				45F1382F2507FAB600A7FFEF /* Data.swift */,
+				45D7A58D2508133000D0F2B3 /* Console.swift */,
+				45D7A58F250818C000D0F2B3 /* GamePlay.swift */,
+				45D7A59125081E4600D0F2B3 /* GameInteraction.swift */,
+				45D7A5932508289100D0F2B3 /* TennisGame.swift */,
 			);
 			path = "swift-bow-tennis-game";
 			sourceTree = "<group>";
@@ -138,6 +150,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4514C3812507F1A500FAAB90 /* main.swift in Sources */,
+				45D7A590250818C000D0F2B3 /* GamePlay.swift in Sources */,
+				45D7A58E2508133000D0F2B3 /* Console.swift in Sources */,
+				45D7A59225081E4600D0F2B3 /* GameInteraction.swift in Sources */,
+				45D7A5942508289100D0F2B3 /* TennisGame.swift in Sources */,
 				45F138302507FAB600A7FFEF /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

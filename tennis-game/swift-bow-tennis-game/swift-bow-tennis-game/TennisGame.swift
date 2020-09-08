@@ -1,5 +1,5 @@
 //
-//  main.swift
+//  TennisGame.swift
 //  swift-bow-tennis-game
 //
 //  Created by Fabrizio Duroni on 08.09.20.
@@ -7,5 +7,8 @@
 //
 
 import Foundation
+import BowEffects
 
-_ = try! tennisGame().unsafeRunSync()
+func tennisGame() -> IO<Never, Game> {
+    return welcome().flatMap { playTennisGame(game: createGame()) }^
+}
