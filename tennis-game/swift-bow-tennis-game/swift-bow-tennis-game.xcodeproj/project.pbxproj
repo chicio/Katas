@@ -1,0 +1,336 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4514C3812507F1A500FAAB90 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4514C3802507F1A500FAAB90 /* main.swift */; };
+		45F138202507F5D300A7FFEF /* BowOptics in Frameworks */ = {isa = PBXBuildFile; productRef = 45F1381F2507F5D300A7FFEF /* BowOptics */; };
+		45F138242507F5D300A7FFEF /* BowEffects in Frameworks */ = {isa = PBXBuildFile; productRef = 45F138232507F5D300A7FFEF /* BowEffects */; };
+		45F1382E2507F5D300A7FFEF /* Bow in Frameworks */ = {isa = PBXBuildFile; productRef = 45F1382D2507F5D300A7FFEF /* Bow */; };
+		45F138302507FAB600A7FFEF /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F1382F2507FAB600A7FFEF /* Data.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4514C37B2507F1A500FAAB90 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4514C37D2507F1A500FAAB90 /* swift-bow-tennis-game */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "swift-bow-tennis-game"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4514C3802507F1A500FAAB90 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		45F1382F2507FAB600A7FFEF /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4514C37A2507F1A500FAAB90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45F138242507F5D300A7FFEF /* BowEffects in Frameworks */,
+				45F1382E2507F5D300A7FFEF /* Bow in Frameworks */,
+				45F138202507F5D300A7FFEF /* BowOptics in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4514C3742507F1A500FAAB90 = {
+			isa = PBXGroup;
+			children = (
+				4514C37F2507F1A500FAAB90 /* swift-bow-tennis-game */,
+				4514C37E2507F1A500FAAB90 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4514C37E2507F1A500FAAB90 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4514C37D2507F1A500FAAB90 /* swift-bow-tennis-game */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4514C37F2507F1A500FAAB90 /* swift-bow-tennis-game */ = {
+			isa = PBXGroup;
+			children = (
+				4514C3802507F1A500FAAB90 /* main.swift */,
+				45F1382F2507FAB600A7FFEF /* Data.swift */,
+			);
+			path = "swift-bow-tennis-game";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4514C37C2507F1A500FAAB90 /* swift-bow-tennis-game */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4514C3842507F1A500FAAB90 /* Build configuration list for PBXNativeTarget "swift-bow-tennis-game" */;
+			buildPhases = (
+				4514C3792507F1A500FAAB90 /* Sources */,
+				4514C37A2507F1A500FAAB90 /* Frameworks */,
+				4514C37B2507F1A500FAAB90 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "swift-bow-tennis-game";
+			packageProductDependencies = (
+				45F1381F2507F5D300A7FFEF /* BowOptics */,
+				45F138232507F5D300A7FFEF /* BowEffects */,
+				45F1382D2507F5D300A7FFEF /* Bow */,
+			);
+			productName = "swift-bow-tennis-game";
+			productReference = 4514C37D2507F1A500FAAB90 /* swift-bow-tennis-game */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4514C3752507F1A500FAAB90 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1170;
+				LastUpgradeCheck = 1170;
+				ORGANIZATIONNAME = "Fabrizio Duroni";
+				TargetAttributes = {
+					4514C37C2507F1A500FAAB90 = {
+						CreatedOnToolsVersion = 11.7;
+					};
+				};
+			};
+			buildConfigurationList = 4514C3782507F1A500FAAB90 /* Build configuration list for PBXProject "swift-bow-tennis-game" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4514C3742507F1A500FAAB90;
+			packageReferences = (
+				45F138182507F5D300A7FFEF /* XCRemoteSwiftPackageReference "bow" */,
+			);
+			productRefGroup = 4514C37E2507F1A500FAAB90 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4514C37C2507F1A500FAAB90 /* swift-bow-tennis-game */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4514C3792507F1A500FAAB90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4514C3812507F1A500FAAB90 /* main.swift in Sources */,
+				45F138302507FAB600A7FFEF /* Data.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4514C3822507F1A500FAAB90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4514C3832507F1A500FAAB90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		4514C3852507F1A500FAAB90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y682K92RZU;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4514C3862507F1A500FAAB90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y682K92RZU;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4514C3782507F1A500FAAB90 /* Build configuration list for PBXProject "swift-bow-tennis-game" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4514C3822507F1A500FAAB90 /* Debug */,
+				4514C3832507F1A500FAAB90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4514C3842507F1A500FAAB90 /* Build configuration list for PBXNativeTarget "swift-bow-tennis-game" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4514C3852507F1A500FAAB90 /* Debug */,
+				4514C3862507F1A500FAAB90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		45F138182507F5D300A7FFEF /* XCRemoteSwiftPackageReference "bow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bow-swift/bow.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		45F1381F2507F5D300A7FFEF /* BowOptics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 45F138182507F5D300A7FFEF /* XCRemoteSwiftPackageReference "bow" */;
+			productName = BowOptics;
+		};
+		45F138232507F5D300A7FFEF /* BowEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 45F138182507F5D300A7FFEF /* XCRemoteSwiftPackageReference "bow" */;
+			productName = BowEffects;
+		};
+		45F1382D2507F5D300A7FFEF /* Bow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 45F138182507F5D300A7FFEF /* XCRemoteSwiftPackageReference "bow" */;
+			productName = Bow;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 4514C3752507F1A500FAAB90 /* Project object */;
+}
