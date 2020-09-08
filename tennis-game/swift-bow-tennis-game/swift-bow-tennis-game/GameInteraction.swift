@@ -31,7 +31,7 @@ func showScoreFor(game: Game) -> IO<Never, Game> {
 
 func readPlayer() -> IO<Never, ScoringPLayer> {
     return ask(question: "Which player will play (1 or 2)?")
-        .map(parsePlayer(input:))
+        .map({ input in parsePlayer(input: input) })
         .flatMap({ (scoringPLayer: Option<ScoringPLayer>) in
             scoringPLayer.fold(
                 { readPlayer() },
