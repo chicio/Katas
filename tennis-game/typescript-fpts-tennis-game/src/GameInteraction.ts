@@ -56,7 +56,10 @@ export const readPlayer: () => Task<ScoringPlayer> = () => pipe(
             pipe(
                 player,
                 fold(
-                    () => readPlayer(),
+                    () => pipe(
+                        puts("Invalid player selected. Try again."),
+                        chain(() => readPlayer())
+                    ),
                     (validPlayer: ScoringPlayer) =>  of(validPlayer)
                 )
             )

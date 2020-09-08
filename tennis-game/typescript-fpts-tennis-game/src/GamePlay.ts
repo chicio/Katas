@@ -19,7 +19,7 @@ export const trackScoredPoint: (scoringPlayer: ScoringPlayer, game: Game) => Tas
 export const gameCompleted: (game: Game) => boolean = (game: Game) =>
     gameToPlayer1Score.get(game)._tag === 'Wins' || gameToPlayer2Score.get(game)._tag === 'Wins'
 
-const trackScorePointForPlayer: (scoringPlayer: ScoringPlayer, game: Game) => Game =
+export const trackScorePointForPlayer: (scoringPlayer: ScoringPlayer, game: Game) => Game =
     (scoringPlayer: ScoringPlayer, game: Game) => {
         switch (scoringPlayer._tag) {
             case 'Player1':
