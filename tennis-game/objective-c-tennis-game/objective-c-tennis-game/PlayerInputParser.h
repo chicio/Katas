@@ -1,5 +1,5 @@
 //
-//  Console.h
+//  PlayerInputParser.h
 //  objective-c-tennis-game
 //
 //  Created by Fabrizio Duroni on 09.09.20.
@@ -10,10 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Console : NSObject
+typedef enum InputPlayer: NSUInteger {
+    Player1,
+    Player2,
+} InputPlayer;
 
-- (void)put:(NSString *)message;
-- (NSString *)read;
+@interface PlayerInputParser : NSObject
+
+- (InputPlayer)parse:(NSString *)input;
 
 @end
 

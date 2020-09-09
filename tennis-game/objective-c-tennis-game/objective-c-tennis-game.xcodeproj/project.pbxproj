@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1C438008B717042F46C69082 /* libPods-objective-c-tennis-game.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECDA2C38D8C89D33BDC0528 /* libPods-objective-c-tennis-game.a */; };
+		453829CB25094FF400CAB281 /* PlayerInputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 453829CA25094FF400CAB281 /* PlayerInputParser.m */; };
+		453829CC2509508000CAB281 /* PlayerInputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 453829CA25094FF400CAB281 /* PlayerInputParser.m */; };
 		45AA574925093ECC00411DEB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AA574825093ECC00411DEB /* main.m */; };
 		45AA5756250940B400411DEB /* TennisGameTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AA5755250940B400411DEB /* TennisGameTest.m */; };
 		45AA575D2509415D00411DEB /* TennisGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AA575C2509415D00411DEB /* TennisGame.m */; };
@@ -32,6 +34,8 @@
 /* Begin PBXFileReference section */
 		139C1AF49B3390D7D7C68B5A /* libPods-objective-c-tennis-game-test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-objective-c-tennis-game-test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ECDA2C38D8C89D33BDC0528 /* libPods-objective-c-tennis-game.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-objective-c-tennis-game.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		453829C925094FF400CAB281 /* PlayerInputParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerInputParser.h; sourceTree = "<group>"; };
+		453829CA25094FF400CAB281 /* PlayerInputParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerInputParser.m; sourceTree = "<group>"; };
 		45AA574525093ECC00411DEB /* objective-c-tennis-game */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "objective-c-tennis-game"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45AA574825093ECC00411DEB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45AA5753250940B400411DEB /* objective-c-tennis-game-test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "objective-c-tennis-game-test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +99,8 @@
 				45AA575C2509415D00411DEB /* TennisGame.m */,
 				45AA57612509471B00411DEB /* Console.h */,
 				45AA57622509471B00411DEB /* Console.m */,
+				453829C925094FF400CAB281 /* PlayerInputParser.h */,
+				453829CA25094FF400CAB281 /* PlayerInputParser.m */,
 			);
 			path = "objective-c-tennis-game";
 			sourceTree = "<group>";
@@ -125,7 +131,6 @@
 				C2966BC781A5AF97F1C4B2F6 /* Pods-objective-c-tennis-game-test.debug.xcconfig */,
 				6141DE1E8E870C013292661F /* Pods-objective-c-tennis-game-test.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -266,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				453829CB25094FF400CAB281 /* PlayerInputParser.m in Sources */,
 				45AA575D2509415D00411DEB /* TennisGame.m in Sources */,
 				45AA57632509471B00411DEB /* Console.m in Sources */,
 				45AA574925093ECC00411DEB /* main.m in Sources */,
@@ -276,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				453829CC2509508000CAB281 /* PlayerInputParser.m in Sources */,
 				45AA575E2509415D00411DEB /* TennisGame.m in Sources */,
 				45AA57642509471B00411DEB /* Console.m in Sources */,
 				45AA5756250940B400411DEB /* TennisGameTest.m in Sources */,
