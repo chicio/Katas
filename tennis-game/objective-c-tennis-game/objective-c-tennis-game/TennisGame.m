@@ -7,6 +7,7 @@
 //
 
 #import "TennisGame.h"
+#import "GameFactory.h"
 
 @interface TennisGame ()
 @property (nonatomic, strong) Console *console;
@@ -31,11 +32,12 @@
     return self;
 }
 
-- (void)gameLoop {
-    Game *game = [[Game alloc] initWithPlayer1:[[Player alloc] initWithScore:Love] player2:[[Player alloc] initWithScore:Love]];
-
+- (void)start {
     [self.console put:@"Welcome to the Tennis Game!"];
+    [self gameLoop:[GameFactory make]];
+}
 
+- (void)gameLoop: (Game *)game {
     while (![game completed]) {
         [self.console put:@"Which player will play (1 or 2)?"];
         game = [self.gameScoreCalculator calculateFromCurrentGame:game

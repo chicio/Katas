@@ -22,7 +22,7 @@
 
 @implementation TennisGameTest
 
-- (void)testGameLoop {
+- (void)testStart {
     id console = OCMClassMock([Console class]);
     id playerInputParser = OCMClassMock([PlayerInputParser class]);
     id gameScoreCalculator = OCMClassMock([GameScoreCalculator class]);
@@ -54,7 +54,7 @@
     [[[TennisGame alloc] initWithConsole:console
                        playerInputParser:playerInputParser
                      gameScoreCalculator:gameScoreCalculator
-                        gameScorePrinter:gameScoreConverter] gameLoop];
+                        gameScorePrinter:gameScoreConverter] start];
     
     OCMVerify([console put:@"Welcome to the Tennis Game!"]);
     OCMVerify([console put:@"Which player will play (1 or 2)?"]);

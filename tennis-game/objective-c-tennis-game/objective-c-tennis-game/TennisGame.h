@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
   gameScoreCalculator: (GameScoreCalculator *)gameScoreCalculator
      gameScorePrinter: (GameScoreStringConverter *)gameScorePrinter;
 
-- (void)gameLoop;
+- (void)start;
 
 @end
 
