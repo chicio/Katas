@@ -12,6 +12,15 @@
 		45D7A590250818C000D0F2B3 /* GamePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7A58F250818C000D0F2B3 /* GamePlay.swift */; };
 		45D7A59225081E4600D0F2B3 /* GameInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7A59125081E4600D0F2B3 /* GameInteraction.swift */; };
 		45D7A5942508289100D0F2B3 /* TennisGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7A5932508289100D0F2B3 /* TennisGame.swift */; };
+		45D7A59C2508A9A600D0F2B3 /* GamePointPlayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7A59B2508A9A600D0F2B3 /* GamePointPlayTest.swift */; };
+		45D7A5A12508AA7C00D0F2B3 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F1382F2507FAB600A7FFEF /* Data.swift */; };
+		45D7A5A22508AA8F00D0F2B3 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7A58D2508133000D0F2B3 /* Console.swift */; };
+		45D7A5A32508AA8F00D0F2B3 /* GamePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7A58F250818C000D0F2B3 /* GamePlay.swift */; };
+		45D7A5A42508AA8F00D0F2B3 /* GameInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7A59125081E4600D0F2B3 /* GameInteraction.swift */; };
+		45D7A5A52508AA8F00D0F2B3 /* TennisGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7A5932508289100D0F2B3 /* TennisGame.swift */; };
+		45D7A5A82508AB5E00D0F2B3 /* Bow in Frameworks */ = {isa = PBXBuildFile; productRef = 45D7A5A72508AB5E00D0F2B3 /* Bow */; };
+		45D7A5AA2508AB5E00D0F2B3 /* BowEffects in Frameworks */ = {isa = PBXBuildFile; productRef = 45D7A5A92508AB5E00D0F2B3 /* BowEffects */; };
+		45D7A5AC2508AB5E00D0F2B3 /* BowOptics in Frameworks */ = {isa = PBXBuildFile; productRef = 45D7A5AB2508AB5E00D0F2B3 /* BowOptics */; };
 		45F138202507F5D300A7FFEF /* BowOptics in Frameworks */ = {isa = PBXBuildFile; productRef = 45F1381F2507F5D300A7FFEF /* BowOptics */; };
 		45F138242507F5D300A7FFEF /* BowEffects in Frameworks */ = {isa = PBXBuildFile; productRef = 45F138232507F5D300A7FFEF /* BowEffects */; };
 		45F1382E2507F5D300A7FFEF /* Bow in Frameworks */ = {isa = PBXBuildFile; productRef = 45F1382D2507F5D300A7FFEF /* Bow */; };
@@ -37,6 +46,9 @@
 		45D7A58F250818C000D0F2B3 /* GamePlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlay.swift; sourceTree = "<group>"; };
 		45D7A59125081E4600D0F2B3 /* GameInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteraction.swift; sourceTree = "<group>"; };
 		45D7A5932508289100D0F2B3 /* TennisGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisGame.swift; sourceTree = "<group>"; };
+		45D7A5992508A9A600D0F2B3 /* swift-bow-tennis-game-test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swift-bow-tennis-game-test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		45D7A59B2508A9A600D0F2B3 /* GamePointPlayTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePointPlayTest.swift; sourceTree = "<group>"; };
+		45D7A59D2508A9A600D0F2B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45F1382F2507FAB600A7FFEF /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,6 +63,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		45D7A5962508A9A600D0F2B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45D7A5AC2508AB5E00D0F2B3 /* BowOptics in Frameworks */,
+				45D7A5AA2508AB5E00D0F2B3 /* BowEffects in Frameworks */,
+				45D7A5A82508AB5E00D0F2B3 /* Bow in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -58,7 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				4514C37F2507F1A500FAAB90 /* swift-bow-tennis-game */,
+				45D7A59A2508A9A600D0F2B3 /* swift-bow-tennis-game-test */,
 				4514C37E2507F1A500FAAB90 /* Products */,
+				45D7A5A62508AB5E00D0F2B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				4514C37D2507F1A500FAAB90 /* swift-bow-tennis-game */,
+				45D7A5992508A9A600D0F2B3 /* swift-bow-tennis-game-test.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,6 +106,22 @@
 				45D7A5932508289100D0F2B3 /* TennisGame.swift */,
 			);
 			path = "swift-bow-tennis-game";
+			sourceTree = "<group>";
+		};
+		45D7A59A2508A9A600D0F2B3 /* swift-bow-tennis-game-test */ = {
+			isa = PBXGroup;
+			children = (
+				45D7A59B2508A9A600D0F2B3 /* GamePointPlayTest.swift */,
+				45D7A59D2508A9A600D0F2B3 /* Info.plist */,
+			);
+			path = "swift-bow-tennis-game-test";
+			sourceTree = "<group>";
+		};
+		45D7A5A62508AB5E00D0F2B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -108,6 +149,28 @@
 			productReference = 4514C37D2507F1A500FAAB90 /* swift-bow-tennis-game */;
 			productType = "com.apple.product-type.tool";
 		};
+		45D7A5982508A9A600D0F2B3 /* swift-bow-tennis-game-test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45D7A59E2508A9A600D0F2B3 /* Build configuration list for PBXNativeTarget "swift-bow-tennis-game-test" */;
+			buildPhases = (
+				45D7A5952508A9A600D0F2B3 /* Sources */,
+				45D7A5962508A9A600D0F2B3 /* Frameworks */,
+				45D7A5972508A9A600D0F2B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "swift-bow-tennis-game-test";
+			packageProductDependencies = (
+				45D7A5A72508AB5E00D0F2B3 /* Bow */,
+				45D7A5A92508AB5E00D0F2B3 /* BowEffects */,
+				45D7A5AB2508AB5E00D0F2B3 /* BowOptics */,
+			);
+			productName = "swift-bow-tennis-game-test";
+			productReference = 45D7A5992508A9A600D0F2B3 /* swift-bow-tennis-game-test.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -119,6 +182,9 @@
 				ORGANIZATIONNAME = "Fabrizio Duroni";
 				TargetAttributes = {
 					4514C37C2507F1A500FAAB90 = {
+						CreatedOnToolsVersion = 11.7;
+					};
+					45D7A5982508A9A600D0F2B3 = {
 						CreatedOnToolsVersion = 11.7;
 					};
 				};
@@ -140,9 +206,20 @@
 			projectRoot = "";
 			targets = (
 				4514C37C2507F1A500FAAB90 /* swift-bow-tennis-game */,
+				45D7A5982508A9A600D0F2B3 /* swift-bow-tennis-game-test */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		45D7A5972508A9A600D0F2B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4514C3792507F1A500FAAB90 /* Sources */ = {
@@ -155,6 +232,19 @@
 				45D7A59225081E4600D0F2B3 /* GameInteraction.swift in Sources */,
 				45D7A5942508289100D0F2B3 /* TennisGame.swift in Sources */,
 				45F138302507FAB600A7FFEF /* Data.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45D7A5952508A9A600D0F2B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45D7A59C2508A9A600D0F2B3 /* GamePointPlayTest.swift in Sources */,
+				45D7A5A32508AA8F00D0F2B3 /* GamePlay.swift in Sources */,
+				45D7A5A22508AA8F00D0F2B3 /* Console.swift in Sources */,
+				45D7A5A42508AA8F00D0F2B3 /* GameInteraction.swift in Sources */,
+				45D7A5A52508AA8F00D0F2B3 /* TennisGame.swift in Sources */,
+				45D7A5A12508AA7C00D0F2B3 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +386,42 @@
 			};
 			name = Release;
 		};
+		45D7A59F2508A9A600D0F2B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Y682K92RZU;
+				INFOPLIST_FILE = "swift-bow-tennis-game-test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "it.chicio.swift-bow-tennis-game-test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		45D7A5A02508A9A600D0F2B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Y682K92RZU;
+				INFOPLIST_FILE = "swift-bow-tennis-game-test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "it.chicio.swift-bow-tennis-game-test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -317,6 +443,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		45D7A59E2508A9A600D0F2B3 /* Build configuration list for PBXNativeTarget "swift-bow-tennis-game-test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45D7A59F2508A9A600D0F2B3 /* Debug */,
+				45D7A5A02508A9A600D0F2B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -331,6 +466,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		45D7A5A72508AB5E00D0F2B3 /* Bow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 45F138182507F5D300A7FFEF /* XCRemoteSwiftPackageReference "bow" */;
+			productName = Bow;
+		};
+		45D7A5A92508AB5E00D0F2B3 /* BowEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 45F138182507F5D300A7FFEF /* XCRemoteSwiftPackageReference "bow" */;
+			productName = BowEffects;
+		};
+		45D7A5AB2508AB5E00D0F2B3 /* BowOptics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 45F138182507F5D300A7FFEF /* XCRemoteSwiftPackageReference "bow" */;
+			productName = BowOptics;
+		};
 		45F1381F2507F5D300A7FFEF /* BowOptics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 45F138182507F5D300A7FFEF /* XCRemoteSwiftPackageReference "bow" */;

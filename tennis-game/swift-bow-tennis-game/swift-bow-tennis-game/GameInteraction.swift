@@ -48,7 +48,7 @@ private func parsePlayer(input: String) -> Option<ScoringPLayer> {
     }
 }
 
-private func displayableScoreFor(game: Game) -> String {
+public func displayableScoreFor(game: Game) -> String {
     let player1Score: Score = gameToPlayer1Score.get(game)
     let player2Score: Score = gameToPlayer2Score.get(game)
     

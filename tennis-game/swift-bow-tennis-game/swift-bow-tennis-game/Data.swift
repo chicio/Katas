@@ -23,12 +23,12 @@ func show(score: Score) -> String {
     return String(describing: score)
 }
 
-enum ScoringPLayer {
+public enum ScoringPLayer {
     case Player1
     case Player2
 }
 
-struct Player {
+public struct Player {
     let score: Score
 }
 
@@ -38,12 +38,12 @@ extension Player {
     }
 }
 
-struct Game {
+public struct Game {
     let player1: Player
     let player2: Player
 }
 
-func createGame() -> Game {
+public func createGame() -> Game {
     return Game(player1: Player(score: .Love), player2: Player(score: .Love))
 }
 

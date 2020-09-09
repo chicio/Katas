@@ -14,7 +14,7 @@ func trackScoredPoint(scoringPlayer: ScoringPLayer, game: Game) -> IO<Never, Gam
     return IO.invoke { trackScorePointFor(scoringPlayer: scoringPlayer, game: game) }
 }
 
-func trackScorePointFor(scoringPlayer: ScoringPLayer, game: Game) -> Game {
+public func trackScorePointFor(scoringPlayer: ScoringPLayer, game: Game) -> Game {
     switch (scoringPlayer) {
     case .Player1: return update(game: game, scoringPlayerScore: gameToPlayer1Score, opponentPlayerScore: gameToPlayer2Score)
     case .Player2: return update(game: game, scoringPlayerScore: gameToPlayer2Score, opponentPlayerScore: gameToPlayer1Score)
