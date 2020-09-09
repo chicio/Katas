@@ -11,25 +11,37 @@
 @interface TennisGame ()
 @property (nonatomic, strong) Console *console;
 @property (nonatomic, strong) PlayerInputParser *playerInputParser;
+@property (nonatomic, strong) GameScoreCalculator *gameScoreCalculator;
+@property (nonatomic, strong) GameScoreStringConverter *gameScoreConverter;
 @end
 
 @implementation TennisGame
-    
-- (id)initWithConsole: (Console *)console playerInputParser: (PlayerInputParser *)playerInputParser {
+
+- (id)initWithConsole: (Console *)console
+    playerInputParser: (PlayerInputParser *)playerInputParser
+  gameScoreCalculator: (GameScoreCalculator *)gameScoreCalculator
+     gameScorePrinter: (GameScoreStringConverter *)gameScorePrinter {
     self = [super init];
     if (self) {
         self.console = console;
         self.playerInputParser = playerInputParser;
+        self.gameScoreCalculator = gameScoreCalculator;
+        self.gameScoreConverter = gameScorePrinter;
     }
     return self;
 }
 
 - (void)gameLoop {
+    Game *game = [[Game alloc] initWithPlayer1:[[Player alloc] initWithScore:Love] player2:[[Player alloc] initWithScore:Love]];
+
     [self.console put:@"Welcome to the Tennis Game!"];
-    
-    [self.console put:@"Which player will play (1 or 2)?"];
-    NSString *input = [self.console read];
-    [self.playerInputParser parse:input];
+
+    while (![game completed]) {
+        [self.console put:@"Which player will play (1 or 2)?"];
+        game = [self.gameScoreCalculator calculateFromCurrentGame:game
+                                                   andInputPlayer:[self.playerInputParser parse:[self.console read]]];
+        [self.console put: [self.gameScoreConverter convert:game]];
+    }
 }
 
 @end

@@ -10,6 +10,20 @@
 		1C438008B717042F46C69082 /* libPods-objective-c-tennis-game.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECDA2C38D8C89D33BDC0528 /* libPods-objective-c-tennis-game.a */; };
 		453829CB25094FF400CAB281 /* PlayerInputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 453829CA25094FF400CAB281 /* PlayerInputParser.m */; };
 		453829CC2509508000CAB281 /* PlayerInputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 453829CA25094FF400CAB281 /* PlayerInputParser.m */; };
+		453829CF2509780D00CAB281 /* GameScoreCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 453829CE2509780D00CAB281 /* GameScoreCalculator.m */; };
+		453829D02509780D00CAB281 /* GameScoreCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 453829CE2509780D00CAB281 /* GameScoreCalculator.m */; };
+		453829D32509796E00CAB281 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 453829D22509796E00CAB281 /* Game.m */; };
+		453829D42509796E00CAB281 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 453829D22509796E00CAB281 /* Game.m */; };
+		453829D72509798300CAB281 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 453829D62509798300CAB281 /* Player.m */; };
+		453829D82509798300CAB281 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 453829D62509798300CAB281 /* Player.m */; };
+		453829DA2509799400CAB281 /* Score.h in Sources */ = {isa = PBXBuildFile; fileRef = 453829D92509799400CAB281 /* Score.h */; };
+		453829DB2509799400CAB281 /* Score.h in Sources */ = {isa = PBXBuildFile; fileRef = 453829D92509799400CAB281 /* Score.h */; };
+		453829DD25097B8600CAB281 /* InputPlayer.h in Sources */ = {isa = PBXBuildFile; fileRef = 453829DC25097B8600CAB281 /* InputPlayer.h */; };
+		453829DE25097B8600CAB281 /* InputPlayer.h in Sources */ = {isa = PBXBuildFile; fileRef = 453829DC25097B8600CAB281 /* InputPlayer.h */; };
+		453829E12509802500CAB281 /* GameFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 453829E02509802500CAB281 /* GameFactory.m */; };
+		453829E22509802500CAB281 /* GameFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 453829E02509802500CAB281 /* GameFactory.m */; };
+		453829E52509815D00CAB281 /* GameScoreStringConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 453829E42509815D00CAB281 /* GameScoreStringConverter.m */; };
+		453829E62509815D00CAB281 /* GameScoreStringConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 453829E42509815D00CAB281 /* GameScoreStringConverter.m */; };
 		45AA574925093ECC00411DEB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AA574825093ECC00411DEB /* main.m */; };
 		45AA5756250940B400411DEB /* TennisGameTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AA5755250940B400411DEB /* TennisGameTest.m */; };
 		45AA575D2509415D00411DEB /* TennisGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AA575C2509415D00411DEB /* TennisGame.m */; };
@@ -36,6 +50,18 @@
 		3ECDA2C38D8C89D33BDC0528 /* libPods-objective-c-tennis-game.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-objective-c-tennis-game.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		453829C925094FF400CAB281 /* PlayerInputParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerInputParser.h; sourceTree = "<group>"; };
 		453829CA25094FF400CAB281 /* PlayerInputParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerInputParser.m; sourceTree = "<group>"; };
+		453829CD2509780D00CAB281 /* GameScoreCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScoreCalculator.h; sourceTree = "<group>"; };
+		453829CE2509780D00CAB281 /* GameScoreCalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScoreCalculator.m; sourceTree = "<group>"; };
+		453829D12509796E00CAB281 /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		453829D22509796E00CAB281 /* Game.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		453829D52509798300CAB281 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		453829D62509798300CAB281 /* Player.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		453829D92509799400CAB281 /* Score.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Score.h; sourceTree = "<group>"; };
+		453829DC25097B8600CAB281 /* InputPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputPlayer.h; sourceTree = "<group>"; };
+		453829DF2509802500CAB281 /* GameFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameFactory.h; sourceTree = "<group>"; };
+		453829E02509802500CAB281 /* GameFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameFactory.m; sourceTree = "<group>"; };
+		453829E32509815D00CAB281 /* GameScoreStringConverter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScoreStringConverter.h; sourceTree = "<group>"; };
+		453829E42509815D00CAB281 /* GameScoreStringConverter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScoreStringConverter.m; sourceTree = "<group>"; };
 		45AA574525093ECC00411DEB /* objective-c-tennis-game */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "objective-c-tennis-game"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45AA574825093ECC00411DEB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45AA5753250940B400411DEB /* objective-c-tennis-game-test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "objective-c-tennis-game-test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +127,18 @@
 				45AA57622509471B00411DEB /* Console.m */,
 				453829C925094FF400CAB281 /* PlayerInputParser.h */,
 				453829CA25094FF400CAB281 /* PlayerInputParser.m */,
+				453829CD2509780D00CAB281 /* GameScoreCalculator.h */,
+				453829CE2509780D00CAB281 /* GameScoreCalculator.m */,
+				453829D12509796E00CAB281 /* Game.h */,
+				453829D22509796E00CAB281 /* Game.m */,
+				453829D52509798300CAB281 /* Player.h */,
+				453829D62509798300CAB281 /* Player.m */,
+				453829D92509799400CAB281 /* Score.h */,
+				453829DC25097B8600CAB281 /* InputPlayer.h */,
+				453829DF2509802500CAB281 /* GameFactory.h */,
+				453829E02509802500CAB281 /* GameFactory.m */,
+				453829E32509815D00CAB281 /* GameScoreStringConverter.h */,
+				453829E42509815D00CAB281 /* GameScoreStringConverter.m */,
 			);
 			path = "objective-c-tennis-game";
 			sourceTree = "<group>";
@@ -272,9 +310,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				453829CB25094FF400CAB281 /* PlayerInputParser.m in Sources */,
+				453829E52509815D00CAB281 /* GameScoreStringConverter.m in Sources */,
 				45AA575D2509415D00411DEB /* TennisGame.m in Sources */,
+				453829E12509802500CAB281 /* GameFactory.m in Sources */,
 				45AA57632509471B00411DEB /* Console.m in Sources */,
+				453829D32509796E00CAB281 /* Game.m in Sources */,
 				45AA574925093ECC00411DEB /* main.m in Sources */,
+				453829D72509798300CAB281 /* Player.m in Sources */,
+				453829DA2509799400CAB281 /* Score.h in Sources */,
+				453829CF2509780D00CAB281 /* GameScoreCalculator.m in Sources */,
+				453829DD25097B8600CAB281 /* InputPlayer.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,9 +328,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				453829CC2509508000CAB281 /* PlayerInputParser.m in Sources */,
+				453829E62509815D00CAB281 /* GameScoreStringConverter.m in Sources */,
 				45AA575E2509415D00411DEB /* TennisGame.m in Sources */,
+				453829E22509802500CAB281 /* GameFactory.m in Sources */,
 				45AA57642509471B00411DEB /* Console.m in Sources */,
+				453829D42509796E00CAB281 /* Game.m in Sources */,
 				45AA5756250940B400411DEB /* TennisGameTest.m in Sources */,
+				453829D82509798300CAB281 /* Player.m in Sources */,
+				453829DB2509799400CAB281 /* Score.h in Sources */,
+				453829D02509780D00CAB281 /* GameScoreCalculator.m in Sources */,
+				453829DE25097B8600CAB281 /* InputPlayer.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

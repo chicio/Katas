@@ -9,12 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "Console.h"
 #import "PlayerInputParser.h"
+#import "GameScoreCalculator.h"
+#import "GameScoreStringConverter.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TennisGame : NSObject
 
-- (id)initWithConsole: (Console *)console playerInputParser: (PlayerInputParser *)playerInputParser;
+- (id)initWithConsole: (Console *)console
+    playerInputParser: (PlayerInputParser *)playerInputParser
+  gameScoreCalculator: (GameScoreCalculator *)gameScoreCalculator
+     gameScorePrinter: (GameScoreStringConverter *)gameScorePrinter;
+
 - (void)gameLoop;
 
 @end

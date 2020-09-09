@@ -1,5 +1,5 @@
 //
-//  PlayerInputParser.h
+//  Player.h
 //  objective-c-tennis-game
 //
 //  Created by Fabrizio Duroni on 09.09.20.
@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-#import "InputPlayer.h"
+#import "Score.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PlayerInputParser : NSObject
+@interface Player : NSObject
 
-- (InputPlayer)parse:(NSString *)input;
+@property (nonatomic, assign) Score score;
+
+- (id)initWithScore: (Score)score;
 
 @end
 
