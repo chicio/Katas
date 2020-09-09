@@ -1,0 +1,16 @@
+PODS:
+  - OCMock (3.7.1)
+
+DEPENDENCIES:
+  - OCMock (~> 3.7)
+
+SPEC REPOS:
+  trunk:
+    - OCMock
+
+SPEC CHECKSUMS:
+  OCMock: 75fbeaa46a9b11f8c182bbb1d1f7e9a35ccc9955
+
+PODFILE CHECKSUM: 4a13c79a957f3ebff572b54036b9ae8897cda979
+
+COCOAPODS: 1.9.3

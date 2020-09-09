@@ -1,0 +1,8 @@
+platform :osx, '10.15'
+
+target 'objective-c-tennis-game' do
+  target 'objective-c-tennis-game-test' do
+    inherit! :search_paths
+    pod 'OCMock', '~> 3.7'
+  end
+end
