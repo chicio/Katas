@@ -7,19 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "Console.h"
 #import "PlayerInputParser.h"
 #import "GameScoreCalculator.h"
-#import "GameScoreStringConverter.h"
+#import "GameScorePrinter.h"
+#import "InputPlayerReader.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TennisGame : NSObject
 
 - (id)initWithConsole: (Console *)console
-    playerInputParser: (PlayerInputParser *)playerInputParser
+         playerReader: (InputPlayerReader *)playerReader
   gameScoreCalculator: (GameScoreCalculator *)gameScoreCalculator
-     gameScorePrinter: (GameScoreStringConverter *)gameScorePrinter;
+     gameScorePrinter: (GameScorePrinter *)gameScorePrinter;
 
 - (void)start;
 

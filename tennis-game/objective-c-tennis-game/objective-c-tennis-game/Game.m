@@ -27,4 +27,8 @@
     return self.player1.score == Wins || self.player2.score == Wins;
 }
 
+- (id)copy {
+    return [[Game alloc] initWithPlayer1:[self.player1 copy] player2:[self.player2 copy]];
+}
+
 @end

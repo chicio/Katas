@@ -22,4 +22,8 @@
     return self.score == other.score;
 }
 
+- (id)copy {
+    return [[Player alloc] initWithScore:self.score];
+}
+
 @end

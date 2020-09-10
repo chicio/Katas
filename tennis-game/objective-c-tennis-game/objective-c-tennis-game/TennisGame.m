@@ -11,38 +11,37 @@
 
 @interface TennisGame ()
 @property (nonatomic, strong) Console *console;
-@property (nonatomic, strong) PlayerInputParser *playerInputParser;
+@property (nonatomic, strong) InputPlayerReader *playerReader;
 @property (nonatomic, strong) GameScoreCalculator *gameScoreCalculator;
-@property (nonatomic, strong) GameScoreStringConverter *gameScoreConverter;
+@property (nonatomic, strong) GameScorePrinter *gameScorePrinter;
 @end
 
 @implementation TennisGame
 
 - (id)initWithConsole: (Console *)console
-    playerInputParser: (PlayerInputParser *)playerInputParser
+         playerReader: (InputPlayerReader *)playerReader
   gameScoreCalculator: (GameScoreCalculator *)gameScoreCalculator
-     gameScorePrinter: (GameScoreStringConverter *)gameScorePrinter {
+     gameScorePrinter: (GameScorePrinter *)gameScorePrinter {
     self = [super init];
     if (self) {
         self.console = console;
-        self.playerInputParser = playerInputParser;
+        self.playerReader = playerReader;
         self.gameScoreCalculator = gameScoreCalculator;
-        self.gameScoreConverter = gameScorePrinter;
+        self.gameScorePrinter = gameScorePrinter;
     }
     return self;
 }
 
 - (void)start {
     [self.console put:@"Welcome to the Tennis Game!"];
-    [self gameLoop:[GameFactory make]];
+    [self gameLoop];
 }
 
-- (void)gameLoop: (Game *)game {
+- (void)gameLoop {
+    Game *game = [GameFactory make];
     while (![game completed]) {
-        [self.console put:@"Which player will play (1 or 2)?"];
-        game = [self.gameScoreCalculator calculateFromCurrentGame:game
-                                                   andInputPlayer:[self.playerInputParser parse:[self.console read]]];
-        [self.console put: [self.gameScoreConverter convert:game]];
+        game = [self.gameScoreCalculator calculateFromCurrentGame:game andInputPlayer:[self.playerReader readPlayer]];
+        [self.gameScorePrinter print:game];
     }
 }
 
