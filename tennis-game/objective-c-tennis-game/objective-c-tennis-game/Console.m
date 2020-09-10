@@ -11,11 +11,19 @@
 @implementation Console
 
 - (void)put:(NSString *)message {
-    
+    NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
+    NSFileHandle *handle = [NSFileHandle fileHandleWithStandardOutput];
+    [handle writeData:data];
 }
 
 -(NSString *)read {
-    return @"";
+    NSFileHandle *handle = [NSFileHandle fileHandleWithStandardInput];
+    NSData *data = handle.availableData;
+    NSString *input = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    NSCharacterSet *set = [NSCharacterSet newlineCharacterSet];
+    NSString *userInput = [input stringByTrimmingCharactersInSet:set];
+    
+    return userInput;
 }
 
 @end

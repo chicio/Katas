@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Console : NSObject
 
 - (void)put:(NSString *)message;
+
 - (NSString *)read;
 
 @end
