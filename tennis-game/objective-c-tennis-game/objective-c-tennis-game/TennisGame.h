@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "Console.h"
-#import "PlayerInputParser.h"
+#import "InputPlayerParser.h"
 #import "GameScoreCalculator.h"
 #import "GameScorePrinter.h"
 #import "InputPlayerReader.h"

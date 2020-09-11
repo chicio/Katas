@@ -27,7 +27,7 @@
             return [GameFactory makeUsingPlayer1Score:opponentPlayer
                                          player2Score:scoringPlayer];
         }];
-           
+        case UnknownPlayer: return game;
     }
 }
 

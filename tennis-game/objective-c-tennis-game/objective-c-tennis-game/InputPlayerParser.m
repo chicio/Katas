@@ -11,7 +11,16 @@
 @implementation InputPlayerParser
 
 - (InputPlayer)parse: (NSString *)input {
-    return Player1;
+    
+    if ([input isEqualToString:@"1"]) {
+        return Player1;
+    }
+    
+    if ([input isEqualToString:@"2"]) {
+        return Player2;
+    }
+    
+    return UnknownPlayer;
 }
 
 @end

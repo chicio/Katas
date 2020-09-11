@@ -11,4 +11,5 @@
 typedef enum InputPlayer: NSUInteger {
     Player1,
     Player2,
+    UnknownPlayer
 } InputPlayer;

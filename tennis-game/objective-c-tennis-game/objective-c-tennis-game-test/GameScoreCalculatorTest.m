@@ -83,4 +83,10 @@
     XCTAssertEqualObjects(game, [GameFactory makeUsingPlayer1Score:Fifteen player2Score:Wins]);
 }
 
+- (void)testUnknownPlayer {
+    Game *game = [self.gameScoreCalculator calculateFromCurrentGame:[GameFactory makeUsingPlayer1Score:Fifteen player2Score:Forty] andInputPlayer:UnknownPlayer];
+    
+    XCTAssertEqualObjects(game, [GameFactory makeUsingPlayer1Score:Fifteen player2Score:Forty]);
+}
+
 @end

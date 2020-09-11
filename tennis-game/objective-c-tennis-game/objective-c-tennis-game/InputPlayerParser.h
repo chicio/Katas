@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PlayerInputParser : NSObject
+@interface InputPlayerParser : NSObject
 
 - (InputPlayer)parse:(NSString *)input;
 
