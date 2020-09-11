@@ -8,10 +8,27 @@
 
 #import "GameScorePrinter.h"
 
+@interface GameScorePrinter()
+
+@property (nonatomic, strong) Console *console;
+@property (nonatomic, strong) GameScoreStringConverter *gameScoreStringConverter;
+
+@end
+
 @implementation GameScorePrinter
 
-- (void)print: (Game *)game {
+- (id)initWithConsole: (Console *)console gameScoreStringConverter: (GameScoreStringConverter *)gameScoreStringConverter {
+    self = [super init];
+    if (self) {
+        self.console = console;
+        self.gameScoreStringConverter = gameScoreStringConverter;
+    }
+    return self;
+}
 
+- (void)print: (Game *)game {
+    NSString *gameScore = [self.gameScoreStringConverter convert:game];
+    [self.console put:gameScore];
 }
 
 @end

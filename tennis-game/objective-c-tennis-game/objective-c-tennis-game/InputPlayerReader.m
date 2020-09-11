@@ -8,11 +8,27 @@
 
 #import "InputPlayerReader.h"
 
+@interface InputPlayerReader ()
+
+@property(nonatomic, strong) Console *console;
+@property(nonatomic, strong) InputPlayerParser *inputPlayerParser;
+
+@end
+
 @implementation InputPlayerReader
 
+- (id)initWithConsole: (Console *)console inputPlayerParser: (InputPlayerParser *)inputPlayerParser {
+    self = [super init];
+    if (self) {
+        self.console = console;
+        self.inputPlayerParser = inputPlayerParser;
+    }
+    return self;
+}
+
 - (InputPlayer)readPlayer {
-//    [self.console put:@"Which player will play (1 or 2)?"];
-    return Player1;
+    [self.console put:@"Which player will play (1 or 2)?"];
+    return [self.inputPlayerParser parse: [self.console read]];
 }
 
 @end

@@ -11,7 +11,6 @@
 @implementation InputPlayerParser
 
 - (InputPlayer)parse: (NSString *)input {
-    
     if ([input isEqualToString:@"1"]) {
         return Player1;
     }

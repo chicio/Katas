@@ -77,11 +77,24 @@
     XCTAssertEqualObjects(game, [GameFactory makeUsingPlayer1Score:Wins player2Score:Fifteen]);
 }
 
+- (void)testPlayer1WinsFromAdvantage {
+    Game *game = [self.gameScoreCalculator calculateFromCurrentGame:[GameFactory makeUsingPlayer1Score:Advantage player2Score:Forty] andInputPlayer:Player1];
+    
+    XCTAssertEqualObjects(game, [GameFactory makeUsingPlayer1Score:Wins player2Score:Forty]);
+}
+
 - (void)testPlayer2Wins {
     Game *game = [self.gameScoreCalculator calculateFromCurrentGame:[GameFactory makeUsingPlayer1Score:Fifteen player2Score:Forty] andInputPlayer:Player2];
     
     XCTAssertEqualObjects(game, [GameFactory makeUsingPlayer1Score:Fifteen player2Score:Wins]);
 }
+
+- (void)testPlayer2WinsFromAdvantage {
+    Game *game = [self.gameScoreCalculator calculateFromCurrentGame:[GameFactory makeUsingPlayer1Score:Forty player2Score:Advantage] andInputPlayer:Player2];
+    
+    XCTAssertEqualObjects(game, [GameFactory makeUsingPlayer1Score:Forty player2Score:Wins]);
+}
+
 
 - (void)testUnknownPlayer {
     Game *game = [self.gameScoreCalculator calculateFromCurrentGame:[GameFactory makeUsingPlayer1Score:Fifteen player2Score:Forty] andInputPlayer:UnknownPlayer];

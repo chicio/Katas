@@ -11,7 +11,8 @@
 @implementation Console
 
 - (void)put:(NSString *)message {
-    NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *messageWithNewline = [NSString stringWithFormat:@"%@\n", message];
+    NSData *data = [messageWithNewline dataUsingEncoding:NSUTF8StringEncoding];
     NSFileHandle *handle = [NSFileHandle fileHandleWithStandardOutput];
     [handle writeData:data];
 }

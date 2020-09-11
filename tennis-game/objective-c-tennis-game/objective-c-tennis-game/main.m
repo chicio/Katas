@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#import "TennisGameFactory.h"
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        [[TennisGameFactory make] start];
     }
     return 0;
 }

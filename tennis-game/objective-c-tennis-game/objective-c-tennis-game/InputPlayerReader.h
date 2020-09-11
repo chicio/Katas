@@ -9,10 +9,14 @@
 #import <Foundation/Foundation.h>
 
 #import "InputPlayer.h"
+#import "Console.h"
+#import "InputPlayerParser.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface InputPlayerReader : NSObject
+
+- (id)initWithConsole: (Console *)console inputPlayerParser: (InputPlayerParser *)inputPlayerParser;
 
 - (InputPlayer)readPlayer;
 

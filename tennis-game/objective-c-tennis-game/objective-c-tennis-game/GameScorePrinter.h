@@ -9,10 +9,14 @@
 #import <Foundation/Foundation.h>
 
 #import "Game.h"
+#import "GameScoreStringConverter.h"
+#import "Console.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GameScorePrinter : NSObject
+
+- (id)initWithConsole: (Console *)console gameScoreStringConverter: (GameScoreStringConverter *)gameScoreStringConverter;
 
 - (void)print: (Game *)game;
 

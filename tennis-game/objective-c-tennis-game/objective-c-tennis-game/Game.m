@@ -23,12 +23,12 @@
     return [self.player1 isEqual:other.player1] && [self.player2 isEqual:other.player2];
 }
 
-- (BOOL)completed {
-    return self.player1.score == Wins || self.player2.score == Wins;
-}
-
 - (id)copy {
     return [[Game alloc] initWithPlayer1:[self.player1 copy] player2:[self.player2 copy]];
+}
+
+- (BOOL)completed {
+    return self.player1.score == Wins || self.player2.score == Wins;
 }
 
 @end
