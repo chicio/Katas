@@ -6,11 +6,12 @@ import arrow.fx.IO
 object GamePlay {
     fun calculateNextGeneration(matrix: Matrix): IO<Matrix> = IO.just(nextGeneration(matrix))
 
-    private fun nextGeneration(currentGeneration: Matrix): Matrix = currentGeneration.mapIndexed { rowPosition, row ->
-        row.mapIndexed { columnPosition, cell ->
-            getNextGenerationCellStatusFor(cell, rowPosition, columnPosition, currentGeneration)
-        }
-    }
+    private fun nextGeneration(currentGeneration: Matrix): Matrix =
+            currentGeneration.mapIndexed { rowPosition, row ->
+                row.mapIndexed { columnPosition, cell ->
+                    getNextGenerationCellStatusFor(cell, rowPosition, columnPosition, currentGeneration)
+                }
+            }
 
     private fun getNextGenerationCellStatusFor(cellStatus: CellStatus, row: Int, column: Int, matrix: Matrix): CellStatus {
         val numberOfNeighboursFor = getNumberOfNeighboursFor(row, column, matrix)
@@ -35,7 +36,7 @@ object GamePlay {
             getCellFrom(matrix, row, column).fold(
                     { 0 },
                     { cell ->
-                        when(cell) {
+                        when (cell) {
                             Alive -> 1
                             Dead -> 0
                         }
