@@ -18,9 +18,9 @@ export const cellStatusToSymbol: (cellStatus: CellStatus) => string = (cellStatu
 export const showMatrix: Show<Matrix> = {
     show(matrix: Matrix): string {
         return matrix.reduce((matrixString, currentRow) => {
-            return currentRow.reduce((rowString, currentCell) => {
+            return `${currentRow.reduce((rowString, currentCell) => {
                 return `${rowString}${cellStatusToSymbol(currentCell)} `
-            }, matrixString)
+            }, matrixString)}\n`
         }, '')
     }
 }

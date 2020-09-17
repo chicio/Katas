@@ -1,8 +1,18 @@
 import {alive, CellStatus, dead, Matrix} from "./Data";
 import {fold, none, Option, some} from "fp-ts/Option";
 import {pipe} from "fp-ts/pipeable";
+import {Task} from "fp-ts/Task";
 
-export const getNextGenerationCellStatusFor: (cellStatus: CellStatus, row: number, column: number, matrix: Matrix) => CellStatus =
+export const calculateNextGeneration: (matrix: Matrix) => Task<Matrix> =
+    (matrix: Matrix) => () => Promise.resolve(nextGeneration(matrix))
+
+const nextGeneration: (currentGeneration: Matrix) => Matrix =
+    (currentGeneration: Matrix) =>
+        currentGeneration.map((row: CellStatus[], rowPosition: number) =>
+            row.map((cell: CellStatus, columnPosition: number) =>
+                getNextGenerationCellStatusFor(cell, rowPosition, columnPosition, currentGeneration)))
+
+const getNextGenerationCellStatusFor: (cellStatus: CellStatus, row: number, column: number, matrix: Matrix) => CellStatus =
     (cellStatus: CellStatus, row: number, column: number, matrix: Matrix) => {
         const numberOfNeighboursFor = getNumberOfNeighboursFor(row, column, matrix)
         if ((numberOfNeighboursFor == 2 || numberOfNeighboursFor == 3) && cellStatus._tag === 'Alive') {
@@ -16,7 +26,7 @@ export const getNextGenerationCellStatusFor: (cellStatus: CellStatus, row: numbe
         return dead()
     }
 
-export const getNumberOfNeighboursFor: (row: number, column: number, matrix: Matrix) => number =
+const getNumberOfNeighboursFor: (row: number, column: number, matrix: Matrix) => number =
     (row: number, column: number, matrix: Matrix) =>
         getNeighboursValueUsing(row - 1, column - 1, matrix) +
         getNeighboursValueUsing(row - 1, column, matrix) +
@@ -27,7 +37,7 @@ export const getNumberOfNeighboursFor: (row: number, column: number, matrix: Mat
         getNeighboursValueUsing(row + 1, column, matrix) +
         getNeighboursValueUsing(row + 1, column + 1, matrix)
 
-export const getNeighboursValueUsing: (row: number, column: number, matrix: Matrix) => number =
+const getNeighboursValueUsing: (row: number, column: number, matrix: Matrix) => number =
     (row: number, column: number, matrix: Matrix) => pipe(
         getCellFrom(matrix, row, column),
         fold(
@@ -43,7 +53,7 @@ export const getNeighboursValueUsing: (row: number, column: number, matrix: Matr
         )
     )
 
-export const getCellFrom: (matrix: Matrix, rowPosition: number, columnPosition: number) => Option<CellStatus> =
+const getCellFrom: (matrix: Matrix, rowPosition: number, columnPosition: number) => Option<CellStatus> =
     (matrix: Matrix, rowPosition: number, columnPosition: number) =>
         isAValidCellPosition(matrix, rowPosition, columnPosition)
             ? some(matrix[rowPosition][columnPosition])
@@ -51,4 +61,4 @@ export const getCellFrom: (matrix: Matrix, rowPosition: number, columnPosition: 
 
 const isAValidCellPosition: (matrix: CellStatus[][], rowPosition: number, columnPosition: number) => boolean =
     (matrix: CellStatus[][], rowPosition: number, columnPosition: number) =>
-        matrix.length > rowPosition && matrix[rowPosition].length > columnPosition;
+        rowPosition >= 0 && matrix.length > rowPosition && columnPosition >= 0 && matrix[rowPosition].length > columnPosition;

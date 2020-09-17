@@ -2,12 +2,15 @@
   "name": "typescript-fpts-tennis-game",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "start": "ts-node src/Main.ts",
     "test": "jest"
   },
-  "keywords": ["function-programming", "fp-ts", "tennis-kata"],
+  "keywords": [
+    "function-programming",
+    "fp-ts",
+    "tennis-kata"
+  ],
   "author": "Fabrizio Duroni",
   "license": "MIT",
   "dependencies": {
