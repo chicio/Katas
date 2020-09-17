@@ -11,10 +11,10 @@ Below you can find the description of this kata taken from [codingdojo.org](http
 >
 >The same field including the hint numbers described above would look like this:
 >
->`*100
->2210
->1*10
->1110`
+>`*100<br/>
+>2210<br/>
+>1*10<br/>
+>1110<br/>`
 >
 >You should write a program that takes input as follows:
 >
@@ -25,5 +25,5 @@ Below you can find the description of this kata taken from [codingdojo.org](http
 >For each field, you must print the following message in a line alone:
 >
 >Field #x:
-
+>
 >Where x stands for the number of the field (starting from 1). The next n lines should contain the field with the “.” characters replaced by the number of adjacent mines to that square. There must be an empty line between field outputs.
