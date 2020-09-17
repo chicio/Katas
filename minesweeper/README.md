@@ -13,10 +13,12 @@ Below you can find the description of this kata taken from [codingdojo.org](http
 >
 >The same field including the hint numbers described above would look like this:
 >
->`*100  
+>```shell
+>*100  
 >2210  
 >1*10  
->1110`
+>1110
+>```
 >
 >You should write a program that takes input as follows:
 >
