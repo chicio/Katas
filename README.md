@@ -1,6 +1,6 @@
 # Katas
 
-:muscle: ️A collection of katas I did to hone my programming skills :muscle:
+️A collection of katas I did to hone my programming skils.
 
 ## List
 
