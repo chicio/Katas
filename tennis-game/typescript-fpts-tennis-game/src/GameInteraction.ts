@@ -13,6 +13,7 @@ import {ask, puts} from "./Console";
 import {fold, none, Option, some} from "fp-ts/Option";
 import {pipe} from "fp-ts/pipeable";
 import {gameCompleted, trackScoredPoint} from "./GamePlay";
+import * as T from 'fp-ts/lib/Task'
 
 export const welcome: Task<void> = puts("Welcome to the Tennis Game!")
 
@@ -26,6 +27,8 @@ export const playTennisGame: (game: Game) => Task<Game> = (game: Game) => pipe(
 export const displayableGameScore: (game: Game) => string = (game: Game) => {
     const player1Score: Score = gameToPlayer1Score.get(game);
     const player2Score: Score = gameToPlayer2Score.get(game);
+
+    T.task.ap
 
     if (player1Score._tag === 'Forty' && player2Score._tag === 'Forty') {
         return "Deuce"
