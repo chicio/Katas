@@ -12,6 +12,12 @@ func welcome() -> IO<Never, Void> {
     return puts(message: "Welcome to the Tennis Game!")
 }
 
+func readInitialMatrix() -> IO<Never, Matrix> {
+    return IO.invoke {
+        parse(input: try! String(contentsOfFile: Bundle.main.path(forResource: "6x6-toad", ofType: "csv")!))
+    }
+}
+
 func parse(input: String) -> Matrix {
     return input
         .split(separator: "\n")

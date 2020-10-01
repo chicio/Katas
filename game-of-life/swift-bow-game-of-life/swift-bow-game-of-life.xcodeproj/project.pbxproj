@@ -23,17 +23,25 @@
 		452D9D9A2524E6B800473639 /* GamePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452D9D982524E6B800473639 /* GamePlay.swift */; };
 		452D9D9E2526194F00473639 /* GameInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452D9D9D2526194F00473639 /* GameInteraction.swift */; };
 		452D9D9F2526194F00473639 /* GameInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452D9D9D2526194F00473639 /* GameInteraction.swift */; };
+		5F5110DF2526695700692281 /* GameOfLife.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5110DE2526695700692281 /* GameOfLife.swift */; };
+		5F5110E02526695700692281 /* GameOfLife.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5110DE2526695700692281 /* GameOfLife.swift */; };
+		5F5110EA25266C7700692281 /* 4x4-block.csv in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F5110D92526684700692281 /* 4x4-block.csv */; };
+		5F5110F125266CDD00692281 /* 6x6-toad.csv in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F5110DA2526684700692281 /* 6x6-toad.csv */; };
+		5F5110F225266CDD00692281 /* 3x3-blinker.csv in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F5110DB2526684700692281 /* 3x3-blinker.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		452D9D142524CD1500473639 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				5F5110F125266CDD00692281 /* 6x6-toad.csv in CopyFiles */,
+				5F5110F225266CDD00692281 /* 3x3-blinker.csv in CopyFiles */,
+				5F5110EA25266C7700692281 /* 4x4-block.csv in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -47,6 +55,10 @@
 		452D9D912524E64C00473639 /* Console.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Console.swift; sourceTree = "<group>"; };
 		452D9D982524E6B800473639 /* GamePlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlay.swift; sourceTree = "<group>"; };
 		452D9D9D2526194F00473639 /* GameInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteraction.swift; sourceTree = "<group>"; };
+		5F5110D92526684700692281 /* 4x4-block.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "4x4-block.csv"; sourceTree = "<group>"; };
+		5F5110DA2526684700692281 /* 6x6-toad.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "6x6-toad.csv"; sourceTree = "<group>"; };
+		5F5110DB2526684700692281 /* 3x3-blinker.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "3x3-blinker.csv"; sourceTree = "<group>"; };
+		5F5110DE2526695700692281 /* GameOfLife.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfLife.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +90,7 @@
 			children = (
 				452D9D182524CD1500473639 /* swift-bow-game-of-life */,
 				452D9D682524D30500473639 /* swift-bow-game-of-life-test */,
+				5F5110D82526684700692281 /* resources */,
 				452D9D172524CD1500473639 /* Products */,
 				452D9D712524D34B00473639 /* Frameworks */,
 			);
@@ -100,6 +113,7 @@
 				452D9D8A2524E3A000473639 /* Data.swift */,
 				452D9D982524E6B800473639 /* GamePlay.swift */,
 				452D9D9D2526194F00473639 /* GameInteraction.swift */,
+				5F5110DE2526695700692281 /* GameOfLife.swift */,
 			);
 			path = "swift-bow-game-of-life";
 			sourceTree = "<group>";
@@ -118,6 +132,16 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5F5110D82526684700692281 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				5F5110D92526684700692281 /* 4x4-block.csv */,
+				5F5110DA2526684700692281 /* 6x6-toad.csv */,
+				5F5110DB2526684700692281 /* 3x3-blinker.csv */,
+			);
+			path = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +249,7 @@
 				452D9D992524E6B800473639 /* GamePlay.swift in Sources */,
 				452D9D922524E64D00473639 /* Console.swift in Sources */,
 				452D9D9E2526194F00473639 /* GameInteraction.swift in Sources */,
+				5F5110DF2526695700692281 /* GameOfLife.swift in Sources */,
 				452D9D8B2524E3A000473639 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,6 +262,7 @@
 				452D9D9A2524E6B800473639 /* GamePlay.swift in Sources */,
 				452D9D932524E64D00473639 /* Console.swift in Sources */,
 				452D9D9F2526194F00473639 /* GameInteraction.swift in Sources */,
+				5F5110E02526695700692281 /* GameOfLife.swift in Sources */,
 				452D9D8E2524E3AC00473639 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

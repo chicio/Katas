@@ -7,8 +7,13 @@
 
 import Foundation
 import Bow
+import BowEffects
 
-func nextGeneration(currentGeneration: Matrix) -> Matrix {
+func nextGeneration(currentGeneration: Matrix) -> IO<Never, Matrix> {
+    return IO.invoke { nextGeneration(currentGeneration: currentGeneration) }
+}
+
+private func nextGeneration(currentGeneration: Matrix) -> Matrix {
     return currentGeneration.enumerated().map { (rowPosition, row) in
         row.enumerated().map { (columnPosition, cell) in
             getNextGenerationCellStatusFor(cellStatus: cell, row: rowPosition, column: columnPosition, matrix: currentGeneration)
