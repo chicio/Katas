@@ -9,13 +9,11 @@ import Foundation
 import Bow
 
 func nextGeneration(currentGeneration: Matrix) -> Matrix {
-    return [[]]
-    
-//    currentGeneration.mapIndexed { rowPosition, row ->
-//        row.mapIndexed { columnPosition, cell ->
-//            getNextGenerationCellStatusFor(cell, rowPosition, columnPosition, currentGeneration)
-//        }
-//    }
+    return currentGeneration.enumerated().map { (rowPosition, row) in
+        row.enumerated().map { (columnPosition, cell) in
+            getNextGenerationCellStatusFor(cellStatus: cell, row: rowPosition, column: columnPosition, matrix: currentGeneration)
+        }
+    }
 }
 
 private func getNextGenerationCellStatusFor(cellStatus: CellStatus, row: Int, column: Int, matrix: Matrix) -> CellStatus {

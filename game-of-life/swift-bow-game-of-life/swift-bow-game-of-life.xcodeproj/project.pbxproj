@@ -21,6 +21,8 @@
 		452D9D932524E64D00473639 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452D9D912524E64C00473639 /* Console.swift */; };
 		452D9D992524E6B800473639 /* GamePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452D9D982524E6B800473639 /* GamePlay.swift */; };
 		452D9D9A2524E6B800473639 /* GamePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452D9D982524E6B800473639 /* GamePlay.swift */; };
+		452D9D9E2526194F00473639 /* GameInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452D9D9D2526194F00473639 /* GameInteraction.swift */; };
+		452D9D9F2526194F00473639 /* GameInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452D9D9D2526194F00473639 /* GameInteraction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,6 +46,7 @@
 		452D9D8A2524E3A000473639 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		452D9D912524E64C00473639 /* Console.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Console.swift; sourceTree = "<group>"; };
 		452D9D982524E6B800473639 /* GamePlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlay.swift; sourceTree = "<group>"; };
+		452D9D9D2526194F00473639 /* GameInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteraction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,7 @@
 				452D9D192524CD1500473639 /* main.swift */,
 				452D9D8A2524E3A000473639 /* Data.swift */,
 				452D9D982524E6B800473639 /* GamePlay.swift */,
+				452D9D9D2526194F00473639 /* GameInteraction.swift */,
 			);
 			path = "swift-bow-game-of-life";
 			sourceTree = "<group>";
@@ -220,6 +224,7 @@
 				452D9D1A2524CD1500473639 /* main.swift in Sources */,
 				452D9D992524E6B800473639 /* GamePlay.swift in Sources */,
 				452D9D922524E64D00473639 /* Console.swift in Sources */,
+				452D9D9E2526194F00473639 /* GameInteraction.swift in Sources */,
 				452D9D8B2524E3A000473639 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,6 +236,7 @@
 				452D9D6A2524D30500473639 /* swift_bow_game_of_life_test.swift in Sources */,
 				452D9D9A2524E6B800473639 /* GamePlay.swift in Sources */,
 				452D9D932524E64D00473639 /* Console.swift in Sources */,
+				452D9D9F2526194F00473639 /* GameInteraction.swift in Sources */,
 				452D9D8E2524E3AC00473639 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
