@@ -7,12 +7,12 @@
 
 import Foundation
 
-enum CellStatus {
+public enum CellStatus {
     case Alive
     case Dead
 }
 
-typealias Matrix = [[CellStatus]]
+public typealias Matrix = [[CellStatus]]
 
 func show(matrix: Matrix) -> String {
     matrix.reduce("") { (matrixString: String, row: [CellStatus]) in

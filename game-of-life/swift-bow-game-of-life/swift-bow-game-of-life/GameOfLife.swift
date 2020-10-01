@@ -16,6 +16,6 @@ func gameOfLife() -> IO<Never, Matrix> {
 
 private func gameLoop(matrix: Matrix) -> IO<Never, Matrix> {
     return print(matrix: matrix)
-        .flatMap { matrix in nextGeneration(currentGeneration: matrix) }
+        .flatMap { matrix in calculateNextGeneration(currentGeneration: matrix) }
         .flatMap { matrix in gameLoop(matrix: matrix) }^
 }

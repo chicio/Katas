@@ -9,7 +9,7 @@ import Foundation
 import Bow
 import BowEffects
 
-func nextGeneration(currentGeneration: Matrix) -> IO<Never, Matrix> {
+public func calculateNextGeneration(currentGeneration: Matrix) -> IO<Never, Matrix> {
     return IO.invoke { nextGeneration(currentGeneration: currentGeneration) }
 }
 
