@@ -8,7 +8,42 @@
 import Foundation
 import Bow
 
-func getNeighboursValueUsing(row: Int, column: Int, matrix: Matrix) -> Int {
+func nextGeneration(currentGeneration: Matrix) -> Matrix {
+    return [[]]
+    
+//    currentGeneration.mapIndexed { rowPosition, row ->
+//        row.mapIndexed { columnPosition, cell ->
+//            getNextGenerationCellStatusFor(cell, rowPosition, columnPosition, currentGeneration)
+//        }
+//    }
+}
+
+private func getNextGenerationCellStatusFor(cellStatus: CellStatus, row: Int, column: Int, matrix: Matrix) -> CellStatus {
+    let numberOfNeighboursFor = getNumberOfNeighboursFor(row: row, column: column, matrix: matrix)
+    
+    if ((numberOfNeighboursFor == 2 || numberOfNeighboursFor == 3) && cellStatus == .Alive) {
+        return .Alive
+    }
+    
+    if ((numberOfNeighboursFor == 3) && cellStatus == .Dead) {
+        return .Alive
+    }
+    
+    return .Dead
+}
+
+private func getNumberOfNeighboursFor(row: Int, column: Int, matrix: Matrix) -> Int {
+    return getNeighboursValueUsing(row: row - 1, column: column - 1, matrix: matrix) +
+        getNeighboursValueUsing(row: row - 1, column: column, matrix: matrix) +
+        getNeighboursValueUsing(row: row - 1, column: column + 1, matrix: matrix) +
+        getNeighboursValueUsing(row: row, column: column - 1, matrix: matrix) +
+        getNeighboursValueUsing(row: row, column: column + 1, matrix: matrix) +
+        getNeighboursValueUsing(row: row + 1, column: column - 1, matrix: matrix) +
+        getNeighboursValueUsing(row: row + 1, column: column, matrix: matrix) +
+        getNeighboursValueUsing(row: row + 1, column: column + 1, matrix: matrix)
+}
+
+private func getNeighboursValueUsing(row: Int, column: Int, matrix: Matrix) -> Int {
     getCellFrom(matrix: matrix, rowPosition: row, columnPosition: column).fold(
         { 0 },
         { (cell: CellStatus) in
@@ -20,7 +55,7 @@ func getNeighboursValueUsing(row: Int, column: Int, matrix: Matrix) -> Int {
     )
 }
 
-func getCellFrom(matrix: Matrix, rowPosition: Int, columnPosition: Int) -> Option<CellStatus> {
+private func getCellFrom(matrix: Matrix, rowPosition: Int, columnPosition: Int) -> Option<CellStatus> {
     if matrix.indices.contains(rowPosition) && matrix[rowPosition].indices.contains(columnPosition) {
         return Option.some(matrix[rowPosition][columnPosition])
     }

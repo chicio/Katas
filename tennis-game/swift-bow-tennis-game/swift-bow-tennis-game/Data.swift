@@ -53,15 +53,15 @@ extension Game {
     }
 }
 
-let playerScore = Lens<Player, Score>(
+private let playerScore = Lens<Player, Score>(
     get: { (player: Player) -> Score in player.score },
     set: { (player: Player, score: Score) -> Player in player.copy(score: score) }
 )
-let gamePlayer1 = Lens<Game, Player>(
+private let gamePlayer1 = Lens<Game, Player>(
     get: { (game: Game) -> Player in game.player1 },
     set: { (game: Game, player: Player) -> Game in game.copy(player1: player)}
 )
-let gamePlayer2 = Lens<Game, Player>(
+private let gamePlayer2 = Lens<Game, Player>(
     get: { (game: Game) -> Player in game.player2 },
     set: { (game: Game, player: Player) -> Game in game.copy(player2: player)}
 )
