@@ -1,5 +1,5 @@
 from unittest import TestCase
-from unittest.mock import Mock, create_autospec
+from unittest.mock import Mock, call
 
 from Console import Console
 from GameFactory import GameFactory
@@ -35,3 +35,16 @@ class TestTennisGame(TestCase):
         TennisGame(console, player_reader, game_score_calculator, game_score_printer).start()
 
         console.put.assert_called_with("Welcome to the Tennis Game!")
+        player_reader.read_player.assert_has_calls([call(), call(), call(), call()])
+        game_score_calculator.calculate.assert_has_calls([
+            call(GameFactory.make(), InputPlayer.Player1),
+            call(GameFactory.make_using(Score.Fifteen, Score.Love), InputPlayer.Player1),
+            call(GameFactory.make_using(Score.Thirty, Score.Love), InputPlayer.Player1),
+            call(GameFactory.make_using(Score.Forty, Score.Love), InputPlayer.Player1)
+        ])
+        game_score_printer.print.assert_has_calls([
+            call(GameFactory.make_using(Score.Fifteen, Score.Love)),
+            call(GameFactory.make_using(Score.Thirty, Score.Love)),
+            call(GameFactory.make_using(Score.Forty, Score.Love)),
+            call(GameFactory.make_using(Score.Wins, Score.Love))
+        ])
