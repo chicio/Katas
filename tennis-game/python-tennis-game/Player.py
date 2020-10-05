@@ -1,3 +1,5 @@
+from enum import Enum
+
 from Score import Score
 
 
@@ -12,7 +14,13 @@ class Player:
         return self.score == other.score
 
 
-def read_player():
+class InputPlayer(Enum):
+    Player1 = 1
+    Player2 = 2
+    UnknownPlayer = 3
+
+
+def read_player(write_to_console, read_from_console, parse_input_player):
     pass
 
 

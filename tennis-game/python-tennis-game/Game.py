@@ -31,6 +31,6 @@ def calculate_game_score(game, input_player):
     pass
 
 
-def print_game(game):
+def print_game(write_to_console, game):
     pass
 
