@@ -1,6 +1,7 @@
-class Console:
-    def __init__(self):
-        print("TODO")
 
-    def put(self, message: str):
-        print("TODO")
+def write_to_console(message: str):
+    print(message)
+
+
+def read_from_console() -> str:
+    str(input())

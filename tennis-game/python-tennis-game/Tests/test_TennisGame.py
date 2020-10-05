@@ -1,14 +1,13 @@
 from unittest import TestCase
 from unittest.mock import Mock, call
 
-from Console import Console
-from GameFactory import GameFactory
-from GameScoreCalculator import GameScoreCalculator
-from GameScorePrinter import GameScorePrinter
+
+from Console import write_to_console
+from Game import calculate_game_score, print_game, GameFactory
 from InputPlayer import InputPlayer
-from InputPlayerReader import InputPlayerReader
+from Player import read_player
 from Score import Score
-from TennisGame import TennisGame
+from TennisGame import tennis_game
 
 
 def player_reader_side_effect(*args):
@@ -24,25 +23,30 @@ def player_reader_side_effect(*args):
 
 class TestTennisGame(TestCase):
     def test_start(self):
-        console = Mock(Console)
-        player_reader = Mock(InputPlayerReader)
-        game_score_calculator = Mock(GameScoreCalculator)
-        game_score_printer = Mock(GameScorePrinter)
+        write_to_console_mock = Mock(spec=write_to_console)
+        read_player_mock = Mock(spec=read_player, return_value=InputPlayer.Player1)
+        calculate_game_score_mock = Mock(spec=calculate_game_score, side_effect=player_reader_side_effect)
+        print_game_mock = Mock(spec=print_game)
 
-        player_reader.read_player = Mock(return_value=InputPlayer.Player1)
-        game_score_calculator.calculate.side_effect = player_reader_side_effect
+        tennis_game(write_to_console_mock,
+                    read_player_mock,
+                    calculate_game_score_mock,
+                    print_game_mock)
 
-        TennisGame(console, player_reader, game_score_calculator, game_score_printer).start()
-
-        console.put.assert_called_with("Welcome to the Tennis Game!")
-        player_reader.read_player.assert_has_calls([call(), call(), call(), call()])
-        game_score_calculator.calculate.assert_has_calls([
+        write_to_console_mock.assert_called_with("Welcome to the Tennis Game!")
+        read_player_mock.assert_has_calls([
+            call(),
+            call(),
+            call(),
+            call(),
+        ])
+        calculate_game_score_mock.assert_has_calls([
             call(GameFactory.make(), InputPlayer.Player1),
             call(GameFactory.make_using(Score.Fifteen, Score.Love), InputPlayer.Player1),
             call(GameFactory.make_using(Score.Thirty, Score.Love), InputPlayer.Player1),
             call(GameFactory.make_using(Score.Forty, Score.Love), InputPlayer.Player1)
         ])
-        game_score_printer.print.assert_has_calls([
+        print_game_mock.assert_has_calls([
             call(GameFactory.make_using(Score.Fifteen, Score.Love)),
             call(GameFactory.make_using(Score.Thirty, Score.Love)),
             call(GameFactory.make_using(Score.Forty, Score.Love)),

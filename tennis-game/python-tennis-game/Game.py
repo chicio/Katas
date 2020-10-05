@@ -15,3 +15,22 @@ class Game:
             return False
 
         return self.player1 == other.player1 and self.player2 == other.player2
+
+
+class GameFactory:
+    @staticmethod
+    def make() -> Game:
+        return Game(Player(Score.Love), Player(Score.Love))
+
+    @staticmethod
+    def make_using(score1: Score, score2: Score) -> Game:
+        return Game(Player(score1), Player(score2))
+
+
+def calculate_game_score(game, input_player):
+    pass
+
+
+def print_game(game):
+    pass
+

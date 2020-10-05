@@ -10,3 +10,12 @@ class Player:
             return False
 
         return self.score == other.score
+
+
+def read_player():
+    pass
+
+
+def parse_input_player(input):
+    pass
+
