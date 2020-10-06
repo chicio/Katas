@@ -1,5 +1,7 @@
-from Player import Player
-from Score import Score
+from typing import Callable
+
+from player import Player, InputPlayer
+from score import Score
 
 
 class Game:
@@ -27,10 +29,10 @@ class GameFactory:
         return Game(Player(score1), Player(score2))
 
 
-def calculate_game_score(game, input_player):
+def calculate_game_score(game: Game, input_player: InputPlayer) -> Game:
     pass
 
 
-def print_game(write_to_console, game):
+def print_game(write_to_console: Callable[[str], None], game: Game):
     pass
 

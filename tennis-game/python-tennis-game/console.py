@@ -1,5 +1,5 @@
 
-def write_to_console(message):
+def write_to_console(message: str) -> None:
     print(message)
 
 

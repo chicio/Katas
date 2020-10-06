@@ -2,11 +2,11 @@ from unittest import TestCase
 from unittest.mock import Mock, call
 
 
-from Console import write_to_console, read_from_console
-from Game import calculate_game_score, print_game, GameFactory
-from Player import read_player, parse_input_player, InputPlayer
-from Score import Score
-from TennisGame import tennis_game
+from console import write_to_console, read_from_console
+from game import calculate_game_score, print_game, GameFactory
+from player import read_player, parse_input_player, InputPlayer
+from score import Score
+from tennis_game import tennis_game
 
 
 def player_reader_side_effect(*args):
@@ -21,7 +21,7 @@ def player_reader_side_effect(*args):
 
 
 class TestTennisGame(TestCase):
-    def test_start(self):
+    def test_tennis_game(self):
         read_from_console_mock = Mock(spec=read_from_console)
         parse_input_player_mock = Mock(spec=parse_input_player)
         write_to_console_mock = Mock(spec=write_to_console)

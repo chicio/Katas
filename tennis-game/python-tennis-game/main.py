@@ -1,4 +1,4 @@
-from TennisGame import tennis_game
+from tennis_game import tennis_game
 
 
 if __name__ == '__main__':
