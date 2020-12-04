@@ -9,6 +9,7 @@
   * [TypeScript + fp-ts functional programming](https://github.com/chicio/Katas/tree/master/tennis-game/typescript-fpts-tennis-game)
   * [Swift + Bow functional programming](https://github.com/chicio/Katas/tree/master/tennis-game/swift-bow-tennis-game)
   * [Objective-C](https://github.com/chicio/Katas/tree/master/tennis-game/objective-c-tennis-game)
+  * [Python](https://github.com/chicio/Katas/tree/master/tennis-game/python-tennis-game)
 * [Game Of Life](https://github.com/chicio/Katas/tree/master/game-of-life/)
   * [Kotlin + Arrow functional programming](https://github.com/chicio/Katas/tree/master/game-of-life/kotlin-arrow-game-of-life)
   * [TypeScript + fp-ts functional programming](https://github.com/chicio/Katas/tree/master/game-of-life/typescript-fpts-game-of-life)
