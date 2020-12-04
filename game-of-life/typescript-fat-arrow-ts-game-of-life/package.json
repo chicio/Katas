@@ -1,0 +1,35 @@
+{
+  "name": "typescript-fpts-game-of-life",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "ts-node src/Main.ts",
+    "test": "jest"
+  },
+  "keywords": [
+    "function-programming",
+    "fp-ts",
+    "game-of-life"
+  ],
+  "author": "Fabrizio Duroni",
+  "license": "MIT",
+  "dependencies": {
+    "fat-arrow-ts": "^0.2.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-typescript": "^7.12.7",
+    "@types/jest": "^26.0.13",
+    "@types/node": "^14.6.4",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4.0.1",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.2.2",
+    "eslint": "^7.8.1",
+    "jest": "^26.4.2",
+    "jest-matcher-utils": "^26.6.2",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2"
+  }
+}
