@@ -1,6 +1,6 @@
 export default {
   setupFilesAfterEnv: [
-    'fat-arrow-ts/jest-matchers'
+    './setupTests.ts'
   ],
   testEnvironment: "node",
 }
