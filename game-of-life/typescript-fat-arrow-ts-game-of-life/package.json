@@ -31,5 +31,11 @@
     "jest-matcher-utils": "^26.6.2",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.2"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./setupTests.ts"
+    ],
+    "testEnvironment": "node"
   }
 }

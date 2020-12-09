@@ -1,7 +1,6 @@
 import "regenerator-runtime/runtime";
 import {calculateNextGeneration, getCellFrom} from "../src/GamePlay";
 import {alive, dead} from "../src/Data";
-import "../node_modules/fat-arrow-ts/jest-matchers";
 import {none} from "fat-arrow-ts";
 
 describe('GamePlay', () => {
