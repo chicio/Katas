@@ -1,5 +1,6 @@
 package it.chicio.minesweeper.field.formatter
 
+import it.chicio.minesweeper.FieldFactory
 import it.chicio.minesweeper.field.Field
 import org.hamcrest.CoreMatchers
 import org.junit.Assert
@@ -8,14 +9,14 @@ import org.mockito.Mockito
 import java.util.*
 
 class FieldsFormatterWithHeaderTest {
-    private val field = Field(arrayOf(arrayOf("*", "1", "0", "0"), arrayOf("2", "2", "1", "0"), arrayOf("1", "*", "1", "0"), arrayOf("1", "1", "1", "0")))
+    private val field = FieldFactory().make(arrayOf(arrayOf("*", "1", "0", "0"), arrayOf("2", "2", "1", "0"), arrayOf("1", "*", "1", "0"), arrayOf("1", "1", "1", "0")))
     private val FORMATTED_FIELD = "* 1 0 0" + System.getProperty("line.separator") +
             "2 2 1 0" + System.getProperty("line.separator") +
             "1 * 1 0" + System.getProperty("line.separator") +
             "1 1 1 0" + System.getProperty("line.separator")
     private val FORMATTED_FIELD_WITH_HEADER = "field #1:" + System.getProperty("line.separator") +
             FORMATTED_FIELD
-    private val anotherField = Field(arrayOf(arrayOf("*", "*", "1", "0", "0"), arrayOf("3", "3", "2", "0", "0"), arrayOf("1", "*", "1", "0", "0")))
+    private val anotherField = FieldFactory().make(arrayOf(arrayOf("*", "*", "1", "0", "0"), arrayOf("3", "3", "2", "0", "0"), arrayOf("1", "*", "1", "0", "0")))
     private val ANOTHER_FORMATTED_FIELD = "* * 1 0 0" + System.getProperty("line.separator") +
             "3 3 2 0 0" + System.getProperty("line.separator") +
             "1 * 1 0 0" + System.getProperty("line.separator")

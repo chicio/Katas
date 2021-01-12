@@ -1,5 +1,6 @@
 package it.chicio.minesweeper.field.parser
 
+import it.chicio.minesweeper.FieldFactory
 import it.chicio.minesweeper.field.Field
 import org.hamcrest.CoreMatchers
 import org.junit.Assert
@@ -27,7 +28,7 @@ class FieldRowContentValuesChainParserTest {
     @Test
     fun parseRow() {
         val fieldsParsingStatus = fieldRowContentValuesChainParser!!.parse(FieldsParsingStatusBuilder()
-                .withCurrentField(Field(arrayOf(arrayOf("*", "."), arrayOf("", ""))))
+                .withCurrentField(FieldFactory().make(arrayOf(arrayOf("*", "."), arrayOf("", ""))))
                 .withCurrentRow(1)
                 .withCurrentRowContent("* *")
                 .build()
@@ -39,7 +40,7 @@ class FieldRowContentValuesChainParserTest {
     @Test(expected = RuntimeException::class)
     fun failParseRow() {
         fieldRowContentValuesChainParser!!.parse(FieldsParsingStatusBuilder()
-                .withCurrentField(Field(arrayOf(arrayOf("*", "."), arrayOf("", ""))))
+                .withCurrentField(FieldFactory().make(arrayOf(arrayOf("*", "."), arrayOf("", ""))))
                 .withCurrentRow(1)
                 .withCurrentRowContent("* * *")
                 .build()

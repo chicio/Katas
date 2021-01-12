@@ -1,5 +1,6 @@
 package it.chicio.minesweeper.field.parser
 
+import it.chicio.minesweeper.FieldFactory
 import it.chicio.minesweeper.field.Field
 import org.hamcrest.CoreMatchers
 import org.junit.Assert
@@ -27,7 +28,7 @@ class FieldRowContentTerminationChainParserTest {
 
     @Test
     fun parseValidTerminationRow() {
-        val currentField = Field(arrayOf(arrayOf("*")))
+        val currentField = FieldFactory().make(arrayOf(arrayOf("*")))
         val fieldsParsingStatus = fieldRowContentTerminationChainParser!!.parse(FieldsParsingStatusBuilder()
                 .withCurrentField(currentField)
                 .withFieldsParsed(ArrayList())

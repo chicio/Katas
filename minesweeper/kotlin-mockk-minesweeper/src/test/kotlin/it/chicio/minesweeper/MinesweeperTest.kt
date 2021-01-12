@@ -11,14 +11,14 @@ import org.mockito.Mockito
 import java.util.*
 
 class MinesweeperTest {
-    private val field = Field(arrayOf(arrayOf("*", "*", ".", ".", "."), arrayOf(".", ".", ".", ".", "."), arrayOf(".", "*", ".", ".", ".")))
-    private val playedField = Field(arrayOf(arrayOf("*", "*", "1", "0", "0"), arrayOf("3", "3", "2", "0", "0"), arrayOf("1", "*", "1", "0", "0")))
+    private val field = FieldFactory().make(arrayOf(arrayOf("*", "*", ".", ".", "."), arrayOf(".", ".", ".", ".", "."), arrayOf(".", "*", ".", ".", ".")))
+    private val playedField = FieldFactory().make(arrayOf(arrayOf("*", "*", "1", "0", "0"), arrayOf("3", "3", "2", "0", "0"), arrayOf("1", "*", "1", "0", "0")))
     private val FORMATTED_PLAYED_FIELD = "field #2:" + System.getProperty("line.separator") +
             "* * 1 0 0" + System.getProperty("line.separator") +
             "3 3 2 0 0" + System.getProperty("line.separator") +
             "1 * 1 0 0" + System.getProperty("line.separator")
-    private val anotherField = Field(arrayOf(arrayOf("*", ".", ".", "."), arrayOf(".", ".", ".", "."), arrayOf(".", "*", ".", "."), arrayOf(".", ".", ".", ".")))
-    private val anotherPlayedField = Field(arrayOf(arrayOf("*", "1", "0", "0"), arrayOf("2", "2", "1", "0"), arrayOf("1", "*", "1", "0"), arrayOf("1", "1", "1", "0")))
+    private val anotherField = FieldFactory().make(arrayOf(arrayOf("*", ".", ".", "."), arrayOf(".", ".", ".", "."), arrayOf(".", "*", ".", "."), arrayOf(".", ".", ".", ".")))
+    private val anotherPlayedField = FieldFactory().make(arrayOf(arrayOf("*", "1", "0", "0"), arrayOf("2", "2", "1", "0"), arrayOf("1", "*", "1", "0"), arrayOf("1", "1", "1", "0")))
     private val ANOTHER_FORMATTED_PLAYED_FIELD = "field #1:" + System.getProperty("line.separator") +
             "* 1 0 0" + System.getProperty("line.separator") +
             "2 2 1 0" + System.getProperty("line.separator") +

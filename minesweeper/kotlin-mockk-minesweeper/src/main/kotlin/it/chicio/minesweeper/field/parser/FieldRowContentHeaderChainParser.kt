@@ -40,7 +40,7 @@ class FieldRowContentHeaderChainParser : FieldRowContentChainParser() {
     private fun addFieldIfItHasAValidNumberOfRows(fieldsParsed: ArrayList<Field>?,
                                                   field: Field?,
                                                   currentNumberOfRows: Int) {
-        if (field!!.numberOfRows() < currentNumberOfRows) {
+        if (field!!.numberOfRows < currentNumberOfRows) {
             throw RuntimeException("Invalid number of row")
         }
         fieldsParsed!!.add(field)

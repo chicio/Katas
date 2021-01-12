@@ -6,8 +6,8 @@ class FieldFormatterWithNewlines : FieldFormatter {
     override fun format(field: Field?): String {
         val fieldAsString = StringBuilder()
         if (field != null) {
-            for (row in 0 until (field?.numberOfRows() ?: 0)) {
-                for (column in 0 until field?.numberOfColumn()) {
+            for (row in 0 until (field?.numberOfRows ?: 0)) {
+                for (column in 0 until field?.numberOfColumn) {
                     fieldAsString.append(field[row, column])
                     appendSpaceIfIsNotLastColumn(field, fieldAsString, column)
                 }
@@ -24,6 +24,6 @@ class FieldFormatterWithNewlines : FieldFormatter {
     }
 
     private fun isNotLastColumn(field: Field?, column: Int): Boolean {
-        return column != (field?.numberOfColumn() ?: 0) - 1
+        return column != (field?.numberOfColumn ?: 0) - 1
     }
 }

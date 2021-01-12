@@ -2,46 +2,37 @@ package it.chicio.minesweeper.field
 
 import java.util.*
 
-class Field {
-    private var matrixFieldRepresentation: Array<Array<String?>>
+class Field(val numberOfRows: Int, val numberOfColumn: Int) {
+    private val matrixFieldRepresentation: Array<Array<String>> = Array(numberOfRows) { Array(numberOfColumn) { "" } }
 
-    constructor(matrixFieldRepresentation: Array<Array<String?>>) {
-        this.matrixFieldRepresentation = matrixFieldRepresentation
-    }
-
-    constructor(numberOfRows: Int, numberOfColumn: Int) {
-        matrixFieldRepresentation = Array(numberOfRows) { arrayOfNulls(numberOfColumn) }
-    }
-
-    override fun equals(o: Any?): Boolean {
-        if (this === o) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) {
             return true
         }
-        if (o == null || javaClass != o.javaClass) {
+        if (other == null || javaClass != other.javaClass) {
             return false
         }
-        val field = o as Field
-        return Arrays.deepEquals(matrixFieldRepresentation, field.matrixFieldRepresentation)
+        val field = other as Field
+        return matrixFieldRepresentation.contentDeepEquals(field.matrixFieldRepresentation)
+    }
+
+    override fun hashCode(): Int {
+        var result = numberOfRows
+        result = 31 * result + numberOfColumn
+        result = 31 * result + matrixFieldRepresentation.contentDeepHashCode()
+        return result
     }
 
     private fun has(row: Int, column: Int): Boolean {
-        return row >= 0 && row < numberOfRows() && column >= 0 && column < numberOfColumn()
+        return row in 0 until numberOfRows && column in 0 until numberOfColumn
     }
 
     operator fun get(row: Int, column: Int): String? {
         return matrixFieldRepresentation[row][column]
     }
 
-    operator fun set(row: Int, column: Int, value: String?) {
+    operator fun set(row: Int, column: Int, value: String) {
         matrixFieldRepresentation[row][column] = value
-    }
-
-    fun numberOfRows(): Int {
-        return matrixFieldRepresentation.size
-    }
-
-    fun numberOfColumn(): Int {
-        return matrixFieldRepresentation[0].size
     }
 
     fun neighboursOf(row: Int, column: Int): ArrayList<String?> {

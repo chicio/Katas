@@ -1,5 +1,6 @@
 package it.chicio.minesweeper.field.parser
 
+import it.chicio.minesweeper.FieldFactory
 import it.chicio.minesweeper.field.Field
 import it.chicio.minesweeper.field.parser.FieldsParsingStatus
 import org.hamcrest.CoreMatchers
@@ -27,7 +28,7 @@ class FieldValidRowParserTest {
         `when`(fieldRowContentParser!!.tryToParseRowAndUpdate(any(FieldsParsingStatus::class.java)))
                 .thenReturn(FieldsParsingStatusBuilder()
                         .withCurrentRowContent(newRow)
-                        .withCurrentField(Field(arrayOf(arrayOf("*", "."), arrayOf(".", "*"))))
+                        .withCurrentField(FieldFactory().make(arrayOf(arrayOf("*", "."), arrayOf(".", "*"))))
                         .build()
                 )
         val newFieldsParsingStatus = fieldValidRowParser!!.parse(
@@ -35,7 +36,7 @@ class FieldValidRowParserTest {
                 FieldsParsingStatusBuilder().build()
         )
         Assert.assertThat(newFieldsParsingStatus!!.currentRowContent, CoreMatchers.`is`(CoreMatchers.equalTo(newRow)))
-        Assert.assertThat(newFieldsParsingStatus.currentField, CoreMatchers.`is`(CoreMatchers.equalTo(Field(arrayOf(arrayOf("*", "."), arrayOf(".", "*"))))))
+        Assert.assertThat(newFieldsParsingStatus.currentField, CoreMatchers.`is`(CoreMatchers.equalTo(FieldFactory().make(arrayOf(arrayOf("*", "."), arrayOf(".", "*"))))))
     }
 
     @Test

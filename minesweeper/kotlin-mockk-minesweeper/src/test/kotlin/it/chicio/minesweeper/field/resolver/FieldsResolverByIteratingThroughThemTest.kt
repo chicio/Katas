@@ -1,5 +1,6 @@
 package it.chicio.minesweeper.field.resolver
 
+import it.chicio.minesweeper.FieldFactory
 import it.chicio.minesweeper.field.Field
 import org.hamcrest.CoreMatchers
 import org.junit.Assert
@@ -8,10 +9,10 @@ import org.mockito.Mockito
 import java.util.*
 
 class FieldsResolverByIteratingThroughThemTest {
-    private val field = Field(arrayOf(arrayOf("*", "*", ".", ".", "."), arrayOf(".", ".", ".", ".", "."), arrayOf(".", "*", ".", ".", ".")))
-    private val resolvedField = Field(arrayOf(arrayOf("*", "*", "1", "0", "0"), arrayOf("3", "3", "2", "0", "0"), arrayOf("1", "*", "1", "0", "0")))
-    private val anotherField = Field(arrayOf(arrayOf("*", ".", ".", "."), arrayOf(".", ".", ".", "."), arrayOf(".", "*", ".", "."), arrayOf(".", ".", ".", ".")))
-    private val anotherResolvedField = Field(arrayOf(arrayOf("*", "*", "1", "0", "0"), arrayOf("3", "3", "2", "0", "0"), arrayOf("1", "*", "1", "0", "0")))
+    private val field = FieldFactory().make(arrayOf(arrayOf("*", "*", ".", ".", "."), arrayOf(".", ".", ".", ".", "."), arrayOf(".", "*", ".", ".", ".")))
+    private val resolvedField = FieldFactory().make(arrayOf(arrayOf("*", "*", "1", "0", "0"), arrayOf("3", "3", "2", "0", "0"), arrayOf("1", "*", "1", "0", "0")))
+    private val anotherField = FieldFactory().make(arrayOf(arrayOf("*", ".", ".", "."), arrayOf(".", ".", ".", "."), arrayOf(".", "*", ".", "."), arrayOf(".", ".", ".", ".")))
+    private val anotherResolvedField = FieldFactory().make(arrayOf(arrayOf("*", "*", "1", "0", "0"), arrayOf("3", "3", "2", "0", "0"), arrayOf("1", "*", "1", "0", "0")))
     @Test
     fun resolveSingleFieldList() {
         val fieldResolver = Mockito.mock(FieldResolver::class.java)

@@ -15,14 +15,14 @@ class FieldRowContentValuesChainParser : FieldRowContentChainParser() {
     }
 
     private fun setNewFieldRow(newFieldsParsingStatus: FieldsParsingStatus, columnsValues: Array<String>) {
-        for (column in 0 until newFieldsParsingStatus.currentField!!.numberOfColumn()) {
+        for (column in 0 until newFieldsParsingStatus.currentField!!.numberOfColumn) {
             newFieldsParsingStatus.currentField!![newFieldsParsingStatus.currentRow, column] = columnsValues[column]
         }
         newFieldsParsingStatus.currentRow++
     }
 
     private fun checkIfNumberOfValuesAreCorrect(newFieldsParsingStatus: FieldsParsingStatus, columnsValues: Array<String>) {
-        if (columnsValues.size != newFieldsParsingStatus.currentField!!.numberOfColumn()) {
+        if (columnsValues.size != newFieldsParsingStatus.currentField!!.numberOfColumn) {
             throw RuntimeException()
         }
     }

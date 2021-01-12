@@ -1,5 +1,6 @@
 package it.chicio.minesweeper.field.parser
 
+import it.chicio.minesweeper.FieldFactory
 import it.chicio.minesweeper.field.Field
 import org.hamcrest.CoreMatchers
 import org.junit.Assert
@@ -27,7 +28,7 @@ class FieldRowContentHeaderChainParserTest {
 
     @Test
     fun parseHeader() {
-        val previousField = Field(arrayOf(arrayOf("*")))
+        val previousField = FieldFactory().make(arrayOf(arrayOf("*")))
         val newFieldsParsingStatus = fieldRowContentHeaderChainParser!!.parse(
                 FieldsParsingStatusBuilder()
                         .withCurrentRowContent("2 2")
@@ -37,18 +38,18 @@ class FieldRowContentHeaderChainParserTest {
                         .build()
         )
         Assert.assertThat(newFieldsParsingStatus.fieldsParsed!!.size, CoreMatchers.`is`(1))
-        Assert.assertThat(newFieldsParsingStatus.currentField!!.numberOfColumn(), CoreMatchers.`is`(2))
-        Assert.assertThat(newFieldsParsingStatus.currentField!!.numberOfRows(), CoreMatchers.`is`(2))
+        Assert.assertThat(newFieldsParsingStatus.currentField!!.numberOfColumn, CoreMatchers.`is`(2))
+        Assert.assertThat(newFieldsParsingStatus.currentField!!.numberOfRows, CoreMatchers.`is`(2))
         Assert.assertThat(newFieldsParsingStatus.currentField, CoreMatchers.`is`(CoreMatchers.not(previousField)))
     }
 
     @Test(expected = RuntimeException::class)
     fun failParseForInvalidField() {
-        val previousField = Field(arrayOf())
+        val previousField = FieldFactory().make(arrayOf())
         fieldRowContentHeaderChainParser!!.parse(
                 FieldsParsingStatusBuilder()
                         .withCurrentRowContent("2 2")
-                        .withCurrentField(Field(arrayOf(arrayOf("*"))))
+                        .withCurrentField(FieldFactory().make(arrayOf(arrayOf("*"))))
                         .withHeaderNumberOfRowsForCurrentField(1)
                         .withFieldsParsed(ArrayList())
                         .withCurrentField(previousField)

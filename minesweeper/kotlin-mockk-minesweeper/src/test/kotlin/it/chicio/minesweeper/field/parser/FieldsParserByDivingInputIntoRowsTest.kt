@@ -1,5 +1,6 @@
 package it.chicio.minesweeper.field.parser
 
+import it.chicio.minesweeper.FieldFactory
 import it.chicio.minesweeper.field.Field
 import it.chicio.minesweeper.field.parser.FieldsParsingStatus
 import org.hamcrest.CoreMatchers
@@ -34,7 +35,7 @@ class FieldsParserByDivingInputIntoRowsTest {
     fun parseAValidField() {
         Mockito.`when`(fieldRowParser!!.parse(MockitoHamcrest.argThat(CoreMatchers.`is`("0 0")), any(FieldsParsingStatus::class.java)))
                 .thenReturn(FieldsParsingStatusBuilder().withFieldsParsed(
-                        ArrayList(listOf(Field(arrayOf(arrayOf("*")))))
+                        ArrayList(listOf(FieldFactory().make(arrayOf(arrayOf("*")))))
                 ).build()
                 )
         val fields = fieldsParserByDivingInputIntoRows!!.parse(
@@ -42,7 +43,7 @@ class FieldsParserByDivingInputIntoRowsTest {
                         "*" + System.getProperty("line.separator") +
                         "0 0"
         )
-        Assert.assertThat(fields, CoreMatchers.`is`(CoreMatchers.equalTo(Arrays.asList(Field(arrayOf(arrayOf("*")))))))
+        Assert.assertThat(fields, CoreMatchers.`is`(CoreMatchers.equalTo(Arrays.asList(FieldFactory().make(arrayOf(arrayOf("*")))))))
     }
 
     @Test
@@ -50,7 +51,7 @@ class FieldsParserByDivingInputIntoRowsTest {
         Mockito.`when`(fieldRowParser!!.parse(MockitoHamcrest.argThat(CoreMatchers.`is`("0 0")), any(FieldsParsingStatus::class.java)))
                 .thenReturn(
                         FieldsParsingStatusBuilder().withFieldsParsed(
-                                ArrayList(Arrays.asList(Field(arrayOf(arrayOf("*"))), Field(arrayOf(arrayOf("*")))))
+                                ArrayList(listOf(FieldFactory().make(arrayOf(arrayOf("*"))), FieldFactory().make(arrayOf(arrayOf("*")))))
                         ).build()
                 )
         val fields = fieldsParserByDivingInputIntoRows!!.parse(
@@ -62,8 +63,8 @@ class FieldsParserByDivingInputIntoRowsTest {
                         "0 0"
         )
         Assert.assertThat(fields, CoreMatchers.`is`(CoreMatchers.equalTo(Arrays.asList(
-                Field(arrayOf(arrayOf("*"))),
-                Field(arrayOf(arrayOf("*")))
+                FieldFactory().make(arrayOf(arrayOf("*"))),
+                FieldFactory().make(arrayOf(arrayOf("*")))
         ))))
     }
 
