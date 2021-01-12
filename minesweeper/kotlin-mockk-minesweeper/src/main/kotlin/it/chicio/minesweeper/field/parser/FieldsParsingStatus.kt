@@ -21,7 +21,7 @@ class FieldsParsingStatus {
         this.fieldsParsed = fieldsParsed
     }
 
-    constructor(anotherFieldParsingStatus: FieldsParsingStatus?) {
+    constructor(anotherFieldParsingStatus: FieldsParsingStatus) {
         currentField = anotherFieldParsingStatus!!.currentField
         currentRowContent = anotherFieldParsingStatus.currentRowContent
         currentRow = anotherFieldParsingStatus.currentRow
