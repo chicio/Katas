@@ -3,14 +3,17 @@ package it.chicio.minesweeper.field.resolver
 import it.chicio.minesweeper.field.Field
 
 class FieldResolverByIteratingThroughEachValue : FieldResolver {
+    private val bombMarker = "*"
+
     override fun resolve(field: Field): Field {
         val resolvedField = Field(field.numberOfRows, field.numberOfColumn)
-        for (row in 0 until field.numberOfRows) {
-            for (column in 0 until field.numberOfColumn) {
-                if (isABomb(field[row, column])) {
-                    resolvedField[row, column] = "*"
-                } else {
-                    resolvedField[row, column] = getNumberOfBombsInNeighbours(field, row, column).toString()
+        (0 until field.numberOfRows).forEach { row ->
+            (0 until field.numberOfColumn).forEach { column ->
+                when {
+                    isABomb(field[row, column]) -> {
+                        resolvedField[row, column] = bombMarker
+                    }
+                    else -> resolvedField[row, column] = getNumberOfBombsInNeighbours(field, row, column).toString()
                 }
             }
         }
@@ -18,7 +21,7 @@ class FieldResolverByIteratingThroughEachValue : FieldResolver {
     }
 
     private fun isABomb(value: String?): Boolean {
-        return value == "*"
+        return value == bombMarker
     }
 
     private fun getNumberOfBombsInNeighbours(field: Field, row: Int, column: Int): Int {
