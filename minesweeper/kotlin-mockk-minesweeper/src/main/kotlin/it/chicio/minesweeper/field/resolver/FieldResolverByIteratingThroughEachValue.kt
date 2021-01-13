@@ -10,9 +10,7 @@ class FieldResolverByIteratingThroughEachValue : FieldResolver {
         (0 until field.numberOfRows).forEach { row ->
             (0 until field.numberOfColumn).forEach { column ->
                 when {
-                    isABomb(field[row, column]) -> {
-                        resolvedField[row, column] = bombMarker
-                    }
+                    isABomb(field[row, column]) -> resolvedField[row, column] = bombMarker
                     else -> resolvedField[row, column] = getNumberOfBombsInNeighbours(field, row, column).toString()
                 }
             }
@@ -20,17 +18,13 @@ class FieldResolverByIteratingThroughEachValue : FieldResolver {
         return resolvedField
     }
 
-    private fun isABomb(value: String?): Boolean {
-        return value == bombMarker
-    }
+    private fun isABomb(value: String?): Boolean = value == bombMarker
 
-    private fun getNumberOfBombsInNeighbours(field: Field, row: Int, column: Int): Int {
-        var numberOfBombsNearCell = 0
-        for (value in field.neighboursOf(row, column)) {
-            if (isABomb(value)) {
-                numberOfBombsNearCell++
-            }
-        }
-        return numberOfBombsNearCell
-    }
+    private fun getNumberOfBombsInNeighbours(field: Field, row: Int, column: Int): Int =
+            field.neighboursOf(row, column).fold(0, { sumOfNeighbours, cell ->
+                when {
+                    isABomb(cell) -> sumOfNeighbours + 1
+                    else -> sumOfNeighbours
+                }
+            })
 }

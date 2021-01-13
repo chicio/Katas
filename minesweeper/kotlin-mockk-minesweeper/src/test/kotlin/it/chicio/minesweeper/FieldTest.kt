@@ -1,11 +1,9 @@
 package it.chicio.minesweeper
 
-import it.chicio.minesweeper.field.Field
 import org.hamcrest.CoreMatchers
 import org.junit.Assert
 import org.junit.Test
 import java.util.*
-
 
 class FieldTest {
     @Test
