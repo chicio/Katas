@@ -5,10 +5,10 @@ import java.util.*
 
 class FieldsResolverByIteratingThroughThem(private val fieldResolver: FieldResolver) : FieldsResolver {
     override fun resolve(fields: List<Field>): List<Field?> {
-        val resolvedFields = ArrayList<Field?>()
+        val resolvedFields = mutableListOf<Field>()
         for (field in fields) {
             resolvedFields.add(fieldResolver.resolve(field))
         }
-        return resolvedFields
+        return resolvedFields.toList()
     }
 }
