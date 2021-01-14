@@ -3,7 +3,7 @@ package it.chicio.minesweeper.field.formatter
 import it.chicio.minesweeper.field.Field
 
 class FieldsFormatterWithHeader(private val fieldFormatter: FieldFormatter) : FieldsFormatter {
-    override fun format(fields: List<Field?>): String {
+    override fun format(fields: List<Field>): String {
         val formattedField = StringBuilder()
         var currentFieldPosition = 1
         for (field in fields) {
@@ -20,7 +20,6 @@ class FieldsFormatterWithHeader(private val fieldFormatter: FieldFormatter) : Fi
         }
     }
 
-    private fun createHeaderFor(currentField: Int): String {
-        return "field #" + currentField + ":" + System.getProperty("line.separator")
-    }
+    private fun createHeaderFor(currentField: Int): String =
+            "field #" + currentField + ":" + System.getProperty("line.separator")
 }

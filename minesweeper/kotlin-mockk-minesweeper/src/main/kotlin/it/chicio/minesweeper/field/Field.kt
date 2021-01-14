@@ -14,7 +14,6 @@ class Field(val numberOfRows: Int, val numberOfColumn: Int) {
         return matrixFieldRepresentation == field.matrixFieldRepresentation
     }
 
-
     override fun hashCode(): Int {
         var result = numberOfRows
         result = 31 * result + numberOfColumn
