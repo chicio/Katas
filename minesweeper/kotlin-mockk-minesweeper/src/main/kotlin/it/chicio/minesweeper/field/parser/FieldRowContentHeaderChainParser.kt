@@ -37,7 +37,7 @@ class FieldRowContentHeaderChainParser : FieldRowContentChainParser() {
     }
 
     @Throws(RuntimeException::class)
-    private fun addFieldIfItHasAValidNumberOfRows(fieldsParsed: ArrayList<Field>?,
+    private fun addFieldIfItHasAValidNumberOfRows(fieldsParsed: MutableList<Field>,
                                                   field: Field?,
                                                   currentNumberOfRows: Int) {
         if (field!!.numberOfRows < currentNumberOfRows) {

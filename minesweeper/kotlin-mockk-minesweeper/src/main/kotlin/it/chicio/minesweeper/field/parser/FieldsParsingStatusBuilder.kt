@@ -8,7 +8,7 @@ class FieldsParsingStatusBuilder {
     private var currentRowContent: String? = null
     private var currentRow = 0
     private var headerNumberOfRowsForCurrentField = 0
-    private var fieldsParsed: ArrayList<Field>? = null
+    private var fieldsParsed: MutableList<Field> = mutableListOf()
     fun withCurrentField(currentField: Field?): FieldsParsingStatusBuilder {
         this.currentField = currentField
         return this
@@ -29,7 +29,7 @@ class FieldsParsingStatusBuilder {
         return this
     }
 
-    fun withFieldsParsed(fieldsParsed: ArrayList<Field>?): FieldsParsingStatusBuilder {
+    fun withFieldsParsed(fieldsParsed: MutableList<Field>): FieldsParsingStatusBuilder {
         this.fieldsParsed = fieldsParsed
         return this
     }

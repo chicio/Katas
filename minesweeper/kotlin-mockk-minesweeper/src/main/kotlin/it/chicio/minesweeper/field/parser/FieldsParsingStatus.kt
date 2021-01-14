@@ -8,5 +8,5 @@ data class FieldsParsingStatus(
     var currentRowContent: String?,
     var currentRow: Int,
     var headerNumberOfRowsForCurrentField: Int,
-    var fieldsParsed: ArrayList<Field>?
+    var fieldsParsed: MutableList<Field>
 )

@@ -3,7 +3,7 @@ package it.chicio.minesweeper.field.parser
 import it.chicio.minesweeper.field.Field
 
 class FieldRowContentTerminationChainParser : FieldRowContentChainParser() {
-    public override fun canParse(row: String?): Boolean {
+    override fun canParse(row: String?): Boolean {
         return isTermination(row)
     }
 
@@ -12,7 +12,7 @@ class FieldRowContentTerminationChainParser : FieldRowContentChainParser() {
     }
 
     @Throws(RuntimeException::class)
-    public override fun parse(fieldsParsingStatus: FieldsParsingStatus): FieldsParsingStatus {
+    override fun parse(fieldsParsingStatus: FieldsParsingStatus): FieldsParsingStatus {
         val newFieldsParsingStatus = fieldsParsingStatus.copy()
         if (isValid(newFieldsParsingStatus.currentField)) {
             newFieldsParsingStatus.fieldsParsed!!.add(newFieldsParsingStatus.currentField!!)
