@@ -14,7 +14,7 @@ class FieldRowContentHeaderChainParser : FieldRowContentChainParser() {
 
     @Throws(RuntimeException::class)
     override fun parse(fieldsParsingStatus: FieldsParsingStatus): FieldsParsingStatus {
-        val newFieldsParsingStatus = FieldsParsingStatus(fieldsParsingStatus)
+        val newFieldsParsingStatus = fieldsParsingStatus.copy()
         if (isValid(fieldsParsingStatus.currentField)) {
             addFieldIfItHasAValidNumberOfRows(
                     newFieldsParsingStatus.fieldsParsed,

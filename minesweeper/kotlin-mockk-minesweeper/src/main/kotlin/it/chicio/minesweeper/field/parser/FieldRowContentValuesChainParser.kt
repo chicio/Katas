@@ -1,13 +1,13 @@
 package it.chicio.minesweeper.field.parser
 
 class FieldRowContentValuesChainParser : FieldRowContentChainParser() {
-    public override fun canParse(row: String?): Boolean {
+    override fun canParse(row: String?): Boolean {
         return isNotHeader(row) && isNotTermination(row)
     }
 
     @Throws(RuntimeException::class)
-    public override fun parse(fieldsParsingStatus: FieldsParsingStatus): FieldsParsingStatus {
-        val newFieldsParsingStatus = FieldsParsingStatus(fieldsParsingStatus)
+    override fun parse(fieldsParsingStatus: FieldsParsingStatus): FieldsParsingStatus {
+        val newFieldsParsingStatus = fieldsParsingStatus.copy()
         val columnsValues = newFieldsParsingStatus.currentRowContent!!.split(" ").toTypedArray()
         checkIfNumberOfValuesAreCorrect(newFieldsParsingStatus, columnsValues)
         setNewFieldRow(newFieldsParsingStatus, columnsValues)

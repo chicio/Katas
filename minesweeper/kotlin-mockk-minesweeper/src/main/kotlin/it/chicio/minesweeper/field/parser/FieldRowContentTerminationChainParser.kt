@@ -13,7 +13,7 @@ class FieldRowContentTerminationChainParser : FieldRowContentChainParser() {
 
     @Throws(RuntimeException::class)
     public override fun parse(fieldsParsingStatus: FieldsParsingStatus): FieldsParsingStatus {
-        val newFieldsParsingStatus = FieldsParsingStatus(fieldsParsingStatus)
+        val newFieldsParsingStatus = fieldsParsingStatus.copy()
         if (isValid(newFieldsParsingStatus.currentField)) {
             newFieldsParsingStatus.fieldsParsed!!.add(newFieldsParsingStatus.currentField!!)
         }
