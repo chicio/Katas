@@ -13,6 +13,7 @@ import org.mockito.Mockito.mock
 class FieldValidRowParserTest {
     private var fieldRowContentParser: FieldRowContentParser? = null
     private var fieldValidRowParser: FieldValidRowParser? = null
+
     @Before
     fun setUp() {
         fieldRowContentParser = mock(FieldRowContentParser::class.java)
@@ -25,11 +26,10 @@ class FieldValidRowParserTest {
     fun parseAValidRow() {
         val newRow = ". *"
         `when`(fieldRowContentParser!!.tryToParseRowAndUpdate(any(FieldsParsingStatus::class.java)))
-                .thenReturn(FieldsParsingStatusBuilder()
-                        .withCurrentRowContent(newRow)
-                        .withCurrentField(FieldFactory().make(arrayOf(arrayOf("*", "."), arrayOf(".", "*"))))
-                        .build()
-                )
+                .thenReturn(FieldsParsingStatusBuilder(
+                        currentRowContent = newRow,
+                        currentField = FieldFactory().make(arrayOf(arrayOf("*", "."), arrayOf(".", "*")))
+                ).build())
         val newFieldsParsingStatus = fieldValidRowParser!!.parse(
                 newRow,
                 FieldsParsingStatusBuilder().build()
@@ -43,7 +43,7 @@ class FieldValidRowParserTest {
         val currentRowContent = "* *"
         val newFieldsParsingStatus = fieldValidRowParser!!.parse(
                 "",
-                FieldsParsingStatusBuilder().withCurrentRowContent(currentRowContent).build()
+                FieldsParsingStatusBuilder(currentRowContent = currentRowContent).build()
         )
         Assert.assertThat(newFieldsParsingStatus!!.currentRowContent, CoreMatchers.`is`(CoreMatchers.equalTo(currentRowContent)))
     }

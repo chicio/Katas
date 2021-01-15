@@ -29,12 +29,10 @@ class FieldRowContentTerminationChainParserTest {
     @Test
     fun parseValidTerminationRow() {
         val currentField = FieldFactory().make(arrayOf(arrayOf("*")))
-        val fieldsParsingStatus = fieldRowContentTerminationChainParser!!.parse(FieldsParsingStatusBuilder()
-                .withCurrentField(currentField)
-                .withFieldsParsed(ArrayList())
-                .withCurrentRow(1)
-                .build()
-        )
+        val fieldsParsingStatus = fieldRowContentTerminationChainParser!!.parse(FieldsParsingStatusBuilder(
+                currentField = currentField,
+                currentRow = 1
+        ).build())
         Assert.assertThat(fieldsParsingStatus.fieldsParsed!!.size, CoreMatchers.`is`(1))
         Assert.assertThat(fieldsParsingStatus.fieldsParsed!![0], CoreMatchers.`is`(CoreMatchers.equalTo(currentField)))
     }

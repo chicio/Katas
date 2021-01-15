@@ -2,58 +2,57 @@ package it.chicio.minesweeper.field.parser
 
 import it.chicio.minesweeper.FieldFactory
 import it.chicio.minesweeper.FieldsParsingStatusBuilder
-import org.hamcrest.CoreMatchers
-import org.junit.Assert
-import org.junit.Before
-import org.junit.Test
+import it.chicio.minesweeper.field.Field
+import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 import java.util.*
 
 class FieldRowContentHeaderChainParserTest {
-    private var fieldRowContentHeaderChainParser: FieldRowContentHeaderChainParser? = null
-    @Before
+    private lateinit var fieldRowContentHeaderChainParser: FieldRowContentHeaderChainParser
+
+    @BeforeEach
     fun setUp() {
         fieldRowContentHeaderChainParser = FieldRowContentHeaderChainParser()
     }
 
     @Test
-    fun canParseValidHeaderRow() {
-        Assert.assertThat(fieldRowContentHeaderChainParser!!.canParse("1 1"), CoreMatchers.`is`(true))
-    }
+    fun canParseValidHeaderRow() =
+            assertTrue(fieldRowContentHeaderChainParser.canParse("1 1"))
 
     @Test
     fun canNotParseValidHeaderRow() {
-        Assert.assertThat(fieldRowContentHeaderChainParser!!.canParse("1"), CoreMatchers.`is`(false))
-        Assert.assertThat(fieldRowContentHeaderChainParser!!.canParse(""), CoreMatchers.`is`(false))
+        assertFalse(fieldRowContentHeaderChainParser.canParse("1"))
+        assertFalse(fieldRowContentHeaderChainParser.canParse(""))
     }
 
     @Test
     fun parseHeader() {
         val previousField = FieldFactory().make(arrayOf(arrayOf("*")))
-        val newFieldsParsingStatus = fieldRowContentHeaderChainParser!!.parse(
-                FieldsParsingStatusBuilder()
-                        .withCurrentRowContent("2 2")
-                        .withHeaderNumberOfRowsForCurrentField(1)
-                        .withFieldsParsed(ArrayList())
-                        .withCurrentField(previousField)
-                        .build()
+        val newFieldsParsingStatus = fieldRowContentHeaderChainParser.parse(
+                FieldsParsingStatusBuilder(
+                        currentField = previousField,
+                        currentRowContent = "2 2",
+                        headerNumberOfRowsForCurrentField = 1,
+                ).build()
         )
-        Assert.assertThat(newFieldsParsingStatus.fieldsParsed!!.size, CoreMatchers.`is`(1))
-        Assert.assertThat(newFieldsParsingStatus.currentField!!.numberOfColumn, CoreMatchers.`is`(2))
-        Assert.assertThat(newFieldsParsingStatus.currentField!!.numberOfRows, CoreMatchers.`is`(2))
-        Assert.assertThat(newFieldsParsingStatus.currentField, CoreMatchers.`is`(CoreMatchers.not(previousField)))
+        assertEquals(newFieldsParsingStatus.fieldsParsed.size, 1)
+        assertEquals(newFieldsParsingStatus.currentField!!.numberOfColumn, 2)
+        assertEquals(newFieldsParsingStatus.currentField!!.numberOfRows, 2)
+        assertNotEquals(newFieldsParsingStatus.currentField, previousField)
     }
 
-    @Test(expected = RuntimeException::class)
+    @Test
     fun failParseForInvalidField() {
-        val previousField = FieldFactory().make(arrayOf())
-        fieldRowContentHeaderChainParser!!.parse(
-                FieldsParsingStatusBuilder()
-                        .withCurrentRowContent("2 2")
-                        .withCurrentField(FieldFactory().make(arrayOf(arrayOf("*"))))
-                        .withHeaderNumberOfRowsForCurrentField(1)
-                        .withFieldsParsed(ArrayList())
-                        .withCurrentField(previousField)
-                        .build()
-        )
+
+        assertThrows(RuntimeException::class.java) {
+            fieldRowContentHeaderChainParser.parse(
+                    FieldsParsingStatusBuilder(
+                            currentRowContent = "2 2",
+                            currentField = FieldFactory().make(arrayOf()),
+                            headerNumberOfRowsForCurrentField = 1,
+                    ).build()
+            )
+        }
     }
 }

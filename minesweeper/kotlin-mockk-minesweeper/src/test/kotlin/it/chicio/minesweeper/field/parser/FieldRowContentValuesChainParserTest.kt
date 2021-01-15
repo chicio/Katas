@@ -27,23 +27,21 @@ class FieldRowContentValuesChainParserTest {
 
     @Test
     fun parseRow() {
-        val fieldsParsingStatus = fieldRowContentValuesChainParser!!.parse(FieldsParsingStatusBuilder()
-                .withCurrentField(FieldFactory().make(arrayOf(arrayOf("*", "."), arrayOf("", ""))))
-                .withCurrentRow(1)
-                .withCurrentRowContent("* *")
-                .build()
-        )
+        val fieldsParsingStatus = fieldRowContentValuesChainParser!!.parse(FieldsParsingStatusBuilder(
+                currentField = FieldFactory().make(arrayOf(arrayOf("*", "."), arrayOf("", ""))),
+                currentRow = 1,
+                currentRowContent = "* *"
+        ).build())
         Assert.assertThat(fieldsParsingStatus.currentField!![1, 0], CoreMatchers.`is`(CoreMatchers.equalTo("*")))
         Assert.assertThat(fieldsParsingStatus.currentField!![1, 1], CoreMatchers.`is`(CoreMatchers.equalTo("*")))
     }
 
     @Test(expected = RuntimeException::class)
     fun failParseRow() {
-        fieldRowContentValuesChainParser!!.parse(FieldsParsingStatusBuilder()
-                .withCurrentField(FieldFactory().make(arrayOf(arrayOf("*", "."), arrayOf("", ""))))
-                .withCurrentRow(1)
-                .withCurrentRowContent("* * *")
-                .build()
-        )
+        fieldRowContentValuesChainParser!!.parse(FieldsParsingStatusBuilder(
+                currentField = FieldFactory().make(arrayOf(arrayOf("*", "."), arrayOf("", ""))),
+                currentRow = 1,
+                currentRowContent = "* * *"
+        ).build())
     }
 }
