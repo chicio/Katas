@@ -1,7 +1,7 @@
 package it.chicio.minesweeper.field.parser
 
 import it.chicio.minesweeper.FieldFactory
-import it.chicio.minesweeper.field.Field
+import it.chicio.minesweeper.FieldsParsingStatusBuilder
 import org.hamcrest.CoreMatchers
 import org.junit.Assert
 import org.junit.Before

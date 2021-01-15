@@ -1,7 +1,7 @@
-package it.chicio.minesweeper.field.parser
+package it.chicio.minesweeper
 
 import it.chicio.minesweeper.field.Field
-import java.util.*
+import it.chicio.minesweeper.field.parser.FieldsParsingStatus
 
 class FieldsParsingStatusBuilder {
     private var currentField: Field? = null

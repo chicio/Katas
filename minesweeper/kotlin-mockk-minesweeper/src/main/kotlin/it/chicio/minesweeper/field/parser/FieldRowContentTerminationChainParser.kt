@@ -1,26 +1,15 @@
 package it.chicio.minesweeper.field.parser
 
-import it.chicio.minesweeper.field.Field
-
 class FieldRowContentTerminationChainParser : FieldRowContentChainParser() {
-    override fun canParse(row: String?): Boolean {
-        return isTermination(row)
-    }
+    override fun canParse(row: String?): Boolean = isTermination(row)
 
-    private fun isTermination(row: String?): Boolean {
-        return row == "0 0"
-    }
+    private fun isTermination(row: String?): Boolean = row == "0 0"
 
-    @Throws(RuntimeException::class)
-    override fun parse(fieldsParsingStatus: FieldsParsingStatus): FieldsParsingStatus {
-        val newFieldsParsingStatus = fieldsParsingStatus.copy()
-        if (isValid(newFieldsParsingStatus.currentField)) {
-            newFieldsParsingStatus.fieldsParsed!!.add(newFieldsParsingStatus.currentField!!)
-        }
-        return newFieldsParsingStatus
-    }
-
-    private fun isValid(field: Field?): Boolean {
-        return field != null
-    }
+    override fun parse(fieldsParsingStatus: FieldsParsingStatus): FieldsParsingStatus = fieldsParsingStatus
+            .currentField
+            ?.let {
+                val newFieldParsingStatus = fieldsParsingStatus.copy()
+                newFieldParsingStatus.fieldsParsed.add(it)
+                newFieldParsingStatus
+            } ?: fieldsParsingStatus.copy()
 }

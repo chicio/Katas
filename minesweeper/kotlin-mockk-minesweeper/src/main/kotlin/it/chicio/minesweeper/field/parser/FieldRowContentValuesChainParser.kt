@@ -1,24 +1,28 @@
 package it.chicio.minesweeper.field.parser
 
 class FieldRowContentValuesChainParser : FieldRowContentChainParser() {
-    override fun canParse(row: String?): Boolean {
-        return isNotHeader(row) && isNotTermination(row)
-    }
+    override fun canParse(row: String?): Boolean = isNotHeader(row) && isNotTermination(row)
 
     @Throws(RuntimeException::class)
     override fun parse(fieldsParsingStatus: FieldsParsingStatus): FieldsParsingStatus {
         val newFieldsParsingStatus = fieldsParsingStatus.copy()
-        val columnsValues = newFieldsParsingStatus.currentRowContent!!.split(" ").toTypedArray()
-        checkIfNumberOfValuesAreCorrect(newFieldsParsingStatus, columnsValues)
-        setNewFieldRow(newFieldsParsingStatus, columnsValues)
+        newFieldsParsingStatus
+                .currentRowContent
+                ?.let {
+                    val columnsValues = it.split(" ").toTypedArray()
+                    checkIfNumberOfValuesAreCorrect(newFieldsParsingStatus, columnsValues)
+                    setNewFieldRow(newFieldsParsingStatus, columnsValues)
+                }
         return newFieldsParsingStatus
     }
 
     private fun setNewFieldRow(newFieldsParsingStatus: FieldsParsingStatus, columnsValues: Array<String>) {
-        for (column in 0 until newFieldsParsingStatus.currentField!!.numberOfColumn) {
-            newFieldsParsingStatus.currentField!![newFieldsParsingStatus.currentRow, column] = columnsValues[column]
+        newFieldsParsingStatus.currentField?.let {
+            for (column in 0 until it.numberOfColumn) {
+                it[newFieldsParsingStatus.currentRow, column] = columnsValues[column]
+            }
+            newFieldsParsingStatus.currentRow++
         }
-        newFieldsParsingStatus.currentRow++
     }
 
     private fun checkIfNumberOfValuesAreCorrect(newFieldsParsingStatus: FieldsParsingStatus, columnsValues: Array<String>) {
@@ -27,11 +31,7 @@ class FieldRowContentValuesChainParser : FieldRowContentChainParser() {
         }
     }
 
-    private fun isNotHeader(row: String?): Boolean {
-        return !row!!.matches(Regex("(\\d \\d)"))
-    }
+    private fun isNotHeader(row: String?): Boolean = !(row?.let { it.matches(Regex("(\\d \\d)")) } ?: true)
 
-    private fun isNotTermination(row: String?): Boolean {
-        return row != "0 0"
-    }
+    private fun isNotTermination(row: String?): Boolean = row != "0 0"
 }
