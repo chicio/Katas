@@ -5,9 +5,8 @@ import it.chicio.minesweeper.field.formatter.FieldsFormatterWithHeader
 import it.chicio.minesweeper.field.parser.*
 import it.chicio.minesweeper.field.resolver.FieldResolverByIteratingThroughEachValue
 import it.chicio.minesweeper.field.resolver.FieldsResolverByIteratingThroughThem
-import org.hamcrest.CoreMatchers
-import org.junit.Assert
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 
 class MinesweeperIntegrationTest {
     private val FORMATTED_PLAYED_FIELD = "field #1:" + System.getProperty("line.separator") +
@@ -34,7 +33,7 @@ class MinesweeperIntegrationTest {
                 FIELD + System.getProperty("line.separator") + ANOTHER_FIELD + "0 0"
         )
         val gameResult = minesweeper.play()
-        Assert.assertThat(gameResult, CoreMatchers.`is`(CoreMatchers.equalTo(playedGamed)))
+        assertEquals(gameResult, playedGamed)
     }
 
     companion object {

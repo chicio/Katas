@@ -4,9 +4,8 @@ import it.chicio.minesweeper.field.Field
 import it.chicio.minesweeper.field.formatter.FieldsFormatter
 import it.chicio.minesweeper.field.parser.FieldsParser
 import it.chicio.minesweeper.field.resolver.FieldsResolver
-import org.hamcrest.CoreMatchers
-import org.junit.Assert
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 import org.mockito.Mockito
 import java.util.*
 
@@ -36,7 +35,7 @@ class MinesweeperTest {
         Mockito.`when`(fieldsFormatter.format(fields)).thenReturn("")
         val minesweeper = Minesweeper(fieldsParser, fieldsResolver, fieldsFormatter, "0 0")
         val gameResult = minesweeper.play()
-        Assert.assertThat(gameResult, CoreMatchers.`is`(""))
+        assertEquals(gameResult, "")
     }
 
     @Test
@@ -55,7 +54,7 @@ class MinesweeperTest {
                 FIELD + TERMINATION
         )
         val gameResult = minesweeper.play()
-        Assert.assertThat(gameResult, CoreMatchers.`is`(FORMATTED_PLAYED_FIELD))
+        assertEquals(gameResult, FORMATTED_PLAYED_FIELD)
     }
 
     @Test
@@ -70,9 +69,9 @@ class MinesweeperTest {
                 .thenReturn(FORMATTED_PLAYED_FIELD + System.getProperty("line.separator") + ANOTHER_FORMATTED_PLAYED_FIELD)
         val minesweeper = Minesweeper(fieldsParser, fieldsResolver, fieldsFormatter, FIELD + ANOTHER_FIELD + TERMINATION)
         val gameResult = minesweeper.play()
-        Assert.assertThat(
+        assertEquals(
                 gameResult,
-                CoreMatchers.`is`(FORMATTED_PLAYED_FIELD + System.getProperty("line.separator") + ANOTHER_FORMATTED_PLAYED_FIELD)
+                FORMATTED_PLAYED_FIELD + System.getProperty("line.separator") + ANOTHER_FORMATTED_PLAYED_FIELD
         )
     }
 

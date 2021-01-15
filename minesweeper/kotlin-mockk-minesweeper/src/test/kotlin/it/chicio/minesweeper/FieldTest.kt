@@ -1,44 +1,50 @@
 package it.chicio.minesweeper
 
-import org.hamcrest.CoreMatchers
-import org.junit.Assert
-import org.junit.Test
-import java.util.*
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.Nested
+import org.junit.jupiter.api.Test
 
+@DisplayName("Field")
 class FieldTest {
-    @Test
-    fun neighboursFor1x1Field() {
-        val field = FieldFactory().make(arrayOf(arrayOf("*")))
-        Assert.assertThat(field.neighboursOf(0, 0), CoreMatchers.`is`(CoreMatchers.equalTo(ArrayList())))
-    }
+    @Nested
+    @DisplayName("neighbours for")
+    inner class NeighboursTest {
+        @Test
+        fun `1x1 field`() =
+                assertEquals(FieldFactory().make(arrayOf(arrayOf("*"))).neighboursOf(0, 0), emptyList<String>())
 
-    @Test
-    fun neighboursFor1x2FieldOnLeft() {
-        val field = FieldFactory().make(arrayOf(arrayOf("*", ".")))
-        Assert.assertThat(field.neighboursOf(0, 1), CoreMatchers.`is`(CoreMatchers.equalTo(listOf("*"))))
-    }
+        @Test
+        fun `1x2 on left`() =
+                assertEquals(FieldFactory().make(arrayOf(arrayOf("*", "."))).neighboursOf(0, 1), listOf("*"))
 
-    @Test
-    fun neighboursFor2x1FieldOnRight() {
-        val field = FieldFactory().make(arrayOf(arrayOf(".", "*")))
-        Assert.assertThat(field.neighboursOf(0, 0), CoreMatchers.`is`(CoreMatchers.equalTo(listOf("*"))))
-    }
+        @Test
+        fun `2x1 on right`() =
+                assertEquals(FieldFactory().make(arrayOf(arrayOf(".", "*"))).neighboursOf(0, 0),listOf("*"))
 
-    @Test
-    fun neighboursFor2x2FieldOnRight() {
-        val field = FieldFactory().make(arrayOf(arrayOf(".", "*"), arrayOf("*", "*")))
-        Assert.assertThat(field.neighboursOf(0, 0), CoreMatchers.`is`(CoreMatchers.equalTo(Arrays.asList("*", "*", "*"))))
-    }
+        @Test
+        fun `2x2 on right`() =
+                assertEquals(
+                        FieldFactory()
+                                .make(arrayOf(arrayOf(".", "*"), arrayOf("*", "*")))
+                                .neighboursOf(0, 0),
+                        listOf("*", "*", "*")
+                )
 
-    @Test
-    fun neighboursFor2x3FieldOnRightAndLeft() {
-        val field = FieldFactory().make(arrayOf(arrayOf("*", ".", "*"), arrayOf("*", "*", "*")))
-        Assert.assertThat(field.neighboursOf(0, 1), CoreMatchers.`is`(CoreMatchers.equalTo(Arrays.asList("*", "*", "*", "*", "*"))))
-    }
+        @Test
+        fun `2x3 on right and left`() =
+                assertEquals(
+                        FieldFactory()
+                                .make(arrayOf(arrayOf("*", ".", "*"), arrayOf("*", "*", "*")))
+                                .neighboursOf(0, 1),
+                        listOf("*", "*", "*", "*", "*")
+                )
 
-    @Test
-    fun resolve3x3FieldWith3Bomb() {
-        val field = FieldFactory().make(arrayOf(arrayOf("*", "*", "*"), arrayOf("*", ".", "*"), arrayOf("*", "*", "*")))
-        Assert.assertThat(field.neighboursOf(1, 1), CoreMatchers.`is`(CoreMatchers.equalTo(Arrays.asList("*", "*", "*", "*", "*", "*", "*", "*"))))
+        @Test
+        fun `3x3 with 3 bombs`() = assertEquals(
+                FieldFactory()
+                        .make(arrayOf(arrayOf("*", "*", "*"), arrayOf("*", ".", "*"), arrayOf("*", "*", "*")))
+                        .neighboursOf(1, 1), listOf("*", "*", "*", "*", "*", "*", "*", "*")
+        )
     }
 }
