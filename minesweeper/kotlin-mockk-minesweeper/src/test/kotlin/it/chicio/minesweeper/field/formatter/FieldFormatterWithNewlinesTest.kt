@@ -1,21 +1,28 @@
 package it.chicio.minesweeper.field.formatter
 
 import it.chicio.minesweeper.FieldFactory
-import it.chicio.minesweeper.field.Field
-import org.hamcrest.CoreMatchers
-import org.junit.Assert
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 
 class FieldFormatterWithNewlinesTest {
     @Test
-    fun formatField() {
-        val fieldFormatterWithNewlines = FieldFormatterWithNewlines()
-        val formattedField = fieldFormatterWithNewlines.format(FieldFactory().make(arrayOf(arrayOf("*", "1", "0", "0"), arrayOf("2", "2", "1", "0"), arrayOf("1", "*", "1", "0"), arrayOf("1", "1", "1", "0"))))
-        Assert.assertThat(formattedField, CoreMatchers.`is`(
-                "* 1 0 0" + System.getProperty("line.separator") +
-                        "2 2 1 0" + System.getProperty("line.separator") +
-                        "1 * 1 0" + System.getProperty("line.separator") +
-                        "1 1 1 0" + System.getProperty("line.separator")
-        ))
-    }
+    fun formatField() = assertEquals(
+            FieldFormatterWithNewlines().format(
+                    FieldFactory().make(
+                            arrayOf(
+                                    arrayOf("*", "1", "0", "0"),
+                                    arrayOf("2", "2", "1", "0"),
+                                    arrayOf("1", "*", "1", "0"),
+                                    arrayOf("1", "1", "1", "0")
+                            )
+                    )
+            ),
+            """
+            * 1 0 0
+            2 2 1 0
+            1 * 1 0
+            1 1 1 0
+            
+            """.trimIndent()
+    )
 }

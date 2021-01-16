@@ -2,49 +2,50 @@ package it.chicio.minesweeper.field.parser
 
 import it.chicio.minesweeper.FieldFactory
 import it.chicio.minesweeper.FieldsParsingStatusBuilder
-import org.hamcrest.CoreMatchers
-import org.junit.Assert
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.Test
 import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
 
+@DisplayName("FieldValidRowParser")
 class FieldValidRowParserTest {
-    private var fieldRowContentParser: FieldRowContentParser? = null
-    private var fieldValidRowParser: FieldValidRowParser? = null
+    private lateinit var fieldRowContentParser: FieldRowContentParser
+    private lateinit var fieldValidRowParser: FieldValidRowParser
 
-    @Before
+    @BeforeEach
     fun setUp() {
         fieldRowContentParser = mock(FieldRowContentParser::class.java)
-        fieldValidRowParser = FieldValidRowParser(fieldRowContentParser!!)
+        fieldValidRowParser = FieldValidRowParser(fieldRowContentParser)
     }
 
     private fun <T> any(type: Class<T>): T = Mockito.any(type)
 
     @Test
-    fun parseAValidRow() {
+    fun `parse a valid row`() {
         val newRow = ". *"
-        `when`(fieldRowContentParser!!.tryToParseRowAndUpdate(any(FieldsParsingStatus::class.java)))
+        `when`(fieldRowContentParser.tryToParseRowAndUpdate(any(FieldsParsingStatus::class.java)))
                 .thenReturn(FieldsParsingStatusBuilder(
                         currentRowContent = newRow,
                         currentField = FieldFactory().make(arrayOf(arrayOf("*", "."), arrayOf(".", "*")))
                 ).build())
-        val newFieldsParsingStatus = fieldValidRowParser!!.parse(
+        val newFieldsParsingStatus = fieldValidRowParser.parse(
                 newRow,
                 FieldsParsingStatusBuilder().build()
         )
-        Assert.assertThat(newFieldsParsingStatus!!.currentRowContent, CoreMatchers.`is`(CoreMatchers.equalTo(newRow)))
-        Assert.assertThat(newFieldsParsingStatus.currentField, CoreMatchers.`is`(CoreMatchers.equalTo(FieldFactory().make(arrayOf(arrayOf("*", "."), arrayOf(".", "*"))))))
+        assertEquals(newFieldsParsingStatus.currentRowContent, newRow)
+        assertEquals(newFieldsParsingStatus.currentField, FieldFactory().make(arrayOf(arrayOf("*", "."), arrayOf(".", "*"))))
     }
 
     @Test
-    fun parseInvalidRow() {
+    fun `parse invalid row`() {
         val currentRowContent = "* *"
-        val newFieldsParsingStatus = fieldValidRowParser!!.parse(
+        val newFieldsParsingStatus = fieldValidRowParser.parse(
                 "",
                 FieldsParsingStatusBuilder(currentRowContent = currentRowContent).build()
         )
-        Assert.assertThat(newFieldsParsingStatus!!.currentRowContent, CoreMatchers.`is`(CoreMatchers.equalTo(currentRowContent)))
+        assertEquals(newFieldsParsingStatus.currentRowContent, currentRowContent)
     }
 }
