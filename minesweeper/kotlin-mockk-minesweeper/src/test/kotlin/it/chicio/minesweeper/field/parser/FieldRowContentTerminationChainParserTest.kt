@@ -6,34 +6,36 @@ import org.hamcrest.CoreMatchers
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
-import java.util.*
+import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.DisplayName
 
+@DisplayName("FieldRowContentTerminationChainParser")
 class FieldRowContentTerminationChainParserTest {
-    private var fieldRowContentTerminationChainParser: FieldRowContentTerminationChainParser? = null
+    private lateinit var fieldRowContentTerminationChainParser: FieldRowContentTerminationChainParser
     @Before
     fun setUp() {
         fieldRowContentTerminationChainParser = FieldRowContentTerminationChainParser()
     }
 
     @Test
-    fun canParseTerminationRow() {
-        Assert.assertThat(fieldRowContentTerminationChainParser!!.canParse("0 0"), CoreMatchers.`is`(true))
+    fun `can parse termination row`() {
+        assertTrue(fieldRowContentTerminationChainParser.canParse("0 0"))
     }
 
     @Test
-    fun canNotParseTerminationRow() {
-        Assert.assertThat(fieldRowContentTerminationChainParser!!.canParse("0"), CoreMatchers.`is`(false))
-        Assert.assertThat(fieldRowContentTerminationChainParser!!.canParse("* *"), CoreMatchers.`is`(false))
+    fun `can not parse termination row`() {
+        assertFalse(fieldRowContentTerminationChainParser.canParse("0"))
+        assertFalse(fieldRowContentTerminationChainParser.canParse("* *"))
     }
 
     @Test
-    fun parseValidTerminationRow() {
-        val currentField = FieldFactory().make(arrayOf(arrayOf("*")))
-        val fieldsParsingStatus = fieldRowContentTerminationChainParser!!.parse(FieldsParsingStatusBuilder(
-                currentField = currentField,
+    fun `parse valid termination row`() {
+        val fieldsParsingStatus = fieldRowContentTerminationChainParser.parse(FieldsParsingStatusBuilder(
+                currentField = FieldFactory().make(arrayOf(arrayOf("*"))),
                 currentRow = 1
         ).build())
-        Assert.assertThat(fieldsParsingStatus.fieldsParsed!!.size, CoreMatchers.`is`(1))
-        Assert.assertThat(fieldsParsingStatus.fieldsParsed!![0], CoreMatchers.`is`(CoreMatchers.equalTo(currentField)))
+
+        assertEquals(fieldsParsingStatus.fieldsParsed.size, 1)
+        assertEquals(fieldsParsingStatus.fieldsParsed[0], FieldFactory().make(arrayOf(arrayOf("*"))))
     }
 }

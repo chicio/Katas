@@ -5,9 +5,11 @@ import it.chicio.minesweeper.FieldsParsingStatusBuilder
 import it.chicio.minesweeper.field.Field
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import java.util.*
 
+@DisplayName("FieldRowContentHeaderChainParser")
 class FieldRowContentHeaderChainParserTest {
     private lateinit var fieldRowContentHeaderChainParser: FieldRowContentHeaderChainParser
 
@@ -17,17 +19,17 @@ class FieldRowContentHeaderChainParserTest {
     }
 
     @Test
-    fun canParseValidHeaderRow() =
+    fun `can parse valid header row`() =
             assertTrue(fieldRowContentHeaderChainParser.canParse("1 1"))
 
     @Test
-    fun canNotParseValidHeaderRow() {
+    fun `can not parse valid header row`() {
         assertFalse(fieldRowContentHeaderChainParser.canParse("1"))
         assertFalse(fieldRowContentHeaderChainParser.canParse(""))
     }
 
     @Test
-    fun parseHeader() {
+    fun `parse header`() {
         val previousField = FieldFactory().make(arrayOf(arrayOf("*")))
         val newFieldsParsingStatus = fieldRowContentHeaderChainParser.parse(
                 FieldsParsingStatusBuilder(
@@ -43,8 +45,7 @@ class FieldRowContentHeaderChainParserTest {
     }
 
     @Test
-    fun failParseForInvalidField() {
-
+    fun `fail parse for invalid field`() {
         assertThrows(RuntimeException::class.java) {
             fieldRowContentHeaderChainParser.parse(
                     FieldsParsingStatusBuilder(

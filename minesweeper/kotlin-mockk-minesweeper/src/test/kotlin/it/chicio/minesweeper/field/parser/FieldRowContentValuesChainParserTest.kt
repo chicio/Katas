@@ -4,30 +4,33 @@ import it.chicio.minesweeper.FieldFactory
 import it.chicio.minesweeper.FieldsParsingStatusBuilder
 import org.hamcrest.CoreMatchers
 import org.junit.Assert
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.Test
 
+@DisplayName("FieldRowContentValuesChainParser")
 class FieldRowContentValuesChainParserTest {
-    private var fieldRowContentValuesChainParser: FieldRowContentValuesChainParser? = null
-    @Before
+    private lateinit var fieldRowContentValuesChainParser: FieldRowContentValuesChainParser
+    @BeforeEach
     fun setUp() {
         fieldRowContentValuesChainParser = FieldRowContentValuesChainParser()
     }
 
     @Test
-    fun canParseValidRow() {
-        Assert.assertThat(fieldRowContentValuesChainParser!!.canParse("* . . *"), CoreMatchers.`is`(true))
+    fun `can parse valid row`() {
+        assertTrue(fieldRowContentValuesChainParser.canParse("* . . *"))
     }
 
     @Test
-    fun canNotParseOtherRows() {
-        Assert.assertThat(fieldRowContentValuesChainParser!!.canParse("1 1"), CoreMatchers.`is`(false))
-        Assert.assertThat(fieldRowContentValuesChainParser!!.canParse("0 0"), CoreMatchers.`is`(false))
+    fun `cannot parse other rows`() {
+        assertFalse(fieldRowContentValuesChainParser.canParse("1 1"))
+        assertFalse(fieldRowContentValuesChainParser.canParse("0 0"))
     }
 
     @Test
-    fun parseRow() {
-        val fieldsParsingStatus = fieldRowContentValuesChainParser!!.parse(FieldsParsingStatusBuilder(
+    fun `parse row`() {
+        val fieldsParsingStatus = fieldRowContentValuesChainParser.parse(FieldsParsingStatusBuilder(
                 currentField = FieldFactory().make(arrayOf(arrayOf("*", "."), arrayOf("", ""))),
                 currentRow = 1,
                 currentRowContent = "* *"
@@ -36,12 +39,14 @@ class FieldRowContentValuesChainParserTest {
         Assert.assertThat(fieldsParsingStatus.currentField!![1, 1], CoreMatchers.`is`(CoreMatchers.equalTo("*")))
     }
 
-    @Test(expected = RuntimeException::class)
-    fun failParseRow() {
-        fieldRowContentValuesChainParser!!.parse(FieldsParsingStatusBuilder(
-                currentField = FieldFactory().make(arrayOf(arrayOf("*", "."), arrayOf("", ""))),
-                currentRow = 1,
-                currentRowContent = "* * *"
-        ).build())
+    @Test
+    fun `fail parse row`() {
+        assertThrows(RuntimeException::class.java) {
+            fieldRowContentValuesChainParser.parse(FieldsParsingStatusBuilder(
+                    currentField = FieldFactory().make(arrayOf(arrayOf("*", "."), arrayOf("", ""))),
+                    currentRow = 1,
+                    currentRowContent = "* * *"
+            ).build())
+        }
     }
 }

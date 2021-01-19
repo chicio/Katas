@@ -29,14 +29,24 @@ class FieldValidRowParserTest {
         `when`(fieldRowContentParser.tryToParseRowAndUpdate(any(FieldsParsingStatus::class.java)))
                 .thenReturn(FieldsParsingStatusBuilder(
                         currentRowContent = newRow,
-                        currentField = FieldFactory().make(arrayOf(arrayOf("*", "."), arrayOf(".", "*")))
+                        currentField = FieldFactory().make(
+                                arrayOf(
+                                        arrayOf("*", "."),
+                                        arrayOf(".", "*")
+                                )
+                        )
                 ).build())
         val newFieldsParsingStatus = fieldValidRowParser.parse(
                 newRow,
                 FieldsParsingStatusBuilder().build()
         )
         assertEquals(newFieldsParsingStatus.currentRowContent, newRow)
-        assertEquals(newFieldsParsingStatus.currentField, FieldFactory().make(arrayOf(arrayOf("*", "."), arrayOf(".", "*"))))
+        assertEquals(newFieldsParsingStatus.currentField, FieldFactory().make(
+                arrayOf(
+                        arrayOf("*", "."),
+                        arrayOf(".", "*")
+                )
+        ))
     }
 
     @Test
