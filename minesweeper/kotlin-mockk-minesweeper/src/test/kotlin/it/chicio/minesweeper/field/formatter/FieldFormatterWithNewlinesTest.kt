@@ -2,11 +2,13 @@ package it.chicio.minesweeper.field.formatter
 
 import it.chicio.minesweeper.FieldFactory
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
+@DisplayName("FieldFormatterWithNewlines")
 class FieldFormatterWithNewlinesTest {
     @Test
-    fun formatField() = assertEquals(
+    fun `format field`() = assertEquals(
             FieldFormatterWithNewlines().format(
                     FieldFactory().make(
                             arrayOf(

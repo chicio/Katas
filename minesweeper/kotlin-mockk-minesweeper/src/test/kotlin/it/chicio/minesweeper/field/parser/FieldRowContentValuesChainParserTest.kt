@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test
 @DisplayName("FieldRowContentValuesChainParser")
 class FieldRowContentValuesChainParserTest {
     private lateinit var fieldRowContentValuesChainParser: FieldRowContentValuesChainParser
+
     @BeforeEach
     fun setUp() {
         fieldRowContentValuesChainParser = FieldRowContentValuesChainParser()

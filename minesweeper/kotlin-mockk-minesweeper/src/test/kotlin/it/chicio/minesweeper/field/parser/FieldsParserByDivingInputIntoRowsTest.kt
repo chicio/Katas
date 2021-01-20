@@ -1,51 +1,52 @@
 package it.chicio.minesweeper.field.parser
 
+import io.mockk.every
+import io.mockk.impl.annotations.MockK
+import io.mockk.junit5.MockKExtension
+import io.mockk.verify
 import it.chicio.minesweeper.FieldFactory
 import it.chicio.minesweeper.FieldsParsingStatusBuilder
 import it.chicio.minesweeper.field.Field
-import org.hamcrest.CoreMatchers
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
-import org.mockito.Mockito
-import org.mockito.Mockito.*
-import org.mockito.hamcrest.MockitoHamcrest
+import org.junit.jupiter.api.extension.ExtendWith
 import java.util.*
 
 @DisplayName("FieldsParserByDivingInputIntoRows")
+@ExtendWith(MockKExtension::class)
 class FieldsParserByDivingInputIntoRowsTest {
     @Nested
     @DisplayName("parse")
     inner class Parse {
+        @MockK
         private lateinit var fieldRowParser: FieldRowParser
+
         private lateinit var fieldsParserByDivingInputIntoRows: FieldsParserByDivingInputIntoRows
 
         @BeforeEach
         fun setUp() {
-            fieldRowParser = mock(FieldRowParser::class.java)
             fieldsParserByDivingInputIntoRows = FieldsParserByDivingInputIntoRows(fieldRowParser)
         }
 
         @Test
         fun termination() {
-            `when`(fieldRowParser.parse(MockitoHamcrest.argThat(CoreMatchers.`is`("0 0")), any(FieldsParsingStatus::class.java)))
-                    .thenReturn(FieldsParsingStatusBuilder().build())
+            every { fieldRowParser.parse(eq("0 0"), any()) } returns FieldsParsingStatusBuilder().build()
 
             val fields = fieldsParserByDivingInputIntoRows.parse("0 0")
 
             assertEquals(fields, emptyList<Field>())
+            verify(exactly = 1) { fieldRowParser.parse(eq("0 0"), any()) }
         }
 
         @Test
         fun `a valid field`() {
-            `when`(fieldRowParser.parse(MockitoHamcrest.argThat(CoreMatchers.`is`("0 0")), any(FieldsParsingStatus::class.java)))
-                    .thenReturn(FieldsParsingStatusBuilder(fieldsParsed =
-                    ArrayList(listOf(FieldFactory().make(arrayOf(arrayOf("*")))))
-                    ).build())
-            `when`(fieldRowParser.parse(MockitoHamcrest.argThat(CoreMatchers.not("0 0")), any(FieldsParsingStatus::class.java)))
-                    .thenReturn(FieldsParsingStatusBuilder().build())
+            every { fieldRowParser.parse(eq("0 0"), any()) } returns FieldsParsingStatusBuilder(
+                    fieldsParsed = ArrayList(listOf(FieldFactory().make(arrayOf(arrayOf("*")))))
+            ).build()
+            every { fieldRowParser.parse(neq("0 0"), any()) } returns FieldsParsingStatusBuilder().build()
 
             val fields = fieldsParserByDivingInputIntoRows.parse(
                     """
@@ -56,18 +57,16 @@ class FieldsParserByDivingInputIntoRowsTest {
             )
 
             assertEquals(fields, listOf(FieldFactory().make(arrayOf(arrayOf("*")))))
+            verify(exactly = 1) { fieldRowParser.parse(eq("0 0"), any())  }
+            verify { fieldRowParser.parse(neq("0 0"), any())  }
         }
 
         @Test
         fun `two valid fields`() {
-            `when`(fieldRowParser.parse(MockitoHamcrest.argThat(CoreMatchers.`is`("0 0")), any(FieldsParsingStatus::class.java)))
-                    .thenReturn(
-                            FieldsParsingStatusBuilder(fieldsParsed =
-                            ArrayList(listOf(FieldFactory().make(arrayOf(arrayOf("*"))), FieldFactory().make(arrayOf(arrayOf("*")))))
-                            ).build()
-                    )
-            `when`(fieldRowParser.parse(MockitoHamcrest.argThat(CoreMatchers.not("0 0")), any(FieldsParsingStatus::class.java)))
-                    .thenReturn(FieldsParsingStatusBuilder().build())
+            every { fieldRowParser.parse(eq("0 0"), any()) } returns FieldsParsingStatusBuilder(
+                    fieldsParsed = ArrayList(listOf(FieldFactory().make(arrayOf(arrayOf("*"))), FieldFactory().make(arrayOf(arrayOf("*")))))
+            ).build()
+            every { fieldRowParser.parse(neq("0 0"), any()) } returns FieldsParsingStatusBuilder().build()
 
             val fields = fieldsParserByDivingInputIntoRows.parse(
                     """
@@ -83,8 +82,8 @@ class FieldsParserByDivingInputIntoRowsTest {
                     FieldFactory().make(arrayOf(arrayOf("*"))),
                     FieldFactory().make(arrayOf(arrayOf("*")))
             ))
+            verify(exactly = 1) { fieldRowParser.parse(eq("0 0"), any())  }
+            verify { fieldRowParser.parse(neq("0 0"), any())  }
         }
-
-        private fun <T> any(type: Class<T>): T = Mockito.any(type)
     }
 }

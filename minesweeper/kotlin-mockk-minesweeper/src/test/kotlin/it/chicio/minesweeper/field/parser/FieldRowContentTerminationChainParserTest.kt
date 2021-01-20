@@ -2,17 +2,15 @@ package it.chicio.minesweeper.field.parser
 
 import it.chicio.minesweeper.FieldFactory
 import it.chicio.minesweeper.FieldsParsingStatusBuilder
-import org.hamcrest.CoreMatchers
-import org.junit.Assert
-import org.junit.Before
-import org.junit.Test
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.Test
 
 @DisplayName("FieldRowContentTerminationChainParser")
 class FieldRowContentTerminationChainParserTest {
     private lateinit var fieldRowContentTerminationChainParser: FieldRowContentTerminationChainParser
-    @Before
+    @BeforeEach
     fun setUp() {
         fieldRowContentTerminationChainParser = FieldRowContentTerminationChainParser()
     }

@@ -1,34 +1,47 @@
 package it.chicio.minesweeper
 
+import io.mockk.every
+import io.mockk.impl.annotations.MockK
+import io.mockk.junit5.MockKExtension
+import io.mockk.verifySequence
 import it.chicio.minesweeper.field.Field
 import it.chicio.minesweeper.field.formatter.FieldsFormatter
 import it.chicio.minesweeper.field.parser.FieldsParser
 import it.chicio.minesweeper.field.resolver.FieldsResolver
+import org.junit.jupiter.api.*
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Nested
-import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
-import java.util.*
 
 @DisplayName("Minesweeper")
+@ExtendWith(MockKExtension::class)
 class MinesweeperTest {
+    @MockK
+    private lateinit var fieldsParser: FieldsParser
+    @MockK
+    private lateinit var fieldsResolver: FieldsResolver
+    @MockK
+    private lateinit var fieldsFormatter: FieldsFormatter
+
     @Nested
     @DisplayName("should terminate")
     inner class ShouldTerminateTest {
         @Test
         fun `when receive 0 and 0 as input`() {
-            val fieldsParser = mock(FieldsParser::class.java)
-            val fieldsResolver = mock(FieldsResolver::class.java)
-            val fieldsFormatter = mock(FieldsFormatter::class.java)
-            val fields = ArrayList<Field>()
-            `when`(fieldsParser.parse("$FIELD$TERMINATION")).thenReturn(fields)
-            `when`(fieldsResolver.resolve(fields)).thenReturn(fields)
-            `when`(fieldsFormatter.format(fields)).thenReturn("")
-            val minesweeper = Minesweeper(fieldsParser, fieldsResolver, fieldsFormatter, "0 0")
-            val gameResult = minesweeper.play()
+            val fields = emptyList<Field>()
+            every { fieldsParser.parse(termination) } returns fields
+            every { fieldsResolver.resolve(fields) } returns fields
+            every { fieldsFormatter.format(fields) } returns ""
+
+            val gameResult = Minesweeper(fieldsParser, fieldsResolver, fieldsFormatter, "0 0").play()
+
             assertEquals(gameResult, "")
+            verifySequence {
+                fieldsParser.parse(termination)
+                fieldsResolver.resolve(fields)
+                fieldsFormatter.format(fields)
+            }
         }
     }
 
@@ -38,20 +51,23 @@ class MinesweeperTest {
         @Test
         fun `one field`() {
             val fields = listOf(playedField)
-            val fieldsParser = mock(FieldsParser::class.java)
-            val fieldsResolver = mock(FieldsResolver::class.java)
-            val fieldsFormatter = mock(FieldsFormatter::class.java)
-            `when`(fieldsParser.parse(FIELD + TERMINATION)).thenReturn(listOf(field))
-            `when`(fieldsResolver.resolve(listOf(field))).thenReturn(fields)
-            `when`(fieldsFormatter.format(fields)).thenReturn(formattedPlayedField)
-            val minesweeper = Minesweeper(
+            every { fieldsParser.parse(aField + termination) } returns listOf(field)
+            every { fieldsResolver.resolve(listOf(field)) } returns fields
+            every { fieldsFormatter.format(fields) } returns formattedPlayedField
+
+            val gameResult = Minesweeper(
                     fieldsParser,
                     fieldsResolver,
                     fieldsFormatter,
-                    FIELD + TERMINATION
-            )
-            val gameResult = minesweeper.play()
+                    aField + termination
+            ).play()
+
             assertEquals(gameResult, formattedPlayedField)
+            verifySequence {
+                fieldsParser.parse(aField + termination)
+                fieldsResolver.resolve(listOf(field))
+                fieldsFormatter.format(fields)
+            }
         }
 
         @Test
@@ -60,11 +76,11 @@ class MinesweeperTest {
             val fieldsParser = mock(FieldsParser::class.java)
             val fieldsResolver = mock(FieldsResolver::class.java)
             val fieldsFormatter = mock(FieldsFormatter::class.java)
-            `when`(fieldsParser.parse(FIELD + ANOTHER_FIELD + TERMINATION)).thenReturn(listOf(field, anotherField))
+            `when`(fieldsParser.parse(aField + yetAnotherField + termination)).thenReturn(listOf(field, anotherField))
             `when`(fieldsResolver.resolve(listOf(field, anotherField))).thenReturn(fields)
             `when`(fieldsFormatter.format(fields))
                     .thenReturn(formattedPlayedField + System.getProperty("line.separator") + anotherFormattedPlayedField)
-            val minesweeper = Minesweeper(fieldsParser, fieldsResolver, fieldsFormatter, FIELD + ANOTHER_FIELD + TERMINATION)
+            val minesweeper = Minesweeper(fieldsParser, fieldsResolver, fieldsFormatter, aField + yetAnotherField + termination)
             val gameResult = minesweeper.play()
             assertEquals(
                     gameResult,
@@ -74,12 +90,12 @@ class MinesweeperTest {
     }
 
     companion object {
-        private const val TERMINATION = "0 0"
-        private val FIELD = "3 5" + System.getProperty("line.separator") +
+        private const val termination = "0 0"
+        private val aField = "3 5" + System.getProperty("line.separator") +
                 "* * . . ." + System.getProperty("line.separator") +
                 ". . . . ." + System.getProperty("line.separator") +
                 ". * . . ." + System.getProperty("line.separator")
-        private val ANOTHER_FIELD = "4 4" + System.getProperty("line.separator") +
+        private val yetAnotherField = "4 4" + System.getProperty("line.separator") +
                 "* . . ." + System.getProperty("line.separator") +
                 ". . . ." + System.getProperty("line.separator") +
                 ". * . ." + System.getProperty("line.separator") +

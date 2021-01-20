@@ -1,35 +1,56 @@
 package it.chicio.minesweeper.field.resolver
 
+import io.mockk.every
+import io.mockk.impl.annotations.MockK
+import io.mockk.junit5.MockKExtension
+import io.mockk.verify
+import io.mockk.verifySequence
 import it.chicio.minesweeper.FieldFactory
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
-import org.mockito.Mockito.`when`
-import org.mockito.Mockito.mock
+import org.junit.jupiter.api.extension.ExtendWith
 
 @DisplayName("FieldsResolverByIteratingThroughThem")
+@ExtendWith(MockKExtension::class)
 class FieldsResolverByIteratingThroughThemTest {
+    @MockK
+    private lateinit var fieldResolver: FieldResolver
+
+    private lateinit var fieldsResolverByIteratingThroughThem: FieldsResolverByIteratingThroughThem
+
+    @BeforeEach
+    internal fun setUp() {
+        fieldsResolverByIteratingThroughThem = FieldsResolverByIteratingThroughThem(fieldResolver)
+    }
+
     @Nested
     @DisplayName("resolve")
     inner class Resolve {
         @Test
         fun `single field list`() {
-            val fieldResolver = mock(FieldResolver::class.java)
-            `when`(fieldResolver.resolve(field)).thenReturn(resolvedField)
-            val fieldsResolverByIteratingThroughThem = FieldsResolverByIteratingThroughThem(fieldResolver)
+            every { fieldResolver.resolve(field) } returns (resolvedField)
+
             val fields = fieldsResolverByIteratingThroughThem.resolve(listOf(field))
+
             assertEquals(fields, listOf(resolvedField))
+            verify { fieldResolver.resolve(field) }
         }
 
         @Test
         fun `fields list`() {
-            val fieldResolver = mock(FieldResolver::class.java)
-            `when`(fieldResolver.resolve(field)).thenReturn(resolvedField)
-            `when`(fieldResolver.resolve(anotherField)).thenReturn(anotherResolvedField)
-            val fieldsResolverByIteratingThroughThem = FieldsResolverByIteratingThroughThem(fieldResolver)
+            every { fieldResolver.resolve(field) } returns resolvedField
+            every { fieldResolver.resolve(anotherField) } returns anotherResolvedField
+
             val fields = fieldsResolverByIteratingThroughThem.resolve(listOf(field, anotherField))
+
             assertEquals(fields, listOf(resolvedField, anotherResolvedField))
+            verifySequence {
+                fieldResolver.resolve(field)
+                fieldResolver.resolve(anotherField)
+            }
         }
     }
 
