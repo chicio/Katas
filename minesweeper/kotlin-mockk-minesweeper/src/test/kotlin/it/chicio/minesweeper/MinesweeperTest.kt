@@ -11,8 +11,6 @@ import it.chicio.minesweeper.field.resolver.FieldsResolver
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.extension.ExtendWith
-import org.mockito.Mockito.`when`
-import org.mockito.Mockito.mock
 
 @DisplayName("Minesweeper")
 @ExtendWith(MockKExtension::class)
@@ -73,19 +71,21 @@ class MinesweeperTest {
         @Test
         fun `more than one field`() {
             val fields = listOf(playedField, anotherPlayedField)
-            val fieldsParser = mock(FieldsParser::class.java)
-            val fieldsResolver = mock(FieldsResolver::class.java)
-            val fieldsFormatter = mock(FieldsFormatter::class.java)
-            `when`(fieldsParser.parse(aField + yetAnotherField + termination)).thenReturn(listOf(field, anotherField))
-            `when`(fieldsResolver.resolve(listOf(field, anotherField))).thenReturn(fields)
-            `when`(fieldsFormatter.format(fields))
-                    .thenReturn(formattedPlayedField + System.getProperty("line.separator") + anotherFormattedPlayedField)
-            val minesweeper = Minesweeper(fieldsParser, fieldsResolver, fieldsFormatter, aField + yetAnotherField + termination)
-            val gameResult = minesweeper.play()
+            every { fieldsParser.parse(aField + yetAnotherField + termination) } returns listOf(field, anotherField)
+            every { fieldsResolver.resolve(listOf(field, anotherField)) } returns fields
+            every { fieldsFormatter.format(fields) } returns formattedPlayedField + System.getProperty("line.separator") + anotherFormattedPlayedField
+
+            val gameResult = Minesweeper(fieldsParser, fieldsResolver, fieldsFormatter, aField + yetAnotherField + termination).play()
+
             assertEquals(
                     gameResult,
                     formattedPlayedField + System.getProperty("line.separator") + anotherFormattedPlayedField
             )
+            verifySequence {
+                fieldsParser.parse(aField + yetAnotherField + termination)
+                fieldsResolver.resolve(listOf(field, anotherField))
+                fieldsFormatter.format(fields)
+            }
         }
     }
 

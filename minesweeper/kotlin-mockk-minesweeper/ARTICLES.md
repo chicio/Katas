@@ -4,3 +4,5 @@
 - https://stackoverflow.com/questions/27256429/is-org-junit-assert-assertthat-better-than-org-hamcrest-matcherassert-assertthat
 - https://www.polidea.com/blog/junit-5-in-kotlin-testing/
 - https://www.baeldung.com/kotlin/junit-5-kotlin
+- https://junit.org/junit5/docs/current/user-guide/#extensions
+- https://www.baeldung.com/junit-5-extensions
