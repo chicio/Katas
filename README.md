@@ -16,4 +16,5 @@
   * [TypeScript + fp-ts functional programming](https://github.com/chicio/Katas/tree/master/game-of-life/typescript-fpts-game-of-life)
   * [Swift + Bow functional programming](https://github.com/chicio/Katas/tree/master/game-of-life/swift-bow-game-of-life)
 * [Minesweeper](https://github.com/chicio/Katas/tree/master/minesweeper)
-  * [Java](https://github.com/chicio/Katas/tree/master/minesweeper/java-minesweeper) 
+  * [Java + Mockito](https://github.com/chicio/Katas/tree/master/minesweeper/java-minesweeper) 
+  * [Kotlin + MockK + JUnit](https://github.com/chicio/Katas/tree/master/minesweeper/kotlin-mockk-minesweeper) 
