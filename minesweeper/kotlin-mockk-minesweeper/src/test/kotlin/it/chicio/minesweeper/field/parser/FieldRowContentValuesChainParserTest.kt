@@ -2,8 +2,6 @@ package it.chicio.minesweeper.field.parser
 
 import it.chicio.minesweeper.FieldFactory
 import it.chicio.minesweeper.FieldsParsingStatusBuilder
-import org.hamcrest.CoreMatchers
-import org.junit.Assert
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
@@ -36,8 +34,8 @@ class FieldRowContentValuesChainParserTest {
                 currentRow = 1,
                 currentRowContent = "* *"
         ).build())
-        Assert.assertThat(fieldsParsingStatus.currentField!![1, 0], CoreMatchers.`is`(CoreMatchers.equalTo("*")))
-        Assert.assertThat(fieldsParsingStatus.currentField!![1, 1], CoreMatchers.`is`(CoreMatchers.equalTo("*")))
+        assertEquals(fieldsParsingStatus.currentField!![1, 0], "*")
+        assertEquals(fieldsParsingStatus.currentField!![1, 1], "*")
     }
 
     @Test
