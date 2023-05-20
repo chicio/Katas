@@ -7,42 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4503B01D2A18FD7E006DE85E /* BirthdayGreetingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4503B01C2A18FD7E006DE85E /* BirthdayGreetingsService.swift */; };
+		4503B01F2A18FE27006DE85E /* FriendsListReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4503B01E2A18FE27006DE85E /* FriendsListReader.swift */; };
+		4503B02C2A1908A6006DE85E /* SwiftBirthdayGreetingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4503B02B2A1908A6006DE85E /* SwiftBirthdayGreetingsTests.swift */; };
+		4503B0322A1908AD006DE85E /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4503B0232A18FF3E006DE85E /* GeneratedMocks.swift */; };
+		4503B0342A190956006DE85E /* Matchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4503B0332A190956006DE85E /* Matchers.swift */; };
+		4503B0372A190992006DE85E /* Cuckoo in Frameworks */ = {isa = PBXBuildFile; productRef = 4503B0362A190992006DE85E /* Cuckoo */; };
+		4503B0392A190A21006DE85E /* SendBirthdateGreetingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4503B0382A190A21006DE85E /* SendBirthdateGreetingsService.swift */; };
 		45E22A672A18F8FA000224E1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E22A662A18F8FA000224E1 /* App.swift */; };
 		45E22A692A18F8FA000224E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E22A682A18F8FA000224E1 /* ContentView.swift */; };
 		45E22A6B2A18F8FC000224E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45E22A6A2A18F8FC000224E1 /* Assets.xcassets */; };
 		45E22A6E2A18F8FC000224E1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45E22A6D2A18F8FC000224E1 /* Preview Assets.xcassets */; };
-		45E22A782A18F8FC000224E1 /* swift_birthday_greetingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E22A772A18F8FC000224E1 /* swift_birthday_greetingsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		45E22A742A18F8FC000224E1 /* PBXContainerItemProxy */ = {
+		4503B02D2A1908A6006DE85E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 45E22A5B2A18F8FA000224E1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 45E22A622A18F8FA000224E1;
-			remoteInfo = "swift-birthday-greetings";
+			remoteInfo = SwiftBirthdayGreetings;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4503B01C2A18FD7E006DE85E /* BirthdayGreetingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayGreetingsService.swift; sourceTree = "<group>"; };
+		4503B01E2A18FE27006DE85E /* FriendsListReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListReader.swift; sourceTree = "<group>"; };
+		4503B0232A18FF3E006DE85E /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
+		4503B0292A1908A6006DE85E /* SwiftBirthdayGreetingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftBirthdayGreetingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4503B02B2A1908A6006DE85E /* SwiftBirthdayGreetingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBirthdayGreetingsTests.swift; sourceTree = "<group>"; };
+		4503B0332A190956006DE85E /* Matchers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matchers.swift; sourceTree = "<group>"; };
+		4503B0382A190A21006DE85E /* SendBirthdateGreetingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendBirthdateGreetingsService.swift; sourceTree = "<group>"; };
 		45E22A632A18F8FA000224E1 /* SwiftBirthdayGreetings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBirthdayGreetings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45E22A662A18F8FA000224E1 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		45E22A682A18F8FA000224E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		45E22A6A2A18F8FC000224E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45E22A6D2A18F8FC000224E1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		45E22A732A18F8FC000224E1 /* SwiftBirthdayGreetingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftBirthdayGreetingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		45E22A772A18F8FC000224E1 /* swift_birthday_greetingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_birthday_greetingsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		45E22A602A18F8FA000224E1 /* Frameworks */ = {
+		4503B0262A1908A6006DE85E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4503B0372A190992006DE85E /* Cuckoo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		45E22A702A18F8FC000224E1 /* Frameworks */ = {
+		45E22A602A18F8FA000224E1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -52,11 +64,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4503B02A2A1908A6006DE85E /* SwiftBirthdayGreetingsTests */ = {
+			isa = PBXGroup;
+			children = (
+				4503B0232A18FF3E006DE85E /* GeneratedMocks.swift */,
+				4503B0332A190956006DE85E /* Matchers.swift */,
+				4503B02B2A1908A6006DE85E /* SwiftBirthdayGreetingsTests.swift */,
+			);
+			path = SwiftBirthdayGreetingsTests;
+			sourceTree = "<group>";
+		};
 		45E22A5A2A18F8FA000224E1 = {
 			isa = PBXGroup;
 			children = (
 				45E22A652A18F8FA000224E1 /* SwiftBirthdayGreetings */,
-				45E22A762A18F8FC000224E1 /* SwiftBirthdayGreetingsTests */,
+				4503B02A2A1908A6006DE85E /* SwiftBirthdayGreetingsTests */,
 				45E22A642A18F8FA000224E1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,7 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				45E22A632A18F8FA000224E1 /* SwiftBirthdayGreetings.app */,
-				45E22A732A18F8FC000224E1 /* SwiftBirthdayGreetingsTests.xctest */,
+				4503B0292A1908A6006DE85E /* SwiftBirthdayGreetingsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,6 +97,9 @@
 			children = (
 				45E22A662A18F8FA000224E1 /* App.swift */,
 				45E22A682A18F8FA000224E1 /* ContentView.swift */,
+				4503B01C2A18FD7E006DE85E /* BirthdayGreetingsService.swift */,
+				4503B0382A190A21006DE85E /* SendBirthdateGreetingsService.swift */,
+				4503B01E2A18FE27006DE85E /* FriendsListReader.swift */,
 				45E22A6A2A18F8FC000224E1 /* Assets.xcassets */,
 				45E22A6C2A18F8FC000224E1 /* Preview Content */,
 			);
@@ -89,21 +114,35 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		45E22A762A18F8FC000224E1 /* SwiftBirthdayGreetingsTests */ = {
-			isa = PBXGroup;
-			children = (
-				45E22A772A18F8FC000224E1 /* swift_birthday_greetingsTests.swift */,
-			);
-			path = SwiftBirthdayGreetingsTests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4503B0282A1908A6006DE85E /* SwiftBirthdayGreetingsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4503B02F2A1908A6006DE85E /* Build configuration list for PBXNativeTarget "SwiftBirthdayGreetingsTests" */;
+			buildPhases = (
+				4503B0252A1908A6006DE85E /* Sources */,
+				4503B0262A1908A6006DE85E /* Frameworks */,
+				4503B0272A1908A6006DE85E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4503B02E2A1908A6006DE85E /* PBXTargetDependency */,
+			);
+			name = SwiftBirthdayGreetingsTests;
+			packageProductDependencies = (
+				4503B0362A190992006DE85E /* Cuckoo */,
+			);
+			productName = SwiftBirthdayGreetingsTests;
+			productReference = 4503B0292A1908A6006DE85E /* SwiftBirthdayGreetingsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		45E22A622A18F8FA000224E1 /* SwiftBirthdayGreetings */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 45E22A872A18F8FC000224E1 /* Build configuration list for PBXNativeTarget "SwiftBirthdayGreetings" */;
 			buildPhases = (
+				456141742A18FA2D0087548F /* ShellScript */,
 				45E22A5F2A18F8FA000224E1 /* Sources */,
 				45E22A602A18F8FA000224E1 /* Frameworks */,
 				45E22A612A18F8FA000224E1 /* Resources */,
@@ -113,27 +152,11 @@
 			dependencies = (
 			);
 			name = SwiftBirthdayGreetings;
+			packageProductDependencies = (
+			);
 			productName = "swift-birthday-greetings";
 			productReference = 45E22A632A18F8FA000224E1 /* SwiftBirthdayGreetings.app */;
 			productType = "com.apple.product-type.application";
-		};
-		45E22A722A18F8FC000224E1 /* SwiftBirthdayGreetingsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 45E22A8A2A18F8FC000224E1 /* Build configuration list for PBXNativeTarget "SwiftBirthdayGreetingsTests" */;
-			buildPhases = (
-				45E22A6F2A18F8FC000224E1 /* Sources */,
-				45E22A702A18F8FC000224E1 /* Frameworks */,
-				45E22A712A18F8FC000224E1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				45E22A752A18F8FC000224E1 /* PBXTargetDependency */,
-			);
-			name = SwiftBirthdayGreetingsTests;
-			productName = "swift-birthday-greetingsTests";
-			productReference = 45E22A732A18F8FC000224E1 /* SwiftBirthdayGreetingsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -145,16 +168,16 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					45E22A622A18F8FA000224E1 = {
-						CreatedOnToolsVersion = 14.3;
-					};
-					45E22A722A18F8FC000224E1 = {
+					4503B0282A1908A6006DE85E = {
 						CreatedOnToolsVersion = 14.3;
 						TestTargetID = 45E22A622A18F8FA000224E1;
 					};
+					45E22A622A18F8FA000224E1 = {
+						CreatedOnToolsVersion = 14.3;
+					};
 				};
 			};
-			buildConfigurationList = 45E22A5E2A18F8FA000224E1 /* Build configuration list for PBXProject "swift-birthday-greetings" */;
+			buildConfigurationList = 45E22A5E2A18F8FA000224E1 /* Build configuration list for PBXProject "SwiftBirthdayGreetings" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -163,17 +186,27 @@
 				Base,
 			);
 			mainGroup = 45E22A5A2A18F8FA000224E1;
+			packageReferences = (
+				4503B0352A190992006DE85E /* XCRemoteSwiftPackageReference "Cuckoo" */,
+			);
 			productRefGroup = 45E22A642A18F8FA000224E1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				45E22A622A18F8FA000224E1 /* SwiftBirthdayGreetings */,
-				45E22A722A18F8FC000224E1 /* SwiftBirthdayGreetingsTests */,
+				4503B0282A1908A6006DE85E /* SwiftBirthdayGreetingsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4503B0272A1908A6006DE85E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		45E22A612A18F8FA000224E1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -183,44 +216,98 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		45E22A712A18F8FC000224E1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		456141742A18FA2D0087548F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $ACTION == \"indexbuild\" ]; then\n  echo \"Not running Cuckoo generator during indexing.\"\n  exit 0\nfi\n\n# Skip for preview builds\nif [ \"${ENABLE_PREVIEWS}\" = \"YES\" ]; then\n  echo \"Not running Cuckoo generator during preview builds.\"\n  exit 0\nfi\n\n# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PROJECT_DIR}/run\" --download generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${INPUT_DIR}/FriendsListReader.swift\" \\\n\"${INPUT_DIR}/SendBirthdateGreetingsService.swift\" \n# ... and so forth, the last line should never end with a backslash\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.\n";
 		};
-/* End PBXResourcesBuildPhase section */
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4503B0252A1908A6006DE85E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4503B0342A190956006DE85E /* Matchers.swift in Sources */,
+				4503B02C2A1908A6006DE85E /* SwiftBirthdayGreetingsTests.swift in Sources */,
+				4503B0322A1908AD006DE85E /* GeneratedMocks.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		45E22A5F2A18F8FA000224E1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4503B01F2A18FE27006DE85E /* FriendsListReader.swift in Sources */,
+				4503B0392A190A21006DE85E /* SendBirthdateGreetingsService.swift in Sources */,
 				45E22A692A18F8FA000224E1 /* ContentView.swift in Sources */,
 				45E22A672A18F8FA000224E1 /* App.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		45E22A6F2A18F8FC000224E1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				45E22A782A18F8FC000224E1 /* swift_birthday_greetingsTests.swift in Sources */,
+				4503B01D2A18FD7E006DE85E /* BirthdayGreetingsService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		45E22A752A18F8FC000224E1 /* PBXTargetDependency */ = {
+		4503B02E2A1908A6006DE85E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 45E22A622A18F8FA000224E1 /* SwiftBirthdayGreetings */;
-			targetProxy = 45E22A742A18F8FC000224E1 /* PBXContainerItemProxy */;
+			targetProxy = 4503B02D2A1908A6006DE85E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		4503B0302A1908A6006DE85E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y682K92RZU;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = it.chicio.SwiftBirthdayGreetingsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftBirthdayGreetings.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwiftBirthdayGreetings";
+			};
+			name = Debug;
+		};
+		4503B0312A1908A6006DE85E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y682K92RZU;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = it.chicio.SwiftBirthdayGreetingsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftBirthdayGreetings.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwiftBirthdayGreetings";
+			};
+			name = Release;
+		};
 		45E22A852A18F8FC000224E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -342,7 +429,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"swift-birthday-greetings/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftBirthdayGreetings/Preview Content\"";
 				DEVELOPMENT_TEAM = Y682K92RZU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -358,6 +445,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "it.chicio.swift-birthday-greetings";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -371,7 +461,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"swift-birthday-greetings/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftBirthdayGreetings/Preview Content\"";
 				DEVELOPMENT_TEAM = Y682K92RZU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -387,56 +477,28 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "it.chicio.swift-birthday-greetings";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		45E22A8B2A18F8FC000224E1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y682K92RZU;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "it.chicio.swift-birthday-greetingsTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/swift-birthday-greetings.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/swift-birthday-greetings";
-			};
-			name = Debug;
-		};
-		45E22A8C2A18F8FC000224E1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y682K92RZU;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "it.chicio.swift-birthday-greetingsTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/swift-birthday-greetings.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/swift-birthday-greetings";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		45E22A5E2A18F8FA000224E1 /* Build configuration list for PBXProject "swift-birthday-greetings" */ = {
+		4503B02F2A1908A6006DE85E /* Build configuration list for PBXNativeTarget "SwiftBirthdayGreetingsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4503B0302A1908A6006DE85E /* Debug */,
+				4503B0312A1908A6006DE85E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45E22A5E2A18F8FA000224E1 /* Build configuration list for PBXProject "SwiftBirthdayGreetings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				45E22A852A18F8FC000224E1 /* Debug */,
@@ -454,16 +516,26 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		45E22A8A2A18F8FC000224E1 /* Build configuration list for PBXNativeTarget "SwiftBirthdayGreetingsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				45E22A8B2A18F8FC000224E1 /* Debug */,
-				45E22A8C2A18F8FC000224E1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4503B0352A190992006DE85E /* XCRemoteSwiftPackageReference "Cuckoo" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Brightify/Cuckoo.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4503B0362A190992006DE85E /* Cuckoo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4503B0352A190992006DE85E /* XCRemoteSwiftPackageReference "Cuckoo" */;
+			productName = Cuckoo;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 45E22A5B2A18F8FA000224E1 /* Project object */;
 }
