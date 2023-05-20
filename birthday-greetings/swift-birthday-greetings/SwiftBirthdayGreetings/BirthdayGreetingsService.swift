@@ -19,8 +19,8 @@ class BirthdayGreetingsService {
         self.sendBirthdateGreetingsService = sendBirthdateGreetingsService
     }
     
-    func send(file: Filename) {
-        sendBirthdateGreetingsService.send(
+    func send(file: Filename) throws {
+        try sendBirthdateGreetingsService.send(
             friends: friendListReader.get(file: file)
         )
     }
