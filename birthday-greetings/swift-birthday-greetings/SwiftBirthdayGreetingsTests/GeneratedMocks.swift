@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: SwiftBirthdayGreetings/Domain/FriendsListReader.swift at 2023-05-20 16:14:54 +0000
+// MARK: - Mocks generated from file: SwiftBirthdayGreetings/Domain/FriendsListReader.swift at 2023-05-21 10:23:24 +0000
 
 //
 //  FriendsListReader.swift
@@ -132,7 +132,141 @@ import Foundation
 
 
 
-// MARK: - Mocks generated from file: SwiftBirthdayGreetings/Domain/SendBirthdateGreetingsService.swift at 2023-05-20 16:14:54 +0000
+// MARK: - Mocks generated from file: SwiftBirthdayGreetings/Domain/SendBirthdateGreetingService.swift at 2023-05-21 10:23:24 +0000
+
+//
+//  SendBirthdateGreetingService.swift
+//  SwiftBirthdayGreetings
+//
+//  Created by Fabrizio Duroni on 21/05/23.
+//
+
+import Cuckoo
+@testable import SwiftBirthdayGreetings
+
+import Foundation
+
+
+
+
+
+
+ class MockSendBirthdateGreetingService: SendBirthdateGreetingService, Cuckoo.ProtocolMock {
+    
+     typealias MocksType = SendBirthdateGreetingService
+    
+     typealias Stubbing = __StubbingProxy_SendBirthdateGreetingService
+     typealias Verification = __VerificationProxy_SendBirthdateGreetingService
+
+     let cuckoo_manager = Cuckoo.MockManager.preconfiguredManager ?? Cuckoo.MockManager(hasParent: false)
+
+    
+    private var __defaultImplStub: SendBirthdateGreetingService?
+
+     func enableDefaultImplementation(_ stub: SendBirthdateGreetingService) {
+        __defaultImplStub = stub
+        cuckoo_manager.enableDefaultStubImplementation()
+    }
+    
+
+    
+
+    
+
+    
+    
+    
+    
+     func send(friend: Friend) throws {
+        
+    return try cuckoo_manager.callThrows(
+    """
+    send(friend: Friend) throws
+    """,
+            parameters: (friend),
+            escapingParameters: (friend),
+            superclassCall:
+                
+                Cuckoo.MockManager.crashOnProtocolSuperclassCall()
+                ,
+            defaultCall: __defaultImplStub!.send(friend: friend))
+        
+    }
+    
+    
+
+     struct __StubbingProxy_SendBirthdateGreetingService: Cuckoo.StubbingProxy {
+        private let cuckoo_manager: Cuckoo.MockManager
+    
+         init(manager: Cuckoo.MockManager) {
+            self.cuckoo_manager = manager
+        }
+        
+        
+        
+        
+        func send<M1: Cuckoo.Matchable>(friend: M1) -> Cuckoo.ProtocolStubNoReturnThrowingFunction<(Friend)> where M1.MatchedType == Friend {
+            let matchers: [Cuckoo.ParameterMatcher<(Friend)>] = [wrap(matchable: friend) { $0 }]
+            return .init(stub: cuckoo_manager.createStub(for: MockSendBirthdateGreetingService.self, method:
+    """
+    send(friend: Friend) throws
+    """, parameterMatchers: matchers))
+        }
+        
+        
+    }
+
+     struct __VerificationProxy_SendBirthdateGreetingService: Cuckoo.VerificationProxy {
+        private let cuckoo_manager: Cuckoo.MockManager
+        private let callMatcher: Cuckoo.CallMatcher
+        private let sourceLocation: Cuckoo.SourceLocation
+    
+         init(manager: Cuckoo.MockManager, callMatcher: Cuckoo.CallMatcher, sourceLocation: Cuckoo.SourceLocation) {
+            self.cuckoo_manager = manager
+            self.callMatcher = callMatcher
+            self.sourceLocation = sourceLocation
+        }
+    
+        
+    
+        
+        
+        
+        @discardableResult
+        func send<M1: Cuckoo.Matchable>(friend: M1) -> Cuckoo.__DoNotUse<(Friend), Void> where M1.MatchedType == Friend {
+            let matchers: [Cuckoo.ParameterMatcher<(Friend)>] = [wrap(matchable: friend) { $0 }]
+            return cuckoo_manager.verify(
+    """
+    send(friend: Friend) throws
+    """, callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+        }
+        
+        
+    }
+}
+
+
+ class SendBirthdateGreetingServiceStub: SendBirthdateGreetingService {
+    
+
+    
+
+    
+    
+    
+    
+     func send(friend: Friend) throws  {
+        return DefaultValueRegistry.defaultValue(for: (Void).self)
+    }
+    
+    
+}
+
+
+
+
+
+// MARK: - Mocks generated from file: SwiftBirthdayGreetings/Domain/SendBirthdateGreetingsService.swift at 2023-05-21 10:23:24 +0000
 
 //
 //  SendBirthdateGreetingsService.swift
