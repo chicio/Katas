@@ -25,6 +25,16 @@
 		45942FFF2A1A25E200020879 /* SendBirthdateGreetingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45942FFE2A1A25E200020879 /* SendBirthdateGreetingService.swift */; };
 		459430012A1A262200020879 /* SendFriendsBirthdateGreetingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459430002A1A262200020879 /* SendFriendsBirthdateGreetingsService.swift */; };
 		459430032A1A265F00020879 /* SendFriendsBirthdateGreetingsServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459430022A1A265F00020879 /* SendFriendsBirthdateGreetingsServiceTest.swift */; };
+		459430052A1A290700020879 /* SendFriendBirthdateGreetingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459430042A1A290700020879 /* SendFriendBirthdateGreetingService.swift */; };
+		459430072A1A295300020879 /* GreetingsMessageSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459430062A1A295300020879 /* GreetingsMessageSender.swift */; };
+		459430092A1A2BDC00020879 /* SendFriendBirthdateGreetingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459430082A1A2BDC00020879 /* SendFriendBirthdateGreetingServiceTests.swift */; };
+		4594300B2A1A2CEB00020879 /* TodayDateRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4594300A2A1A2CEB00020879 /* TodayDateRetriever.swift */; };
+		4594300D2A1A2FB600020879 /* FoundationTodayDateRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4594300C2A1A2FB600020879 /* FoundationTodayDateRetriever.swift */; };
+		4594300F2A1A302400020879 /* FormattedGreetingsMessageSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4594300E2A1A302400020879 /* FormattedGreetingsMessageSender.swift */; };
+		459430112A1A308800020879 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459430102A1A308800020879 /* Message.swift */; };
+		459430132A1A30F300020879 /* MessageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459430122A1A30F300020879 /* MessageFormatter.swift */; };
+		459430152A1A310A00020879 /* MessageSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459430142A1A310A00020879 /* MessageSender.swift */; };
+		459430172A1A312700020879 /* FormattedGreetingsMessageSenderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459430162A1A312700020879 /* FormattedGreetingsMessageSenderTests.swift */; };
 		45E22A672A18F8FA000224E1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E22A662A18F8FA000224E1 /* App.swift */; };
 		45E22A692A18F8FA000224E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E22A682A18F8FA000224E1 /* ContentView.swift */; };
 		45E22A6B2A18F8FC000224E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45E22A6A2A18F8FC000224E1 /* Assets.xcassets */; };
@@ -60,6 +70,16 @@
 		45942FFE2A1A25E200020879 /* SendBirthdateGreetingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendBirthdateGreetingService.swift; sourceTree = "<group>"; };
 		459430002A1A262200020879 /* SendFriendsBirthdateGreetingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendFriendsBirthdateGreetingsService.swift; sourceTree = "<group>"; };
 		459430022A1A265F00020879 /* SendFriendsBirthdateGreetingsServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendFriendsBirthdateGreetingsServiceTest.swift; sourceTree = "<group>"; };
+		459430042A1A290700020879 /* SendFriendBirthdateGreetingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendFriendBirthdateGreetingService.swift; sourceTree = "<group>"; };
+		459430062A1A295300020879 /* GreetingsMessageSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingsMessageSender.swift; sourceTree = "<group>"; };
+		459430082A1A2BDC00020879 /* SendFriendBirthdateGreetingServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendFriendBirthdateGreetingServiceTests.swift; sourceTree = "<group>"; };
+		4594300A2A1A2CEB00020879 /* TodayDateRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayDateRetriever.swift; sourceTree = "<group>"; };
+		4594300C2A1A2FB600020879 /* FoundationTodayDateRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationTodayDateRetriever.swift; sourceTree = "<group>"; };
+		4594300E2A1A302400020879 /* FormattedGreetingsMessageSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedGreetingsMessageSender.swift; sourceTree = "<group>"; };
+		459430102A1A308800020879 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		459430122A1A30F300020879 /* MessageFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFormatter.swift; sourceTree = "<group>"; };
+		459430142A1A310A00020879 /* MessageSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSender.swift; sourceTree = "<group>"; };
+		459430162A1A312700020879 /* FormattedGreetingsMessageSenderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedGreetingsMessageSenderTests.swift; sourceTree = "<group>"; };
 		45E22A632A18F8FA000224E1 /* SwiftBirthdayGreetings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBirthdayGreetings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45E22A662A18F8FA000224E1 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		45E22A682A18F8FA000224E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,6 +115,8 @@
 				4503B02B2A1908A6006DE85E /* SwiftBirthdayGreetingsTests.swift */,
 				45942FF42A19186D00020879 /* CSVFriendsListReaderTests.swift */,
 				459430022A1A265F00020879 /* SendFriendsBirthdateGreetingsServiceTest.swift */,
+				459430082A1A2BDC00020879 /* SendFriendBirthdateGreetingServiceTests.swift */,
+				459430162A1A312700020879 /* FormattedGreetingsMessageSenderTests.swift */,
 			);
 			path = SwiftBirthdayGreetingsTests;
 			sourceTree = "<group>";
@@ -106,9 +128,17 @@
 				4503B0382A190A21006DE85E /* SendBirthdateGreetingsService.swift */,
 				459430002A1A262200020879 /* SendFriendsBirthdateGreetingsService.swift */,
 				45942FFE2A1A25E200020879 /* SendBirthdateGreetingService.swift */,
+				459430042A1A290700020879 /* SendFriendBirthdateGreetingService.swift */,
+				459430062A1A295300020879 /* GreetingsMessageSender.swift */,
+				4594300E2A1A302400020879 /* FormattedGreetingsMessageSender.swift */,
+				459430122A1A30F300020879 /* MessageFormatter.swift */,
+				459430142A1A310A00020879 /* MessageSender.swift */,
 				45942FE72A190FF300020879 /* Friend.swift */,
 				45942FE92A19100000020879 /* Filename.swift */,
+				459430102A1A308800020879 /* Message.swift */,
 				45942FF22A19173D00020879 /* Collection+Safe.swift */,
+				4594300A2A1A2CEB00020879 /* TodayDateRetriever.swift */,
+				4594300C2A1A2FB600020879 /* FoundationTodayDateRetriever.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -294,7 +324,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $ACTION == \"indexbuild\" ]; then\n  echo \"Not running Cuckoo generator during indexing.\"\n  exit 0\nfi\n\n# Skip for preview builds\nif [ \"${ENABLE_PREVIEWS}\" = \"YES\" ]; then\n  echo \"Not running Cuckoo generator during preview builds.\"\n  exit 0\nfi\n\n# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PROJECT_DIR}/run\" --download generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${INPUT_DIR}/Domain/FriendsListReader.swift\" \\\n\"${INPUT_DIR}/Domain/SendBirthdateGreetingsService.swift\" \\\n\"${INPUT_DIR}/Domain/SendBirthdateGreetingService.swift\" \n# ... and so forth, the last line should never end with a backslash\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.\n";
+			shellScript = "if [ $ACTION == \"indexbuild\" ]; then\n  echo \"Not running Cuckoo generator during indexing.\"\n  exit 0\nfi\n\n# Skip for preview builds\nif [ \"${ENABLE_PREVIEWS}\" = \"YES\" ]; then\n  echo \"Not running Cuckoo generator during preview builds.\"\n  exit 0\nfi\n\n# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PROJECT_DIR}/run\" --download generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${INPUT_DIR}/Domain/FriendsListReader.swift\" \\\n\"${INPUT_DIR}/Domain/SendBirthdateGreetingsService.swift\" \\\n\"${INPUT_DIR}/Domain/SendBirthdateGreetingService.swift\" \\\n\"${INPUT_DIR}/Domain/GreetingsMessageSender.swift\" \\\n\"${INPUT_DIR}/Domain/TodayDateRetriever.swift\" \\\n\"${INPUT_DIR}/Domain/MessageSender.swift\" \\\n\"${INPUT_DIR}/Domain/MessageFormatter.swift\" \n# ... and so forth, the last line should never end with a backslash\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -306,7 +336,9 @@
 				4503B0342A190956006DE85E /* Matchers.swift in Sources */,
 				45942FF52A19186D00020879 /* CSVFriendsListReaderTests.swift in Sources */,
 				4503B02C2A1908A6006DE85E /* SwiftBirthdayGreetingsTests.swift in Sources */,
+				459430172A1A312700020879 /* FormattedGreetingsMessageSenderTests.swift in Sources */,
 				4503B0322A1908AD006DE85E /* GeneratedMocks.swift in Sources */,
+				459430092A1A2BDC00020879 /* SendFriendBirthdateGreetingServiceTests.swift in Sources */,
 				459430032A1A265F00020879 /* SendFriendsBirthdateGreetingsServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,16 +347,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4594300B2A1A2CEB00020879 /* TodayDateRetriever.swift in Sources */,
 				4503B01F2A18FE27006DE85E /* FriendsListReader.swift in Sources */,
+				459430152A1A310A00020879 /* MessageSender.swift in Sources */,
+				4594300D2A1A2FB600020879 /* FoundationTodayDateRetriever.swift in Sources */,
+				459430112A1A308800020879 /* Message.swift in Sources */,
 				4503B0392A190A21006DE85E /* SendBirthdateGreetingsService.swift in Sources */,
+				4594300F2A1A302400020879 /* FormattedGreetingsMessageSender.swift in Sources */,
 				45E22A692A18F8FA000224E1 /* ContentView.swift in Sources */,
 				45942FE82A190FF300020879 /* Friend.swift in Sources */,
 				45942FFF2A1A25E200020879 /* SendBirthdateGreetingService.swift in Sources */,
 				45942FEA2A19100000020879 /* Filename.swift in Sources */,
+				459430132A1A30F300020879 /* MessageFormatter.swift in Sources */,
 				45E22A672A18F8FA000224E1 /* App.swift in Sources */,
 				45942FF32A19173D00020879 /* Collection+Safe.swift in Sources */,
+				459430072A1A295300020879 /* GreetingsMessageSender.swift in Sources */,
 				45942FED2A1910B200020879 /* CSVFriendsListReader.swift in Sources */,
 				459430012A1A262200020879 /* SendFriendsBirthdateGreetingsService.swift in Sources */,
+				459430052A1A290700020879 /* SendFriendBirthdateGreetingService.swift in Sources */,
 				4503B01D2A18FD7E006DE85E /* BirthdayGreetingsService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

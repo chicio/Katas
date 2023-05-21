@@ -21,3 +21,8 @@ func equal(to value: Friend) -> ParameterMatcher<Friend> {
   }
 }
 
+func equal(to value: Message) -> ParameterMatcher<Message> {
+  return ParameterMatcher { tested in
+      return tested == value
+  }
+}

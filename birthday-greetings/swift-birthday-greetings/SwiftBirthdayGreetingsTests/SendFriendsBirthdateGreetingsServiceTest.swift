@@ -37,4 +37,19 @@ final class SendFriendsBirthdateGreetingsServiceTest: XCTestCase {
         verify(sendBirthdateGreetingServiceMock).send(friend: equal(to: firstFriend))
         verify(sendBirthdateGreetingServiceMock).send(friend: equal(to: secondFriend))
     }
+    
+    func testSendFails() throws {
+        let sendBirthdateGreetingServiceMock = MockSendBirthdateGreetingService()
+        
+        stub(sendBirthdateGreetingServiceMock) { stub in
+            when(stub.send(friend: any())).thenThrow(SendBirthdateGreetingServiceError.SendFailed)
+        }
+        
+        let sendFriendsBirthdateGreetingsService = SendFriendsBirthdateGreetingsService(sendBirthdateGreetingService: sendBirthdateGreetingServiceMock)
+        
+        XCTAssertThrowsError(try sendFriendsBirthdateGreetingsService.send(friends: [firstFriend, secondFriend]))
+        
+        verify(sendBirthdateGreetingServiceMock).send(friend: equal(to: firstFriend))
+        verifyNoMoreInteractions(sendBirthdateGreetingServiceMock)
+    }
 }

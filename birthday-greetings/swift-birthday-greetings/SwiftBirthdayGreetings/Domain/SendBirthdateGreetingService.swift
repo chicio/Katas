@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum SendBirthdateGreetingServiceError: Error {
+    case SendFailed
+}
+
 protocol SendBirthdateGreetingService {
     func send(friend: Friend) throws
 }
