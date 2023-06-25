@@ -17,4 +17,6 @@
   * [Swift + Bow functional programming](https://github.com/chicio/Katas/tree/master/game-of-life/swift-bow-game-of-life)
 * [Minesweeper](https://github.com/chicio/Katas/tree/master/minesweeper)
   * [Java + Mockito + JUnit 4](https://github.com/chicio/Katas/tree/master/minesweeper/java-minesweeper) 
-  * [Kotlin + MockK + JUnit 5](https://github.com/chicio/Katas/tree/master/minesweeper/kotlin-mockk-minesweeper) 
+  * [Kotlin + MockK + JUnit 5](https://github.com/chicio/Katas/tree/master/minesweeper/kotlin-mockk-minesweeper)
+* [Birthday greetings](https://codingdojo.org/kata/birthday-greetings/)
+  * [Swift + cuckoo](https://github.com/chicio/Katas/tree/master/birthday-greetings/swift-birthday-greetings) 
